@@ -44,7 +44,7 @@ function BlocklyComponent(props) {
 
     // Python
     var code = BlocklyPy.workspaceToCode(primaryWorkspace.current);
-    console.log(code);
+    console.log(code); // See that the code is generated, viewable from browser
   };
 
   useEffect(() => {
