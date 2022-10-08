@@ -26,10 +26,12 @@ import "./App.css";
 
 import logo from "./logo.svg";
 
-import BlocklyComponent, { Block, Value, Field, Shadow } from "./Blockly";
+import BlocklyComponent, { Block, Value, Field, Shadow, Category } from "./Blockly";
 
 import "./blocks/customblocks";
+import "./blocks/expressionsBlocks"
 import "./generator/generator";
+import "./generator/expressionsGen"
 
 function App(props) {
   return (
@@ -51,6 +53,23 @@ function App(props) {
 </xml>
       `}
         >
+          <Category name= "Expressions">
+          <Block type="rotate_eyes" />
+          <Block type= "fade_eyes" />
+
+
+          </Category>
+          <Category name = "Movement">
+
+          </Category>
+          <Category name = "Speech">
+
+          </Category>
+          
+          <Category name = "tests">
+          <block type="math_number">
+          <field name="NUM">0</field>
+          </block>
           <Block type="test_react_field" />
           <Block type="test_react_date_field" />
           <Block type="controls_ifelse" />
@@ -75,6 +94,8 @@ function App(props) {
               </Block>
             </Value>
           </Block>
+          </Category>
+
         </BlocklyComponent>
       </header>
     </div>
