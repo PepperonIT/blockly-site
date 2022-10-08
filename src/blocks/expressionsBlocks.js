@@ -8,11 +8,14 @@ var rotateEyes = {
     message0: "Rotate eyes %1",
     args0: [
       {
-        type: "input_value",
-        name: "rotate_eyes",
-        check: "Number"
+        type: "field_number",
+        name: "rgb",
+        value: 0,
+        min: 0,
+        max: 100
       },
     ],
+    inputsInline: true,
     previousStatement: null,
     nextStatement: null,  
     tooltip: "",
@@ -48,6 +51,7 @@ var fadeEyes = {
         max: 100
       },
     ],
+    inputsInline: true,
     previousStatement: null,
     nextStatement: null,  
     tooltip: "",
