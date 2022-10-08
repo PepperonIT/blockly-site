@@ -29,7 +29,7 @@ import logo from "./logo.svg";
 import BlocklyComponent, { Block, Value, Field, Shadow, Category } from "./Blockly";
 
 import "./blocks/customblocks";
-import "./blocks/expressions"
+import "./blocks/expressionsBlocks"
 import "./generator/generator";
 import "./generator/expressionsGen"
 
@@ -67,6 +67,9 @@ function App(props) {
           </Category>
           
           <Category name = "tests">
+          <block type="math_number">
+          <field name="NUM">0</field>
+          </block>
           <Block type="test_react_field" />
           <Block type="test_react_date_field" />
           <Block type="controls_ifelse" />
