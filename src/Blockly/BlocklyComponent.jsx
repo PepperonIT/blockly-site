@@ -26,6 +26,7 @@ import "./BlocklyComponent.css";
 import { useEffect, useRef } from "react";
 
 import Blockly from "blockly/core";
+// eslint-disable-next-line no-unused-vars
 import BlocklyJS from "blockly/javascript";
 import BlocklyPy from "blockly/python";
 import locale from "blockly/msg/en";
