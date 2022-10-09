@@ -68,9 +68,9 @@ function App(props) {
           <Category name="Speech"></Category>
 
           <Category name="tests">
-            <block type="math_number">
-              <field name="NUM">0</field>
-            </block>
+            <Block type="math_number">
+              <Field name="NUM">0</Field>
+            </Block>
             <Block type="test_react_field" />
             <Block type="test_react_date_field" />
             <Block type="controls_ifelse" />
