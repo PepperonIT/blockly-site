@@ -5,18 +5,6 @@ import "@blockly/field-date";
 import '@blockly/field-slider';
 
 
-
-/*
- *    
-{
-      type: "field_slider",
-      name: "duration",
-      value: 0,
-      min: 0,
-      max: 100,
-}, 
- */
-
 var rotateEyes = {
   type: "rotate_eyes",
   message0: "Rotate eyes (color: %1)",
