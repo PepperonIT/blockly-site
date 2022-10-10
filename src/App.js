@@ -80,15 +80,17 @@ function App(props) {
             <Block type= "nod_head"/>
             <Block type= "shake_head"/>
             <Block type= "spin_head"/> 
-
             </Category>
 
             <Category name= "Translation">
-
-
+              <Block type= "move_pepper"/>
+              <Block type= "stop_movement"/>
             </Category>
+
           </Category>
-          <Category name="Speech"></Category>
+          <Category name="Speech">
+            <Block type="say"/>
+          </Category>
 
           <Category name="tests">
             <Block type="math_number">

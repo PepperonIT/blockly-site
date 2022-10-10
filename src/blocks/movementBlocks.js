@@ -143,3 +143,68 @@ import "@blockly/field-date";
  * @translation
  */
 
+
+ var movePepper = {
+    type: "move_pepper",
+    message0: "Move pepper (x: %1 y: %2 angle: %3 duration: %4)",
+    args0: [
+        {
+            type: "field_number",
+            name: "x",
+            value: 0,
+            min: 0,
+            max: 100,
+          },
+          {
+            type: "field_number",
+            name: "y",
+            value: 0,
+            min: 0,
+            max: 100,
+          },
+          {
+            type: "field_angle",
+            name: "angle",
+            angle: 90,
+          },
+          {
+            type: "field_number",
+            name: "duration",
+            value: 0,
+            min: 0,
+            max: 100,
+          },
+    ],
+    inputsInline: true,
+    previousStatement: null,
+    nextStatement: null,
+    tooltip: "",
+    helpUrl: "",
+  };
+  
+  Blockly.Blocks["move_pepper"] = {
+    init: function () {
+      this.jsonInit(movePepper);
+      this.setStyle("loop_blocks");
+      this.setColour(145);
+    },
+  };
+
+
+  var stopMovement = {
+    type: "stop_movement",
+    message0: "Stop movement",
+    inputsInline: true,
+    previousStatement: null,
+    nextStatement: null,
+    tooltip: "",
+    helpUrl: "",
+  };
+  
+  Blockly.Blocks["stop_movement"] = {
+    init: function () {
+      this.jsonInit(stopMovement);
+      this.setStyle("loop_blocks");
+      this.setColour(145);
+    },
+  };
