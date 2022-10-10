@@ -2,7 +2,20 @@ import * as Blockly from "blockly/core";
 import "../fields/BlocklyReactField";
 import "../fields/DateField";
 import "@blockly/field-date";
+import '@blockly/field-slider';
 
+
+
+/*
+ *    
+{
+      type: "field_slider",
+      name: "duration",
+      value: 0,
+      min: 0,
+      max: 100,
+}, 
+ */
 
 var rotateEyes = {
   type: "rotate_eyes",
@@ -48,26 +61,19 @@ Blockly.Blocks["rotate_eyes"] = {
 
 var fadeEyes = {
   type: "fade_eyes",
-  message0: "Fade eyes (color: %1 time: %2)",
+  message0: "Fade eyes (color: %1 time: %2 s)",
   args0: [
     {
       type: "field_colour",
       name: "rgb",
-      colour: "#8080ff",
-      colourOptions:
-      ['#ff4040', '#ff8080', '#ffc0c0',
-       '#4040ff', '#8080ff', '#c0c0ff'],
-    colourTitles:
-      ['dark pink', 'pink', 'light pink',
-       'dark blue', 'blue', 'light blue'],
-    "columns": 3
+      colour: "#8080ff"
     },
     {
-      type: "field_number",
+      type: "field_slider",
       name: "duration",
-      value: 0,
-      min: 0,
-      max: 100,
+      value: 1,
+      min: 1,
+      max: 90,
     },
   ],
   inputsInline: true,
@@ -125,14 +131,14 @@ Blockly.Blocks["sad_eyes"] = {
 
 var blinkEyes = {
   type: "blink_eyes",
-  message0: "Blink eyes (time: %1)",
+  message0: "Blink eyes (time: %1 s)",
   args0: [
     {
-      type: "field_number",
+      type: "field_slider",
       name: "duration",
-      value: 0,
-      min: 0,
-      max: 100,
+      value: 1,
+      min: 1,
+      max: 90,
     },
   ],
   inputsInline: true,
@@ -152,14 +158,14 @@ Blockly.Blocks["blink_eyes"] = {
 
 var squintEyes = {
   type: "squint_eyes",
-  message0: "squint eyes (time: %1)",
+  message0: "squint eyes (time: %1 s)",
   args0: [
     {
-      type: "field_number",
+      type: "field_slider",
       name: "duration",
-      value: 0,
-      min: 0,
-      max: 100,
+      value: 1,
+      min: 1,
+      max: 90,
     },
   ],
   inputsInline: true,
@@ -179,14 +185,14 @@ Blockly.Blocks["squint_eyes"] = {
 
 var randomEyes = {
   type: "random_eyes",
-  message0: "Random eyes (time: %1)",
+  message0: "Random eyes (time: %1 s)",
   args0: [
     {
-      type: "field_number",
+      type: "field_slider",
       name: "duration",
-      value: 0,
-      min: 0,
-      max: 100,
+      value: 1,
+      min: 1,
+      max: 90,
     },
   ],
   inputsInline: true,

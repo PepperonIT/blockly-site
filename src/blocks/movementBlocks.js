@@ -2,6 +2,8 @@ import * as Blockly from "blockly/core";
 import "../fields/BlocklyReactField";
 import "../fields/DateField";
 import "@blockly/field-date";
+import "@blockly/field-date";
+
 
 /**
  * @gesture
@@ -31,11 +33,11 @@ import "@blockly/field-date";
             angle: 90,
           },
           {
-            type: "field_number",
+            type: "field_slider",
             name: "duration",
-            value: 0,
-            min: 0,
-            max: 100,
+            value: 1,
+            min: 1,
+            max: 90,
           },
     ],
     inputsInline: true,
@@ -111,14 +113,14 @@ import "@blockly/field-date";
 
   var spinHead = {
     type: "spin_head",
-    message0: "Spin head (time:%1)",
+    message0: "Spin head (time:%1 s)",
     args0:[
         {
-          type: "field_number",
+          type: "field_slider",
           name: "duration",
-          value: 0,
-          min: 0,
-          max: 100,
+          value: 1,
+          min: 1,
+          max: 90,
         },
       ],
     inputsInline: true,
@@ -146,7 +148,7 @@ import "@blockly/field-date";
 
  var movePepper = {
     type: "move_pepper",
-    message0: "Move pepper (x: %1 y: %2 angle: %3 duration: %4)",
+    message0: "Move pepper (x: %1 y: %2 angle: %3 time: %4 s)",
     args0: [
         {
             type: "field_number",
@@ -168,11 +170,11 @@ import "@blockly/field-date";
             angle: 90,
           },
           {
-            type: "field_number",
+            type: "field_slider",
             name: "duration",
-            value: 0,
-            min: 0,
-            max: 100,
+            value: 1,
+            min: 1,
+            max: 90,
           },
     ],
     inputsInline: true,
