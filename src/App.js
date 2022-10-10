@@ -37,11 +37,11 @@ import BlocklyComponent, {
 import "./blocks/customblocks";
 import "./blocks/expressionsBlocks";
 import "./blocks/movementBlocks";
-import "./blocks/speechBlocks"
+import "./blocks/speechBlocks";
 import "./generator/generator";
 import "./generator/expressionsGen";
 import "./generator/movementGen";
-import "./generator/speechGen"
+import "./generator/speechGen";
 
 function App(props) {
   return (
@@ -64,32 +64,30 @@ function App(props) {
       `}
         >
           <Category name="Expressions">
-            <Block type="rotate_eyes"/>
-            <Block type="fade_eyes"/>
-            <Block type="angry_eyes"/>
-            <Block type="sad_eyes"/>
-            <Block type="blink_eyes"/>
-            <Block type="squint_eyes"/>
-            <Block type="random_eyes"/>
-
+            <Block type="rotate_eyes" />
+            <Block type="fade_eyes" />
+            <Block type="angry_eyes" />
+            <Block type="sad_eyes" />
+            <Block type="blink_eyes" />
+            <Block type="squint_eyes" />
+            <Block type="random_eyes" />
           </Category>
           <Category name="Movement">
-            <Category name= "Gesture">
-            <Block type= "move_head"/>
-            <Block type= "reset_head"/>
-            <Block type= "nod_head"/>
-            <Block type= "shake_head"/>
-            <Block type= "spin_head"/> 
+            <Category name="Gesture">
+              <Block type="move_head" />
+              <Block type="reset_head" />
+              <Block type="nod_head" />
+              <Block type="shake_head" />
+              <Block type="spin_head" />
             </Category>
 
-            <Category name= "Translation">
-              <Block type= "move_pepper"/>
-              <Block type= "stop_movement"/>
+            <Category name="Translation">
+              <Block type="move_pepper" />
+              <Block type="stop_movement" />
             </Category>
-
           </Category>
           <Category name="Speech">
-            <Block type="say"/>
+            <Block type="say" />
           </Category>
 
           <Category name="tests">
