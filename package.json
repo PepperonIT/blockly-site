@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
+    "@blockly/block-extension-tooltip": "^1.0.34",
     "@blockly/field-date": "^4.2.25",
     "blockly": "^5.20210325.0",
     "react": "^17.0.1",
