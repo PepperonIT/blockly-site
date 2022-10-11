@@ -7,7 +7,10 @@ import "@blockly/field-date";
 
 /**
  * @gesture
+ * 
  */
+
+
 
  var moveHead = {
     type: "move_head",
@@ -28,16 +31,18 @@ import "@blockly/field-date";
             ]
           },
           {
-            type: "field_angle",
+            type: "field_slider",
             name: "degrees",
-            angle: 90,
+            value: 1,
+            min: -119.5,
+            max: 119.5,
           },
           {
             type: "field_slider",
             name: "duration",
-            value: 1,
-            min: 1,
-            max: 90,
+            value: 0,
+            min: 0,
+            max: 100,
           },
     ],
     inputsInline: true,
@@ -54,6 +59,8 @@ import "@blockly/field-date";
       this.setColour(125);
     },
   };
+
+
 
 
   var resetHead = {
