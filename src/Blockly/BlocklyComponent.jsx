@@ -50,7 +50,7 @@ function BlocklyComponent(props) {
       .post("http://localhost:5000", code)
       .then((res) => {
         console.log(`Status: ${res.status}`);
-        console.log("Code: ", res.data);
+        console.log("Response: ", res.data);
       })
       .catch((err) => {
         console.error(err);
