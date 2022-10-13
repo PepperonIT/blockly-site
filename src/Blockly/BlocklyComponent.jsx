@@ -26,11 +26,10 @@ import "./BlocklyComponent.css";
 import { useEffect, useRef } from "react";
 
 import Blockly from "blockly/core";
-// eslint-disable-next-line no-unused-vars
-import BlocklyJS from "blockly/javascript";
 import BlocklyPy from "blockly/python";
 import locale from "blockly/msg/en";
 import "blockly/blocks";
+import axios from "axios";
 
 Blockly.setLocale(locale);
 
@@ -40,12 +39,22 @@ function BlocklyComponent(props) {
   let primaryWorkspace = useRef();
 
   const generateCode = () => {
-    // Javascript
-    // var code = BlocklyJS.workspaceToCode(primaryWorkspace.current);
-
     // Python
     var code = BlocklyPy.workspaceToCode(primaryWorkspace.current);
     console.log(code); // See that the code is generated, viewable from browser
+
+    // ==========================================
+    // SEND TO PYTHON SERVER (LEAVE HERE FOR NOW)
+    // ==========================================
+    axios
+      .post("http://localhost:5000", code)
+      .then((res) => {
+        console.log(`Status: ${res.status}`);
+        console.log("Code: ", res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   useEffect(() => {

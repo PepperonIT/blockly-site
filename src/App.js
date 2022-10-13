@@ -32,7 +32,7 @@ import BlocklyComponent, {
   Field,
   Shadow,
   Category,
-} from "./Blockly";
+} from "./blockly";
 
 import "./blocks/customblocks";
 import "./blocks/expressionsBlocks";
