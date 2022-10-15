@@ -74,7 +74,7 @@ function BlocklyComponent(props) {
 
   return (
     <React.Fragment>
-      <button onClick={generateCode}>Convert</button>
+      <button onClick={generateCode}>Send to Pepper</button>
       <div ref={blocklyDiv} id="blocklyDiv" />
       <div style={{ display: "none" }} ref={toolbox}>
         {props.children}
