@@ -32,7 +32,7 @@ import BlocklyComponent, {
   Field,
   Shadow,
   Category,
-} from "./Blockly";
+} from "./blockly";
 
 import "./blocks/customblocks";
 import "./blocks/expressionsBlocks";
@@ -70,7 +70,7 @@ function App(props) {
             <Block type="blink_eyes" />
             <Block type="squint_eyes" />
             <Block type="random_eyes" />
-            <Block type= "wink_eye" />
+            <Block type="wink_eye" />
           </Category>
           <Category name="Rörelse">
             <Category name="Gester">
