@@ -32,7 +32,7 @@ import BlocklyComponent, {
   Field,
   Shadow,
   Category,
-} from "./blockly";
+} from "./Blockly";
 
 import "./blocks/customblocks";
 import "./blocks/expressionsBlocks";
@@ -62,7 +62,7 @@ function App(props) {
 </xml>
       `}
         >
-          <Category name="Expressions">
+          <Category name="Uttryck">
             <Block type="rotate_eyes" />
             <Block type="fade_eyes" />
             <Block type="angry_eyes" />
@@ -70,22 +70,24 @@ function App(props) {
             <Block type="blink_eyes" />
             <Block type="squint_eyes" />
             <Block type="random_eyes" />
+            <Block type= "wink_eye" />
           </Category>
-          <Category name="Movement">
-            <Category name="Gesture">
-              <Block type="move_head" />
+          <Category name="Rörelse">
+            <Category name="Gester">
+              <Block type="move_head_left_right" />
+              <Block type="move_head_up_down" />
               <Block type="reset_head" />
               <Block type="nod_head" />
               <Block type="shake_head" />
               <Block type="spin_head" />
             </Category>
 
-            <Category name="Translation">
+            <Category name="Rörelser">
               <Block type="move_pepper" />
               <Block type="stop_movement" />
             </Category>
           </Category>
-          <Category name="Speech">
+          <Category name="Tal">
             <Block type="say" />
           </Category>
 

@@ -7,12 +7,19 @@ import '@blockly/field-slider';
 
 var rotateEyes = {
   type: "rotate_eyes",
-  message0: "Rotate eyes (color: %1)",
+  message0: "Rotera ögonen (färg: %1 tid: %2 s)",
   args0: [
     {
       type: "field_colour",
       name: "rgb",
       colour: "#8080ff",
+    },
+    {
+      type: "field_slider",
+      name: "duration",
+      value: 1,
+      min: 1,
+      max: 90,
     },
   ],
   inputsInline: true,
@@ -49,7 +56,7 @@ Blockly.Blocks["rotate_eyes"] = {
 
 var fadeEyes = {
   type: "fade_eyes",
-  message0: "Fade eyes (color: %1 time: %2 s)",
+  message0: "Blekna ögonen (färg: %1 tid: %2 s)",
   args0: [
     {
       type: "field_colour",
@@ -82,7 +89,7 @@ Blockly.Blocks["fade_eyes"] = {
 
 var angryEyes = {
   type: "angry_eyes",
-  message0: "Angry eyes",
+  message0: "Arga ögon",
   inputsInline: true,
   previousStatement: null,
   nextStatement: null,
@@ -101,7 +108,7 @@ Blockly.Blocks["angry_eyes"] = {
 
 var sadEyes = {
   type: "sad_eyes",
-  message0: "Sad eyes",
+  message0: "Ledsna ögon",
   inputsInline: true,
   previousStatement: null,
   nextStatement: null,
@@ -119,7 +126,7 @@ Blockly.Blocks["sad_eyes"] = {
 
 var blinkEyes = {
   type: "blink_eyes",
-  message0: "Blink eyes (time: %1 s)",
+  message0: "blinka ögon (tid: %1 s)",
   args0: [
     {
       type: "field_slider",
@@ -146,7 +153,7 @@ Blockly.Blocks["blink_eyes"] = {
 
 var squintEyes = {
   type: "squint_eyes",
-  message0: "squint eyes (time: %1 s)",
+  message0: "kisande ögon (tid: %1 s)",
   args0: [
     {
       type: "field_slider",
@@ -173,7 +180,7 @@ Blockly.Blocks["squint_eyes"] = {
 
 var randomEyes = {
   type: "random_eyes",
-  message0: "Random eyes (time: %1 s)",
+  message0: "Slumpmässiga ögon (tid: %1 s)",
   args0: [
     {
       type: "field_slider",
@@ -193,6 +200,41 @@ var randomEyes = {
 Blockly.Blocks["random_eyes"] = {
   init: function () {
     this.jsonInit(randomEyes);
+    this.setStyle("loop_blocks");
+    this.setColour(225);
+  },
+};
+
+
+var winkEye = {
+  type: "wink_eye",
+  message0: "blinka ögat (%1)",
+  args0: [
+    {
+      type: "field_dropdown",
+      name: "eye",
+      options: [
+        [
+          "vänster öga",
+          "left"
+        ],
+        [
+          "höger öga",
+          "right"
+        ]
+      ]
+    },
+  ],
+  inputsInline: true,
+  previousStatement: null,
+  nextStatement: null,
+  tooltip: "",
+  helpUrl: "",
+};
+
+Blockly.Blocks["wink_eye"] = {
+  init: function () {
+    this.jsonInit(winkEye);
     this.setStyle("loop_blocks");
     this.setColour(225);
   },

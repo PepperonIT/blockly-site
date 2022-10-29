@@ -12,34 +12,20 @@ import "@blockly/field-date";
 
 
 
- var moveHead = {
-    type: "move_head",
-    message0: "Move head (yaw: %1 degrees: %2 speed: %3)",
+ var moveHeadLeftRight = {
+    type: "move_head_left_right",
+    message0: "Rör huvudet (vänster, höger) (grader %1 fart %2)",
     args0: [
-        {
-            type: "field_dropdown",
-            name: "yaw",
-            options: [
-              [
-                "True",
-                "True"
-              ],
-              [
-                "False",
-                "False"
-              ]
-            ]
-          },
           {
             type: "field_slider",
             name: "degrees",
-            value: 1,
+            value: 0,
             min: -119.5,
             max: 119.5,
           },
           {
             type: "field_slider",
-            name: "duration",
+            name: "speed",
             value: 0,
             min: 0,
             max: 100,
@@ -52,9 +38,43 @@ import "@blockly/field-date";
     helpUrl: "",
   };
   
-  Blockly.Blocks["move_head"] = {
+  Blockly.Blocks["move_head_left_right"] = {
     init: function () {
-      this.jsonInit(moveHead);
+      this.jsonInit(moveHeadLeftRight);
+      this.setStyle("loop_blocks");
+      this.setColour(125);
+    },
+  };
+
+  var moveHeadUpDown = {
+    type: "move_head_up_down",
+    message0: "Rör huvudet (upp, ner) (grader %1 fart %2)",
+    args0: [
+          {
+            type: "field_slider",
+            name: "degrees",
+            value: 0,
+            min: -40.5,
+            max: 20.5,
+          },
+          {
+            type: "field_slider",
+            name: "speed",
+            value: 0,
+            min: 0,
+            max: 100,
+          },
+    ],
+    inputsInline: true,
+    previousStatement: null,
+    nextStatement: null,
+    tooltip: "",
+    helpUrl: "",
+  };
+  
+  Blockly.Blocks["move_head_up_down"] = {
+    init: function () {
+      this.jsonInit(moveHeadUpDown);
       this.setStyle("loop_blocks");
       this.setColour(125);
     },
@@ -63,9 +83,10 @@ import "@blockly/field-date";
 
 
 
+
   var resetHead = {
     type: "reset_head",
-    message0: "Reset head",
+    message0: "Återställ huvudet",
     inputsInline: true,
     previousStatement: null,
     nextStatement: null,
@@ -83,7 +104,7 @@ import "@blockly/field-date";
 
   var nodHead = {
     type: "nod_head",
-    message0: "Nod head",
+    message0: "Nicka huvudet",
     inputsInline: true,
     previousStatement: null,
     nextStatement: null,
@@ -101,7 +122,7 @@ import "@blockly/field-date";
 
   var shakeHead = {
     type: "shake_head",
-    message0: "Shake head",
+    message0: "Skaka huvudet",
     inputsInline: true,
     previousStatement: null,
     nextStatement: null,
@@ -120,7 +141,7 @@ import "@blockly/field-date";
 
   var spinHead = {
     type: "spin_head",
-    message0: "Spin head (time:%1 s)",
+    message0: "Snurra huvudet (tid:%1 s)",
     args0:[
         {
           type: "field_slider",
@@ -155,31 +176,33 @@ import "@blockly/field-date";
 
  var movePepper = {
     type: "move_pepper",
-    message0: "Move pepper (x: %1 y: %2 angle: %3 time: %4 s)",
+    message0: "Flytta peppar ((bakåt,framåt): %1 (vänster,höger): %2 rotera: %3 tid: %4 s)",
     args0: [
         {
-            type: "field_number",
+            type: "field_slider",
             name: "x",
             value: 0,
-            min: 0,
-            max: 100,
+            min: -35,
+            max: 35,
           },
           {
-            type: "field_number",
+            type: "field_slider",
             name: "y",
             value: 0,
-            min: 0,
-            max: 100,
+            min: -35,
+            max: 35,
           },
           {
-            type: "field_angle",
+            type: "field_slider",
             name: "angle",
-            angle: 90,
+            value: 0,
+            min: -10,
+            max: 10,
           },
           {
             type: "field_slider",
             name: "duration",
-            value: 1,
+            value: 0,
             min: 1,
             max: 90,
           },
@@ -202,7 +225,7 @@ import "@blockly/field-date";
 
   var stopMovement = {
     type: "stop_movement",
-    message0: "Stop movement",
+    message0: "Stoppa rörelsen",
     inputsInline: true,
     previousStatement: null,
     nextStatement: null,

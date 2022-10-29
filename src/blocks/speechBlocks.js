@@ -7,12 +7,12 @@ import "@blockly/field-date";
 
 var say = {
     type: "say",
-    message0: "say (what to say: %1)",
+    message0: "säg: %1",
     args0:[
         {
             type: "field_input",
-            name: "input_text",
-            text: "Hello human!"
+            name: "text",
+            text: "Hej!"
           },
       ],
     inputsInline: true,

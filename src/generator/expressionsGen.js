@@ -1,9 +1,16 @@
 import * as Blockly from "blockly/core";
 import "blockly/python";
 
+/**
+ * 
+ * TODO: remove all /n in the return statments
+ * 
+ * */
+
 Blockly.Python["rotate_eyes"] = function (block) {
   var rgb = block.getFieldValue("rgb");
-  return `PepperExpression.rotate_eyes(${String(rgb)})\n`;
+  var duration = block.getFieldValue("duration");
+  return `PepperExpression.rotate_eyes(${String(rgb)},${String(duration)})\n`
 };
 
 Blockly.Python["fade_eyes"] = function (block) {
@@ -33,4 +40,9 @@ Blockly.Python["squint_eyes"] = function (block) {
 Blockly.Python["random_eyes"] = function (block) {
   var duration = block.getFieldValue("duration");
   return `PepperExpression.random_eyes(${String(duration)})\n`;
+};
+
+Blockly.Python["wink_eye"] = function (block) {
+  var eye = block.getFieldValue("eye");
+  return `PepperExpression.wink_eye(${String(eye)})\n`;
 };
