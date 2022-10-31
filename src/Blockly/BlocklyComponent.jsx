@@ -27,7 +27,7 @@ import { useEffect, useRef } from "react";
 
 import Blockly from "blockly/core";
 import BlocklyPy from "blockly/python";
-import locale from "blockly/msg/en";
+import locale from "blockly/msg/sv";
 import "blockly/blocks";
 import axios from "axios";
 

@@ -43,10 +43,6 @@ import "./generator/expressionsGen";
 import "./generator/movementGen";
 import "./generator/speechGen";
 
-import * as Blockly from "blockly/core";
-import * as Sv from "blockly/msg/sv";
-Blockly.setLocale(Sv);
-
 function App(props) {
   return (
     <div className="App">
