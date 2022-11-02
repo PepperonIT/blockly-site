@@ -38,11 +38,11 @@ import "blockly/python";
  */
 
 // Blockly.JavaScript["test_react_field"] = function (block) {
-//   return "console.log('custom block');";
+//   return "console.log('custom block');\n";
 // };
 
 // Blockly.JavaScript["test_react_date_field"] = function (block) {
-//   return "console.log(" + block.getField("DATE").getText() + ");";
+//   return "console.log(" + block.getField("DATE").getText() + ");\n";
 // };
 
 /**
@@ -51,11 +51,11 @@ import "blockly/python";
  */
 
 // Blockly.Python["test_react_field"] = function (block) {
-//   return 'print("custom block")';
+//   return 'print("custom block")\n';
 // };
 
 // Blockly.Python["test_react_date_field"] = function (block) {
-//   return 'print("' + block.getField("DATE").getText() + '");';
+//   return 'print("' + block.getField("DATE").getText() + '");\n';
 // };
 
 /**
@@ -64,9 +64,9 @@ import "blockly/python";
  */
 
 Blockly.Python["test_react_field"] = function (block) {
-  return 'print"custom block"';
+  return 'print"custom block"\n';
 };
 
 Blockly.Python["test_react_date_field"] = function (block) {
-  return 'print"' + block.getField("DATE").getText() + '";';
+  return 'print"' + block.getField("DATE").getText() + '";\n';
 };
