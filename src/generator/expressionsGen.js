@@ -10,39 +10,39 @@ import "blockly/python";
 Blockly.Python["rotate_eyes"] = function (block) {
   var rgb = block.getFieldValue("rgb");
   var duration = block.getFieldValue("duration");
-  return `PepperExpression.rotate_eyes(${String(rgb)},${String(duration)})\n`
+  return `pep_expr.rotate_eyes(${String(rgb)},${String(duration)})\n`
 };
 
 Blockly.Python["fade_eyes"] = function (block) {
   var rgb = block.getFieldValue("rgb");
   var duration = block.getFieldValue("duration");
-  return `PepperExpression.fade_eyes(${String(rgb)},${String(duration)})\n`
+  return `pep_expr.fade_eyes(${String(rgb)},${String(duration)})\n`
 };
 
 Blockly.Python["angry_eyes"] = function (block) {
-  return `PepperExpression.angry_eyes()\n`;
+  return `pep_expr.angry_eyes()\n`;
 };
 
 Blockly.Python["sad_eyes"] = function (block) {
-  return `PepperExpression.sad_eyes()\n`;
+  return `pep_expr.sad_eyes()\n`;
 };
 
 Blockly.Python["blink_eyes"] = function (block) {
   var duration = block.getFieldValue("duration");
-  return `PepperExpression.blink_eyes(${String(duration)})\n`;
+  return `pep_expr.blink_eyes(${String(duration)})\n`;
 };
 
 Blockly.Python["squint_eyes"] = function (block) {
   var duration = block.getFieldValue("duration");
-  return `PepperExpression.squint_eyes(${String(duration)})\n`;
+  return `pep_expr.squint_eyes(${String(duration)})\n`;
 };
 
 Blockly.Python["random_eyes"] = function (block) {
   var duration = block.getFieldValue("duration");
-  return `PepperExpression.random_eyes(${String(duration)})\n`;
+  return `pep_expr.random_eyes(${String(duration)})\n`;
 };
 
 Blockly.Python["wink_eye"] = function (block) {
   var eye = block.getFieldValue("eye");
-  return `PepperExpression.wink_eye(${String(eye)})\n`;
+  return `pep_expr.wink_eye(${String(eye)})\n`;
 };
