@@ -424,7 +424,6 @@ function App(props) {
               </Value>
             </Block>
           </Category>
-          <sep></sep>
           <Category
             name="Variabler"
             Categorystyle="variable_Category"
