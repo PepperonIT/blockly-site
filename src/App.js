@@ -32,6 +32,7 @@ import BlocklyComponent, {
   Field,
   Shadow,
   Category,
+  Mutation,
 } from "./blockly";
 
 import "./blocks/customBlocks";
@@ -318,7 +319,7 @@ function App(props) {
                 <Shadow type="text"></Shadow>
               </Value>
             </Block>
-            <label text="Input/Output:" web-class="ioLabel"></label>
+            {/* <label text="Input/Output:" web-class="ioLabel"></label> */}
             <Block type="text_print">
               <Value name="TEXT">
                 <Shadow type="text">
@@ -336,7 +337,7 @@ function App(props) {
           </Category>
           <Category name="Listor" Categorystyle="list_Category">
             <Block type="lists_create_with">
-              <mutation items="0"></mutation>
+              <Mutation items="0"></Mutation>
             </Block>
             <Block type="lists_create_with"></Block>
             <Block type="lists_repeat">

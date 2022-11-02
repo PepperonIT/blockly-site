@@ -47,7 +47,9 @@ function BlocklyComponent(props) {
     // SEND TO PYTHON SERVER (LEAVE HERE FOR NOW)
     // ==========================================
     axios
-      .post("http://localhost:5000", code)
+      .post("http://localhost:5000/code", code, {
+        headers: { "Content-Type": "text/plain" },
+      })
       .then((res) => {
         console.log(`Status: ${res.status}`);
         console.log("Response: ", res.data);
