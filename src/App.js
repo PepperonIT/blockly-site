@@ -92,7 +92,10 @@ function App(props) {
             <Block type="say" />
           </Category>
 
-          <Category name="Logik" Categorystyle="logic_Category">
+          <Category
+            name="Logik"
+            // Categorystyle="logic_Category"
+          >
             <Block type="controls_if"></Block>
             <Block type="logic_compare"></Block>
             <Block type="logic_operation"></Block>
@@ -101,7 +104,10 @@ function App(props) {
             <Block type="logic_null" disabled="true"></Block>
             <Block type="logic_ternary"></Block>
           </Category>
-          <Category name="Loopar" Categorystyle="loop_Category">
+          <Category
+            name="Loopar"
+            // Categorystyle="loop_Category"
+          >
             <Block type="controls_repeat_ext">
               <Value name="TIMES">
                 <Shadow type="math_number">
@@ -131,7 +137,10 @@ function App(props) {
             <Block type="controls_forEach"></Block>
             <Block type="controls_flow_statements"></Block>
           </Category>
-          <Category name="Matematik" Categorystyle="math_Category">
+          <Category
+            name="Matematik"
+            // Categorystyle="math_Category"
+          >
             <Block type="math_number" gap="32">
               <Field name="NUM">123</Field>
             </Block>
@@ -232,7 +241,10 @@ function App(props) {
               </Value>
             </Block>
           </Category>
-          <Category name="Text" Categorystyle="text_Category">
+          <Category
+            name="Text"
+            // Categorystyle="text_Category"
+          >
             <Block type="text"></Block>
             <Block type="text_multiline"></Block>
             <Block type="text_join"></Block>
@@ -335,7 +347,10 @@ function App(props) {
               </Value>
             </Block>
           </Category>
-          <Category name="Listor" Categorystyle="list_Category">
+          <Category
+            name="Listor"
+            // Categorystyle="list_Category"
+          >
             <Block type="lists_create_with">
               <Mutation items="0"></Mutation>
             </Block>
@@ -387,7 +402,10 @@ function App(props) {
             <Block type="lists_sort"></Block>
             <Block type="lists_reverse"></Block>
           </Category>
-          <Category name="Färger" Categorystyle="colour_Category">
+          <Category
+            name="Färger"
+            // Categorystyle="colour_Category"
+          >
             <Block type="colour_picker"></Block>
             <Block type="colour_random"></Block>
             <Block type="colour_rgb">
@@ -427,12 +445,13 @@ function App(props) {
           </Category>
           <Category
             name="Variabler"
-            Categorystyle="variable_Category"
+            // Categorystyle="variable_Category"
             custom="VARIABLE"
+            // colour="290"
           ></Category>
           <Category
             name="Funktioner"
-            Categorystyle="procedure_Category"
+            // Categorystyle="procedure_Category"
             custom="PROCEDURE"
           ></Category>
         </BlocklyComponent>
