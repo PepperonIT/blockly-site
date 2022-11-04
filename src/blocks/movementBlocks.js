@@ -6,7 +6,7 @@ import "@blockly/field-date";
 
 
 /**
- * @gesture
+ * @head_gesture
  * 
  */
 
@@ -79,10 +79,6 @@ import "@blockly/field-date";
       this.setColour(125);
     },
   };
-
-
-
-
 
   var resetHead = {
     type: "reset_head",
@@ -166,6 +162,223 @@ import "@blockly/field-date";
     },
   };
   
+
+
+/**
+ * @arm_gesture
+ * 
+ */
+
+
+ var rotateLeftShoulderRoll = {
+  type: "rotate_left_shoulder_roll",
+  message0: "Rotera vänster axel (rulla) (fart %1 vinkel %2)",
+  args0: [
+        {
+          type: "field_slider",
+          name: "speed",
+          value: 0,
+          min: 0,
+          max: 100,
+        },
+        {
+          type: "field_slider",
+          name: "angle",
+          value: 0.5,
+          min: 0.5, 
+          max: 89.5,
+        },
+  ],
+  inputsInline: true,
+  previousStatement: null,
+  nextStatement: null,
+  tooltip: "",
+  helpUrl: "",
+};
+
+Blockly.Blocks["rotate_left_shoulder_roll"] = {
+  init: function () {
+    this.jsonInit(rotateLeftShoulderRoll);
+    this.setStyle("loop_blocks");
+    this.setColour(130);
+  },
+};
+
+
+var rotateLeftShoulderPitch = {
+  type: "rotate_left_shoulder_pitch",
+  message0: "Rotera vänster axel (upp och ner) (fart %1 vinkel %2)",
+  args0: [
+        {
+          type: "field_slider",
+          name: "speed",
+          value: 0,
+          min: 0,
+          max: 100,
+        },
+        {
+          type: "field_slider",
+          name: "angle",
+          value: 1,
+          min: -119.5, 
+          max: 119.5,
+        },
+  ],
+  inputsInline: true,
+  previousStatement: null,
+  nextStatement: null,
+  tooltip: "",
+  helpUrl: "",
+};
+
+Blockly.Blocks["rotate_left_shoulder_pitch"] = {
+  init: function () {
+    this.jsonInit(rotateLeftShoulderPitch);
+    this.setStyle("loop_blocks");
+    this.setColour(130);
+  },
+};
+
+
+var rotateLeftElbowRoll = {
+  type: "rotate_left_elbow_roll",
+  message0: "rotera vänster armbåge (rulla) (fart %1 vinkel %2)",
+  args0: [
+        {
+          type: "field_slider",
+          name: "speed",
+          value: 0,
+          min: 0,
+          max: 100,
+        },
+        {
+          type: "field_slider",
+          name: "angle",
+          value: 1,
+          min: -89.5, 
+          max: -0.5,
+        },
+  ],
+  inputsInline: true,
+  previousStatement: null,
+  nextStatement: null,
+  tooltip: "",
+  helpUrl: "",
+};
+
+Blockly.Blocks["rotate_left_elbow_roll"] = {
+  init: function () {
+    this.jsonInit(rotateLeftElbowRoll);
+    this.setStyle("loop_blocks");
+    this.setColour(130);
+  },
+};
+
+var rotateRightShoulderRoll = {
+  type: "rotate_right_shoulder_roll",
+  message0: "Rotera höger axel (rulla) (fart %1 vinkel %2)",
+  args0: [
+        {
+          type: "field_slider",
+          name: "speed",
+          value: 0,
+          min: 0,
+          max: 100,
+        },
+        {
+          type: "field_slider",
+          name: "angle",
+          value: 0.5,
+          min: 0.5, 
+          max: 89.5,
+        },
+  ],
+  inputsInline: true,
+  previousStatement: null,
+  nextStatement: null,
+  tooltip: "",
+  helpUrl: "",
+};
+
+Blockly.Blocks["rotate_right_shoulder_roll"] = {
+  init: function () {
+    this.jsonInit(rotateRightShoulderRoll);
+    this.setStyle("loop_blocks");
+    this.setColour(130);
+  },
+};
+
+
+var rotateRightShoulderPitch = {
+  type: "rotate_right_shoulder_pitch",
+  message0: "Rotera höger axel (upp och ner) (fart %1 vinkel %2)",
+  args0: [
+        {
+          type: "field_slider",
+          name: "speed",
+          value: 0,
+          min: 0,
+          max: 100,
+        },
+        {
+          type: "field_slider",
+          name: "angle",
+          value: 1,
+          min: -119.5, 
+          max: 119.5,
+        },
+  ],
+  inputsInline: true,
+  previousStatement: null,
+  nextStatement: null,
+  tooltip: "",
+  helpUrl: "",
+};
+
+Blockly.Blocks["rotate_right_shoulder_pitch"] = {
+  init: function () {
+    this.jsonInit(rotateRightShoulderPitch);
+    this.setStyle("loop_blocks");
+    this.setColour(130);
+  },
+};
+
+
+var rotateRightElbowRoll = {
+  type: "rotate_right_elbow_roll",
+  message0: "Rotera höger armbåge (rulla) (fart %1 vinkel %2)",
+  args0: [
+        {
+          type: "field_slider",
+          name: "speed",
+          value: 0,
+          min: 0,
+          max: 100,
+        },
+        {
+          type: "field_slider",
+          name: "angle",
+          value: 1,
+          min: -89.5, 
+          max: -0.5,
+        },
+  ],
+  inputsInline: true,
+  previousStatement: null,
+  nextStatement: null,
+  tooltip: "",
+  helpUrl: "",
+};
+
+Blockly.Blocks["rotate_right_elbow_roll"] = {
+  init: function () {
+    this.jsonInit(rotateRightElbowRoll);
+    this.setStyle("loop_blocks");
+    this.setColour(130);
+  },
+};
+
+
 
 
 

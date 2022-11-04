@@ -1,15 +1,9 @@
 import * as Blockly from "blockly/core";
 import "blockly/python";
 
-/**
- * 
- * TODO: remove all /n in the return statments
- * 
- * */
-
 
 /**
- * @gesture
+ * @head_gesture
  * 
  */
 
@@ -44,6 +38,51 @@ Blockly.Python["spin_head"] = function (block) {
     var duration = block.getFieldValue("duration")
     return `head_ges.spin_head(${duration})\n`;
 };
+
+/**
+ * @arm_gesture
+ * 
+ */
+
+ Blockly.Python["rotate_left_shoulder_roll"] = function (block) {
+    var speed = block.getFieldValue("speed")
+    var angle = block.getFieldValue("angle")
+    return `arm_ges.rotate_left_shoulder_roll(${speed},${angle})\n`;
+};
+
+Blockly.Python["rotate_left_shoulder_pitch"] = function (block) {
+    var speed = block.getFieldValue("speed")
+    var angle = block.getFieldValue("angle")
+    return `arm_ges.rotate_left_shoulder_pitch(${speed},${angle})\n`;
+};
+
+Blockly.Python["rotate_left_elbow_roll"] = function (block) {
+    var speed = block.getFieldValue("speed")
+    var angle = block.getFieldValue("angle")
+    return `arm_ges.rotate_left_elbow_roll(${speed},${angle})\n`;
+};
+
+Blockly.Python["rotate_right_shoulder_roll"] = function (block) {
+    var speed = block.getFieldValue("speed")
+    var angle = block.getFieldValue("angle")
+    return `arm_ges.rotate_right_shoulder_roll(${speed},${angle})\n`;
+};
+
+Blockly.Python["rotate_right_shoulder_pitch"] = function (block) {
+    var speed = block.getFieldValue("speed")
+    var angle = block.getFieldValue("angle")
+    return `arm_ges.rotate_right_shoulder_pitch(${speed},${angle})\n`;
+};
+
+Blockly.Python["rotate_right_elbow_roll"] = function (block) {
+    var speed = block.getFieldValue("speed")
+    var angle = block.getFieldValue("angle")
+    return `arm_ges.rotate_right_elbow_roll(${speed},${angle})\n`;
+};
+
+
+
+
 
 /**
  * @translation

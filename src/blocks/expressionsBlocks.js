@@ -5,6 +5,10 @@ import "@blockly/field-date";
 import '@blockly/field-slider';
 
 
+/**
+ * some kind of docs can be a good idea, in case someone will work after us on this project
+ * 
+ */
 var rotateEyes = {
   type: "rotate_eyes",
   message0: "Rotera ögonen (färg: %1 tid: %2 s)",

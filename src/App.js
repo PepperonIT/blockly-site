@@ -75,12 +75,25 @@ function App(props) {
           </Category>
           <Category name="Rörelse">
             <Category name="Gester">
-              <Block type="move_head_left_right" />
+            <Category name="Armgester">
+            <Block type="rotate_left_shoulder_roll"/>
+            <Block type="rotate_left_shoulder_pitch"/>
+            <Block type="rotate_left_elbow_roll"/>
+            <Block type="rotate_right_shoulder_roll"/>
+            <Block type="rotate_right_shoulder_pitch"/>
+            <Block type="rotate_right_elbow_roll"/>
+
+            
+            </Category>
+            <Category name="Huvudgester"> 
+            <Block type="move_head_left_right" />
               <Block type="move_head_up_down" />
               <Block type="reset_head" />
               <Block type="nod_head" />
               <Block type="shake_head" />
               <Block type="spin_head" />
+            </Category>
+
             </Category>
 
             <Category name="Rörelser">
