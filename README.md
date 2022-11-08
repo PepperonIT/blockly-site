@@ -4,17 +4,13 @@ A webpage with an Blockly editor made for programming Pepper.
 # tools / installation
 The critical tools and frameworks for this system are Node.js, React.js and Blockly. 
 
-> [Node.js (with NPM) (this should also link to the tools md file)](tools.md)
-TODO
+> [Node.js (with npm)](docs/tools/node.md)
 
-> [Blockly (this should also link to the tools md file)](tools.md)
-TODO
+> [Blockly](docs/tools/blockly.md)
 
-> [React.js (this should also link to the tools md file)](tools.md)
-TODO
+> [React.js](docs/tools/react.md)
 
-> [Axios (this should also link to the tools md file)](tools.md)
-TODO
+> [Axios](docs/tools/axios.md)
 
 # Usage
 In order to start your own development setup and use the program on your own PC, you must:
@@ -25,7 +21,7 @@ In order to start your own development setup and use the program on your own PC,
 - If there is a critical depency error, run `npm audit fix --force` 
 - Run `npm start` to run the app in development mode.
   
-More information about how to run the app in different modes and build it for production can be found [here](react-info.md)
+More information about how to run the app in different modes and build it for production can be found [here](docs/react-info.md)
 
 ## Examples
 TODO
