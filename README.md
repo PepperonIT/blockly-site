@@ -23,8 +23,20 @@ In order to start your own development setup and use the program on your own PC,
   
 More information about how to run the app in different modes and build it for production can be found [here](docs/react-info.md)
 
+This program is used to program Pepper via a Blockly website, Blockly is a blockprogramming interface which enables people who don't know syntax to create their own programs.
+
 ## Examples
-TODO
+Image of the blockprogramming interface:
+
+![image](https://user-images.githubusercontent.com/24481978/200537017-eb156b43-8c34-4370-9a22-4e8583965c51.png)
+
+Image of the toolbox menu with the available blocks:
+
+![image](https://user-images.githubusercontent.com/24481978/200537118-970e4d87-7911-4423-b8c1-0326305739c4.png)
+
+Example program which make Pepper say "Hej!" and shake her head 10 times:
+
+![image](https://user-images.githubusercontent.com/24481978/200537401-4ab11872-0308-4e46-a1f2-47f7ecaaef12.png)
 
 # License
 [License](https://www.apache.org/licenses/LICENSE-2.0)
