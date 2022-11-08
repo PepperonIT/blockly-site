@@ -5,8 +5,11 @@ A webpage with an Blockly editor made for programming Pepper.
 The critical tools and frameworks for this system are Node.js, React.js and Blockly. 
 
 > [Node.js (with npm)](docs/tools/node.md)
+
 > [Blockly](docs/tools/blockly.md) (will be installed automatically via `npm i`)
+
 > [React.js](docs/tools/react.md) (will be installed automatically via `npm i`)
+
 > [Axios](docs/tools/axios.md) (will be installed automatically via `npm i`)
 
 # Usage
