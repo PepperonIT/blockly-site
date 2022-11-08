@@ -5,12 +5,19 @@ A webpage with an Blockly editor made for programming Pepper.
 The critical tools and frameworks for this system are Node.js, React.js and Blockly. 
 
 > [Node.js (with npm)](docs/tools/node.md)
+
 Is required to run Blockly in an smooth and interactive way, recommended runtime environment when developing a Blockly app.
+
 > [Blockly](docs/tools/blockly.md) (will be installed automatically via `npm i`)
+
 Open source and easy to setup blockprogramming interface. Most popular and therefore might be familiar for the users as well.
+
 > [React.js](docs/tools/react.md) (will be installed automatically via `npm i`)
+
 Gives more options in the future. for instance, the abiality to convert to a mobile app with less work then an entire rewrite of the system.
+
 > [Axios](docs/tools/axios.md) (will be installed automatically via `npm i`)
+
 Some kind of HTTP handling is required and Axios had a simplistic design which is enough for the kind of HTTP messages we will send to the Block server.
 
 # Usage
