@@ -3,14 +3,16 @@ import "../fields/BlocklyReactField";
 import "../fields/DateField";
 import "@blockly/field-date";
 
-var say = {
-  type: "say",
-  message0: "säg: %1",
+var wait = {
+  type: "wait",
+  message0: "vänta: %1 sekunder",
   args0: [
     {
       type: "field_input",
-      name: "text",
-      text: "Hej!",
+      name: "duration",
+      value: 1,
+      min: 1,
+      max: 100,
     },
   ],
   inputsInline: true,
@@ -20,10 +22,10 @@ var say = {
   helpUrl: "",
 };
 
-Blockly.Blocks["say"] = {
+Blockly.Blocks["wait"] = {
   init: function () {
-    this.jsonInit(say);
+    this.jsonInit(wait);
     this.setStyle("loop_blocks");
-    this.setColour(210);
+    this.setColour(20);
   },
 };

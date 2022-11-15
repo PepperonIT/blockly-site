@@ -39,10 +39,12 @@ import "./blocks/customBlocks";
 import "./blocks/expressionsBlocks";
 import "./blocks/movementBlocks";
 import "./blocks/speechBlocks";
+import "./blocks/waitBlock";
 import "./generator/generator";
 import "./generator/expressionsGen";
 import "./generator/movementGen";
 import "./generator/speechGen";
+import "./generator/waitGen";
 
 function App(props) {
   return (
@@ -75,25 +77,22 @@ function App(props) {
           </Category>
           <Category name="Rörelse">
             <Category name="Gester">
-            <Category name="Armgester">
-            <Block type="rotate_left_shoulder_roll"/>
-            <Block type="rotate_left_shoulder_pitch"/>
-            <Block type="rotate_left_elbow_roll"/>
-            <Block type="rotate_right_shoulder_roll"/>
-            <Block type="rotate_right_shoulder_pitch"/>
-            <Block type="rotate_right_elbow_roll"/>
-
-            
-            </Category>
-            <Category name="Huvudgester"> 
-            <Block type="move_head_left_right" />
-              <Block type="move_head_up_down" />
-              <Block type="reset_head" />
-              <Block type="nod_head" />
-              <Block type="shake_head" />
-              <Block type="spin_head" />
-            </Category>
-
+              <Category name="Armgester">
+                <Block type="rotate_left_shoulder_roll" />
+                <Block type="rotate_left_shoulder_pitch" />
+                <Block type="rotate_left_elbow_roll" />
+                <Block type="rotate_right_shoulder_roll" />
+                <Block type="rotate_right_shoulder_pitch" />
+                <Block type="rotate_right_elbow_roll" />
+              </Category>
+              <Category name="Huvudgester">
+                <Block type="move_head_left_right" />
+                <Block type="move_head_up_down" />
+                <Block type="reset_head" />
+                <Block type="nod_head" />
+                <Block type="shake_head" />
+                <Block type="spin_head" />
+              </Category>
             </Category>
 
             <Category name="Rörelser">
@@ -101,7 +100,7 @@ function App(props) {
               <Block type="stop_movement" />
             </Category>
           </Category>
-          <Category name="Tal">
+          <Category name="Tala">
             <Block type="say" />
           </Category>
 
@@ -467,6 +466,9 @@ function App(props) {
             // Categorystyle="procedure_Category"
             custom="PROCEDURE"
           ></Category>
+          <Category name="Annat">
+            <Block type="wait"></Block>
+          </Category>
         </BlocklyComponent>
       </header>
     </div>
