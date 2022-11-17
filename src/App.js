@@ -120,9 +120,9 @@ function App(props) {
           <Category name="Rörelser" colour="#5BA574">
             <Block type="move_pepper" />
             <Block type="stop_movement" />
-            <Block type= "dance"/>
-            <Block type= "ketchup_dance"/>
-            <Block type= "robot_dance"/>
+            <Block type="dance" />
+            <Block type="ketchup_dance" />
+            <Block type="robot_dance" />
           </Category>
           <Category name="Tala" colour="#5BA5A5">
             <Block type="say" />
