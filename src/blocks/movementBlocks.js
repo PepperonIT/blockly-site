@@ -441,3 +441,66 @@ Blockly.Blocks["stop_movement"] = {
     this.setColour(MovePepperColour);
   },
 };
+
+
+/**
+ * @ danse
+ */
+
+ var dance = {
+  type: "dance",
+  message0: "dansa",
+  inputsInline: true,
+  previousStatement: null,
+  nextStatement: null,
+  tooltip: "",
+  helpUrl: "",
+};
+
+Blockly.Blocks["dance"] = {
+  init: function () {
+    this.jsonInit(dance);
+    this.setStyle("loop_blocks");
+    this.setColour(MovePepperColour);
+  },
+};
+
+
+
+var ketchupDance = {
+  type: "ketchup_dance",
+  message0: "ketchupdansen",
+  inputsInline: true,
+  previousStatement: null,
+  nextStatement: null,
+  tooltip: "",
+  helpUrl: "",
+};
+
+Blockly.Blocks["ketchup_dance"] = {
+  init: function () {
+    this.jsonInit(ketchupDance);
+    this.setStyle("loop_blocks");
+    this.setColour(MovePepperColour);
+  },
+};
+
+
+
+var robotDance = {
+  type: "robot_dance",
+  message0: "Robotdans",
+  inputsInline: true,
+  previousStatement: null,
+  nextStatement: null,
+  tooltip: "",
+  helpUrl: "",
+};
+
+Blockly.Blocks["robot_dance"] = {
+  init: function () {
+    this.jsonInit(robotDance);
+    this.setStyle("loop_blocks");
+    this.setColour(MovePepperColour);
+  },
+};
