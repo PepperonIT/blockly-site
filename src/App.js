@@ -67,8 +67,32 @@ function App(props) {
         >
           <Category name="Uttryck" colour="#5B6DA5"
           >
-            <Block type="rotate_eyes" />
-            <Block type="fade_eyes" />
+            <Block type="rotate_eyes">
+              <Value name="COLOUR">
+                <Shadow type="field_colour">
+                  <Field name="COLOUR">#8080ff</Field>
+                </Shadow>
+              </Value>
+              {/* <Value name="DURATION">
+                <Shadow type="math_number">
+                  <Field name="NUM">1</Field>
+                </Shadow>
+              </Value> */}
+            </Block>
+            <Block type="fade_eyes">
+              <Value name="COLOUR">
+                <Shadow type="field_colour">
+                  <Field name="COLOUR">#8080ff</Field>
+                </Shadow>
+              </Value>
+              {/* <Value name="DURATION">
+                <Shadow type="math_number">
+                  <Field name="NUM">1</Field>
+                </Shadow>
+              </Value> */}
+            </Block>
+
+
             <Block type="angry_eyes" />
             <Block type="sad_eyes" />
             <Block type="blink_eyes" />
@@ -110,7 +134,7 @@ function App(props) {
             <Block type="logic_operation"></Block>
             <Block type="logic_negate"></Block>
             <Block type="logic_boolean"></Block>
-            <Block type="logic_null" disabled="true"></Block>
+            <Block type="logic_null"></Block>
             <Block type="logic_ternary"></Block>
           </Category>
           <Category

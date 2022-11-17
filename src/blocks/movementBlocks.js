@@ -284,8 +284,8 @@ var rotateRightShoulderRoll = {
       type: "field_slider",
       name: "angle",
       value: 0.5,
-      min: 0.5,
-      max: 89.5,
+      min: -0.5,
+      max: -89.5,
     },
   ],
   inputsInline: true,
@@ -352,8 +352,8 @@ var rotateRightElbowRoll = {
       type: "field_slider",
       name: "angle",
       value: 1,
-      min: -89.5,
-      max: -0.5,
+      min: 0.5,
+      max: 89.5,
     },
   ],
   inputsInline: true,
@@ -378,7 +378,7 @@ Blockly.Blocks["rotate_right_elbow_roll"] = {
 var movePepper = {
   type: "move_pepper",
   message0:
-    "Flytta Pepper ((bakåt,framåt): %1 (vänster,höger): %2 rotera: %3 tid: %4 s)",
+    "Flytta Pepper (bakåt,framåt): %1 (vänster,höger): %2 rotera: %3 tid: %4 s",
   args0: [
     {
       type: "field_slider",
