@@ -65,7 +65,8 @@ function App(props) {
 </xml>
       `}
         >
-          <Category name="Uttryck">
+          <Category name="Uttryck" colour="#5B6DA5"
+          >
             <Block type="rotate_eyes" />
             <Block type="fade_eyes" />
             <Block type="angry_eyes" />
@@ -75,38 +76,34 @@ function App(props) {
             <Block type="random_eyes" />
             <Block type="wink_eye" />
           </Category>
-          <Category name="Rörelse">
-            <Category name="Gester">
-              <Category name="Armgester">
-                <Block type="rotate_left_shoulder_roll" />
-                <Block type="rotate_left_shoulder_pitch" />
-                <Block type="rotate_left_elbow_roll" />
-                <Block type="rotate_right_shoulder_roll" />
-                <Block type="rotate_right_shoulder_pitch" />
-                <Block type="rotate_right_elbow_roll" />
-              </Category>
-              <Category name="Huvudgester">
-                <Block type="move_head_left_right" />
-                <Block type="move_head_up_down" />
-                <Block type="reset_head" />
-                <Block type="nod_head" />
-                <Block type="shake_head" />
-                <Block type="spin_head" />
-              </Category>
-            </Category>
-
-            <Category name="Rörelser">
-              <Block type="move_pepper" />
-              <Block type="stop_movement" />
-            </Category>
+          <Category name="Armgester" colour="#8CA55B">
+            <Block type="rotate_left_shoulder_roll" />
+            <Block type="rotate_left_shoulder_pitch" />
+            <Block type="rotate_left_elbow_roll" />
+            <Block type="rotate_right_shoulder_roll" />
+            <Block type="rotate_right_shoulder_pitch" />
+            <Block type="rotate_right_elbow_roll" />
           </Category>
-          <Category name="Tala">
+          <Category name="Huvudgester" colour="#A58C5B">
+            <Block type="move_head_left_right" />
+            <Block type="move_head_up_down" />
+            <Block type="reset_head" />
+            <Block type="nod_head" />
+            <Block type="shake_head" />
+            <Block type="spin_head" />
+          </Category>
+
+          <Category name="Rörelser" colour="#5BA574">
+            <Block type="move_pepper" />
+            <Block type="stop_movement" />
+          </Category>
+          <Category name="Tala" colour="#5BA5A5">
             <Block type="say" />
           </Category>
 
           <Category
             name="Logik"
-            // Categorystyle="logic_Category"
+            categorystyle="logic_category"
           >
             <Block type="controls_if"></Block>
             <Block type="logic_compare"></Block>
@@ -118,7 +115,7 @@ function App(props) {
           </Category>
           <Category
             name="Loopar"
-            // Categorystyle="loop_Category"
+            categorystyle="loop_category"
           >
             <Block type="controls_repeat_ext">
               <Value name="TIMES">
@@ -151,7 +148,7 @@ function App(props) {
           </Category>
           <Category
             name="Matematik"
-            // Categorystyle="math_Category"
+            categorystyle="math_category"
           >
             <Block type="math_number" gap="32">
               <Field name="NUM">123</Field>
@@ -211,7 +208,7 @@ function App(props) {
               </Value>
             </Block>
             <Block type="math_constrain">
-              <Value name="Value">
+              <Value name="VALUE">
                 <Shadow type="math_number">
                   <Field name="NUM">50</Field>
                 </Shadow>
@@ -255,7 +252,7 @@ function App(props) {
           </Category>
           <Category
             name="Text"
-            // Categorystyle="text_Category"
+            categorystyle="text_category"
           >
             <Block type="text"></Block>
             <Block type="text_multiline"></Block>
@@ -266,21 +263,21 @@ function App(props) {
               </Value>
             </Block>
             <Block type="text_length">
-              <Value name="Value">
+              <Value name="VALUE">
                 <Shadow type="text">
                   <Field name="TEXT">abc</Field>
                 </Shadow>
               </Value>
             </Block>
             <Block type="text_isEmpty">
-              <Value name="Value">
+              <Value name="VALUE">
                 <Shadow type="text">
                   <Field name="TEXT"></Field>
                 </Shadow>
               </Value>
             </Block>
             <Block type="text_indexOf">
-              <Value name="Value">
+              <Value name="VALUE">
                 <Block type="variables_get">
                   <Field name="VAR">text</Field>
                 </Block>
@@ -292,7 +289,7 @@ function App(props) {
               </Value>
             </Block>
             <Block type="text_charAt">
-              <Value name="Value">
+              <Value name="VALUE">
                 <Block type="variables_get">
                   <Field name="VAR">text</Field>
                 </Block>
@@ -300,11 +297,38 @@ function App(props) {
             </Block>
             <Block type="text_getSubstring">
               <Value name="STRING">
+                <Shadow type="text">
+                  <Field name="TEXT">abc</Field>
+                </Shadow>
+              </Value>
+              <Value name="WHERE1">
+                <Shadow type="math_number">
+                  <Field name="WHERE1">1</Field>
+                </Shadow>
+              </Value>
+              <Value name="WHERE1">
+                <Shadow type="math_number">
+                  <Field name="WHERE2"></Field>
+                </Shadow>
+              </Value>
+            </Block>
+
+
+            <Block type="text_getSubstring">
+              <Value name="STRING">
                 <Block type="variables_get">
                   <Field name="VAR">text</Field>
                 </Block>
               </Value>
             </Block>
+            {/* <Block type="text_getSubstring">
+              <Value name="STRING">
+                <Block type="variables_get">
+                  <Field name="VAR"></Field>
+                </Block>
+              </Value>
+            </Block> */}
+
             <Block type="text_changeCase">
               <Value name="TEXT">
                 <Shadow type="text">
@@ -361,7 +385,7 @@ function App(props) {
           </Category>
           <Category
             name="Listor"
-            // Categorystyle="list_Category"
+            categorystyle="list_category"
           >
             <Block type="lists_create_with">
               <Mutation items="0"></Mutation>
@@ -416,7 +440,7 @@ function App(props) {
           </Category>
           <Category
             name="Färger"
-            // Categorystyle="colour_Category"
+            categorystyle="colour_category"
           >
             <Block type="colour_picker"></Block>
             <Block type="colour_random"></Block>
@@ -457,21 +481,20 @@ function App(props) {
           </Category>
           <Category
             name="Variabler"
-            // Categorystyle="variable_Category"
+            categorystyle="variable_category"
             custom="VARIABLE"
-            // colour="290"
           ></Category>
           <Category
             name="Funktioner"
-            // Categorystyle="procedure_Category"
+            categorystyle="procedure_category"
             custom="PROCEDURE"
           ></Category>
-          <Category name="Annat">
+          <Category name="Annat" colour="#A55B67">
             <Block type="wait"></Block>
           </Category>
         </BlocklyComponent>
       </header>
-    </div>
+    </div >
   );
 }
 

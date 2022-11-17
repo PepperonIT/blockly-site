@@ -24,6 +24,6 @@ Blockly.Blocks["say"] = {
   init: function () {
     this.jsonInit(say);
     this.setStyle("loop_blocks");
-    this.setColour(210);
+    this.setColour(180);
   },
 };

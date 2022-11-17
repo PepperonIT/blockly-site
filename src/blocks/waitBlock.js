@@ -26,6 +26,6 @@ Blockly.Blocks["wait"] = {
   init: function () {
     this.jsonInit(wait);
     this.setStyle("loop_blocks");
-    this.setColour(20);
+    this.setColour(350);
   },
 };

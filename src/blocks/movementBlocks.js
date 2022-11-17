@@ -4,6 +4,10 @@ import "../fields/DateField";
 import "@blockly/field-date";
 import "@blockly/field-date";
 
+const MoveHeadColour = 40
+const MoveArmsColour = 80
+const MovePepperColour = 140
+
 /**
  * @head_gesture
  *
@@ -39,7 +43,7 @@ Blockly.Blocks["move_head_left_right"] = {
   init: function () {
     this.jsonInit(moveHeadLeftRight);
     this.setStyle("loop_blocks");
-    this.setColour(125);
+    this.setColour(MoveHeadColour);
   },
 };
 
@@ -73,7 +77,7 @@ Blockly.Blocks["move_head_up_down"] = {
   init: function () {
     this.jsonInit(moveHeadUpDown);
     this.setStyle("loop_blocks");
-    this.setColour(125);
+    this.setColour(MoveHeadColour);
   },
 };
 
@@ -91,7 +95,7 @@ Blockly.Blocks["reset_head"] = {
   init: function () {
     this.jsonInit(resetHead);
     this.setStyle("loop_blocks");
-    this.setColour(125);
+    this.setColour(MoveHeadColour);
   },
 };
 
@@ -109,7 +113,7 @@ Blockly.Blocks["nod_head"] = {
   init: function () {
     this.jsonInit(nodHead);
     this.setStyle("loop_blocks");
-    this.setColour(125);
+    this.setColour(MoveHeadColour);
   },
 };
 
@@ -127,7 +131,7 @@ Blockly.Blocks["shake_head"] = {
   init: function () {
     this.jsonInit(shakeHead);
     this.setStyle("loop_blocks");
-    this.setColour(125);
+    this.setColour(MoveHeadColour);
   },
 };
 
@@ -154,7 +158,7 @@ Blockly.Blocks["spin_head"] = {
   init: function () {
     this.jsonInit(spinHead);
     this.setStyle("loop_blocks");
-    this.setColour(125);
+    this.setColour(MoveHeadColour);
   },
 };
 
@@ -193,7 +197,7 @@ Blockly.Blocks["rotate_left_shoulder_roll"] = {
   init: function () {
     this.jsonInit(rotateLeftShoulderRoll);
     this.setStyle("loop_blocks");
-    this.setColour(130);
+    this.setColour(MoveArmsColour);
   },
 };
 
@@ -227,7 +231,7 @@ Blockly.Blocks["rotate_left_shoulder_pitch"] = {
   init: function () {
     this.jsonInit(rotateLeftShoulderPitch);
     this.setStyle("loop_blocks");
-    this.setColour(130);
+    this.setColour(MoveArmsColour);
   },
 };
 
@@ -261,7 +265,7 @@ Blockly.Blocks["rotate_left_elbow_roll"] = {
   init: function () {
     this.jsonInit(rotateLeftElbowRoll);
     this.setStyle("loop_blocks");
-    this.setColour(130);
+    this.setColour(MoveArmsColour);
   },
 };
 
@@ -295,7 +299,7 @@ Blockly.Blocks["rotate_right_shoulder_roll"] = {
   init: function () {
     this.jsonInit(rotateRightShoulderRoll);
     this.setStyle("loop_blocks");
-    this.setColour(130);
+    this.setColour(MoveArmsColour);
   },
 };
 
@@ -329,7 +333,7 @@ Blockly.Blocks["rotate_right_shoulder_pitch"] = {
   init: function () {
     this.jsonInit(rotateRightShoulderPitch);
     this.setStyle("loop_blocks");
-    this.setColour(130);
+    this.setColour(MoveArmsColour);
   },
 };
 
@@ -363,7 +367,7 @@ Blockly.Blocks["rotate_right_elbow_roll"] = {
   init: function () {
     this.jsonInit(rotateRightElbowRoll);
     this.setStyle("loop_blocks");
-    this.setColour(130);
+    this.setColour(MoveArmsColour);
   },
 };
 
@@ -416,7 +420,7 @@ Blockly.Blocks["move_pepper"] = {
   init: function () {
     this.jsonInit(movePepper);
     this.setStyle("loop_blocks");
-    this.setColour(145);
+    this.setColour(MovePepperColour);
   },
 };
 
@@ -434,6 +438,6 @@ Blockly.Blocks["stop_movement"] = {
   init: function () {
     this.jsonInit(stopMovement);
     this.setStyle("loop_blocks");
-    this.setColour(145);
+    this.setColour(MovePepperColour);
   },
 };
