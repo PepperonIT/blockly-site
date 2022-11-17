@@ -31,6 +31,8 @@ import locale from "blockly/msg/sv";
 import "blockly/blocks";
 import axios from "axios";
 
+const myIP = "130.240.156.237" // Only use localhost if site is running on dev-machine ONLY. Otherwise use full IP! Remeber to open ports!
+
 Blockly.setLocale(locale);
 
 function BlocklyComponent(props) {
@@ -47,7 +49,7 @@ function BlocklyComponent(props) {
     // SEND TO PYTHON SERVER (LEAVE HERE FOR NOW)
     // ==========================================
     axios
-      .post("http://localhost:5000/code", code, {
+      .post(`http://${myIP}:5000/code`, code, {
         headers: { "Content-Type": "text/plain" },
       })
       .then((res) => {
