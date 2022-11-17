@@ -65,34 +65,34 @@ function App(props) {
 </xml>
       `}
         >
-          <Category name="Uttryck" colour="#5B6DA5"
-          >
+          {/**
+           * 
+           */}
+          <Category name="Uttryck" colour="#5B6DA5">
             <Block type="rotate_eyes">
               <Value name="COLOUR">
-                <Shadow type="field_colour">
+                <Shadow type="colour_picker">
                   <Field name="COLOUR">#8080ff</Field>
                 </Shadow>
               </Value>
-              {/* <Value name="DURATION">
+              <Value name="DURATION">
                 <Shadow type="math_number">
                   <Field name="NUM">1</Field>
                 </Shadow>
-              </Value> */}
+              </Value>
             </Block>
             <Block type="fade_eyes">
               <Value name="COLOUR">
-                <Shadow type="field_colour">
+                <Shadow type="colour_picker">
                   <Field name="COLOUR">#8080ff</Field>
                 </Shadow>
               </Value>
-              {/* <Value name="DURATION">
+              <Value name="DURATION">
                 <Shadow type="math_number">
                   <Field name="NUM">1</Field>
                 </Shadow>
-              </Value> */}
+              </Value>
             </Block>
-
-
             <Block type="angry_eyes" />
             <Block type="sad_eyes" />
             <Block type="blink_eyes" />
@@ -100,6 +100,9 @@ function App(props) {
             <Block type="random_eyes" />
             <Block type="wink_eye" />
           </Category>
+          {/**
+           * 
+           */}
           <Category name="Armgester" colour="#8CA55B">
             <Block type="rotate_left_shoulder_roll" />
             <Block type="rotate_left_shoulder_pitch" />
@@ -108,6 +111,9 @@ function App(props) {
             <Block type="rotate_right_shoulder_pitch" />
             <Block type="rotate_right_elbow_roll" />
           </Category>
+          {/**
+           * 
+           */}
           <Category name="Huvudgester" colour="#A58C5B">
             <Block type="move_head_left_right" />
             <Block type="move_head_up_down" />
@@ -116,7 +122,9 @@ function App(props) {
             <Block type="shake_head" />
             <Block type="spin_head" />
           </Category>
-
+          {/**
+           * 
+           */}
           <Category name="Rörelser" colour="#5BA574">
             <Block type="move_pepper" />
             <Block type="stop_movement" />
@@ -127,7 +135,9 @@ function App(props) {
           <Category name="Tala" colour="#5BA5A5">
             <Block type="say" />
           </Category>
-
+          {/**
+           * 
+           */}
           <Category
             name="Logik"
             categorystyle="logic_category"
@@ -140,6 +150,9 @@ function App(props) {
             <Block type="logic_null"></Block>
             <Block type="logic_ternary"></Block>
           </Category>
+          {/**
+           * 
+           */}
           <Category
             name="Loopar"
             categorystyle="loop_category"
@@ -173,6 +186,9 @@ function App(props) {
             <Block type="controls_forEach"></Block>
             <Block type="controls_flow_statements"></Block>
           </Category>
+          {/**
+           * 
+           */}
           <Category
             name="Matematik"
             categorystyle="math_category"
@@ -277,6 +293,9 @@ function App(props) {
               </Value>
             </Block>
           </Category>
+          {/**
+           * 
+           */}
           <Category
             name="Text"
             categorystyle="text_category"
@@ -324,37 +343,11 @@ function App(props) {
             </Block>
             <Block type="text_getSubstring">
               <Value name="STRING">
-                <Shadow type="text">
-                  <Field name="TEXT">abc</Field>
-                </Shadow>
-              </Value>
-              <Value name="WHERE1">
-                <Shadow type="math_number">
-                  <Field name="WHERE1">1</Field>
-                </Shadow>
-              </Value>
-              <Value name="WHERE1">
-                <Shadow type="math_number">
-                  <Field name="WHERE2"></Field>
-                </Shadow>
-              </Value>
-            </Block>
-
-
-            <Block type="text_getSubstring">
-              <Value name="STRING">
                 <Block type="variables_get">
                   <Field name="VAR">text</Field>
                 </Block>
               </Value>
             </Block>
-            {/* <Block type="text_getSubstring">
-              <Value name="STRING">
-                <Block type="variables_get">
-                  <Field name="VAR"></Field>
-                </Block>
-              </Value>
-            </Block> */}
 
             <Block type="text_changeCase">
               <Value name="TEXT">
@@ -395,7 +388,7 @@ function App(props) {
               </Value>
             </Block>
             {/* <label text="Input/Output:" web-class="ioLabel"></label> */}
-            <Block type="text_print">
+            <Block type="text_print" disabled="true">
               <Value name="TEXT">
                 <Shadow type="text">
                   <Field name="TEXT">abc</Field>
@@ -410,6 +403,9 @@ function App(props) {
               </Value>
             </Block>
           </Category>
+          {/**
+           * 
+           */}
           <Category
             name="Listor"
             categorystyle="list_category"
@@ -465,6 +461,9 @@ function App(props) {
             <Block type="lists_sort"></Block>
             <Block type="lists_reverse"></Block>
           </Category>
+          {/**
+           * 
+           */}
           <Category
             name="Färger"
             categorystyle="colour_category"
@@ -506,16 +505,25 @@ function App(props) {
               </Value>
             </Block>
           </Category>
+          {/**
+           * 
+           */}
           <Category
             name="Variabler"
             categorystyle="variable_category"
             custom="VARIABLE"
           ></Category>
+          {/**
+           * 
+           */}
           <Category
             name="Funktioner"
             categorystyle="procedure_category"
             custom="PROCEDURE"
           ></Category>
+          {/**
+           * 
+           */}
           <Category name="Annat" colour="#A55B67">
             <Block type="wait"></Block>
           </Category>

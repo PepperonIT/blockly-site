@@ -14,14 +14,14 @@ var rotateEyes = {
   message0: "Rotera ögonen (färg: %1 tid: %2 s)",
   args0: [
     {
-      type: "field_colour",
-      name: "rgb",
-      colour: "#8080ff",
+      type: "input_value",
+      name: "COLOUR",
+      // check: "colour_picker",
     },
     {
-      type: "field_slider",
-      name: "duration",
-      value: 1,
+      type: "input_value",
+      name: "DURATION",
+      check: "Number",
       min: 1,
       max: 90,
     },
@@ -63,14 +63,14 @@ var fadeEyes = {
   message0: "Blekna ögonen (färg: %1 tid: %2 s)",
   args0: [
     {
-      type: "field_colour",
-      name: "rgb",
-      colour: "#8080ff"
+      type: "input_value",
+      name: "COLOUR",
+      // check: "colour_picker",
     },
     {
-      type: "field_slider",
-      name: "duration",
-      value: 1,
+      type: "input_value",
+      name: "DURATION",
+      check: "Number",
       min: 1,
       max: 90,
     },
