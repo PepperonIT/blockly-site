@@ -95,3 +95,19 @@ Blockly.Python["move_pepper"] = function (block) {
 Blockly.Python["stop_movement"] = function (block) {
   return `pep_move.stop_movement()\n`;
 };
+
+/**
+ * @danse
+ */
+
+ Blockly.Python["dance"] = function (block) {
+  return `comp_handler.dance()\n`;
+};
+
+Blockly.Python["ketchup_dance"] = function (block) {
+  return `comp_handler.ketchup_arms()\n`;
+};
+
+Blockly.Python["robot_dance"] = function (block) {
+  return `comp_handler.robot_arms()\n`;
+};
