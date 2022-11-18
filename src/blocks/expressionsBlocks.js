@@ -13,13 +13,14 @@ var rotateEyes = {
   message0: "Rotera ögonen (färg: %1 tid: %2 s)",
   args0: [
     {
-      type: "input_value",
-      name: "COLOUR",
+      type: "field_colour",
+      name: "rgb",
+      colour: "#8080ff",
     },
     {
-      type: "input_value",
-      name: "DURATION",
-      check: "Number",
+      type: "field_slider",
+      name: "duration",
+      value: 1,
       min: 1,
       max: 90,
     },
@@ -60,13 +61,14 @@ var fadeEyes = {
   message0: "Blekna ögonen (färg: %1 tid: %2 s)",
   args0: [
     {
-      type: "input_value",
-      name: "COLOUR",
+      type: "field_colour",
+      name: "rgb",
+      colour: "#8080ff",
     },
     {
-      type: "input_value",
-      name: "DURATION",
-      check: "Number",
+      type: "field_slider",
+      name: "duration",
+      value: 1,
       min: 1,
       max: 90,
     },
@@ -127,9 +129,9 @@ var blinkEyes = {
   message0: "Blinkande ögon i %1 sekunder",
   args0: [
     {
-      type: "input_value",
-      name: "DURATION",
-      check: "Number",
+      type: "field_slider",
+      name: "duration",
+      value: 1,
       min: 1,
       max: 90,
     },
@@ -154,9 +156,9 @@ var squintEyes = {
   message0: "Kisande ögon i %1 sekunder",
   args0: [
     {
-      type: "input_value",
-      name: "DURATION",
-      check: "Number",
+      type: "field_slider",
+      name: "duration",
+      value: 1,
       min: 1,
       max: 90,
     },
@@ -181,7 +183,7 @@ var randomEyes = {
   message0: "Slumpmässiga ögon i %1 sekunder",
   args0: [
     {
-      type: "input_value",
+      type: "field_slider",
       name: "DURATION",
       check: "Number",
       min: 1,

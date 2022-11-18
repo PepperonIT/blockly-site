@@ -5,9 +5,9 @@ var say = {
   message0: "säg: %1",
   args0: [
     {
-      type: "input_value",
-      name: "TEXT",
-      // check: "Text",
+      type: "field_input",
+      name: "text",
+      text: "Hej, mitt namn är Pepper!",
     },
   ],
   inputsInline: true,
