@@ -2,11 +2,10 @@ import * as Blockly from "blockly/core";
 import "../fields/BlocklyReactField";
 import "../fields/DateField";
 import "@blockly/field-date";
-import "@blockly/field-date";
 
-const MoveHeadColour = 40
-const MoveArmsColour = 80
-const MovePepperColour = 140
+const MoveHeadColour = 40;
+const MoveArmsColour = 80;
+const MovePepperColour = 140;
 
 /**
  * @head_gesture
@@ -442,12 +441,11 @@ Blockly.Blocks["stop_movement"] = {
   },
 };
 
-
 /**
  * @ danse
  */
 
- var dance = {
+var dance = {
   type: "dance",
   message0: "dansa",
   inputsInline: true,
@@ -464,8 +462,6 @@ Blockly.Blocks["dance"] = {
     this.setColour(MovePepperColour);
   },
 };
-
-
 
 var ketchupDance = {
   type: "ketchup_dance",
@@ -484,8 +480,6 @@ Blockly.Blocks["ketchup_dance"] = {
     this.setColour(MovePepperColour);
   },
 };
-
-
 
 var robotDance = {
   type: "robot_dance",

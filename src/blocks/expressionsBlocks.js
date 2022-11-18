@@ -2,12 +2,11 @@ import * as Blockly from "blockly/core";
 import "../fields/BlocklyReactField";
 import "../fields/DateField";
 import "@blockly/field-date";
-import '@blockly/field-slider';
-
+import "@blockly/field-slider";
 
 /**
  * some kind of docs can be a good idea, in case someone will work after us on this project
- * 
+ *
  */
 var rotateEyes = {
   type: "rotate_eyes",
@@ -16,7 +15,6 @@ var rotateEyes = {
     {
       type: "input_value",
       name: "COLOUR",
-      // check: "colour_picker",
     },
     {
       type: "input_value",
@@ -41,7 +39,6 @@ Blockly.Blocks["rotate_eyes"] = {
   },
 };
 
-
 /*
  * To put specifec colors you can do it by the following code 
  *     {
@@ -65,7 +62,6 @@ var fadeEyes = {
     {
       type: "input_value",
       name: "COLOUR",
-      // check: "colour_picker",
     },
     {
       type: "input_value",
@@ -90,14 +86,13 @@ Blockly.Blocks["fade_eyes"] = {
   },
 };
 
-
 var angryEyes = {
   type: "angry_eyes",
   message0: "Arga ögon",
   inputsInline: true,
   previousStatement: null,
   nextStatement: null,
-  tooltip: "",
+  tooltip: "Gör Peppers ögon röda.",
   helpUrl: "",
 };
 
@@ -108,7 +103,6 @@ Blockly.Blocks["angry_eyes"] = {
     this.setColour(225);
   },
 };
-
 
 var sadEyes = {
   type: "sad_eyes",
@@ -130,12 +124,12 @@ Blockly.Blocks["sad_eyes"] = {
 
 var blinkEyes = {
   type: "blink_eyes",
-  message0: "blinka ögon (tid: %1 s)",
+  message0: "Blinkande ögon i %1 sekunder",
   args0: [
     {
-      type: "field_slider",
-      name: "duration",
-      value: 1,
+      type: "input_value",
+      name: "DURATION",
+      check: "Number",
       min: 1,
       max: 90,
     },
@@ -157,12 +151,12 @@ Blockly.Blocks["blink_eyes"] = {
 
 var squintEyes = {
   type: "squint_eyes",
-  message0: "kisande ögon (tid: %1 s)",
+  message0: "Kisande ögon i %1 sekunder",
   args0: [
     {
-      type: "field_slider",
-      name: "duration",
-      value: 1,
+      type: "input_value",
+      name: "DURATION",
+      check: "Number",
       min: 1,
       max: 90,
     },
@@ -184,12 +178,12 @@ Blockly.Blocks["squint_eyes"] = {
 
 var randomEyes = {
   type: "random_eyes",
-  message0: "Slumpmässiga ögon (tid: %1 s)",
+  message0: "Slumpmässiga ögon i %1 sekunder",
   args0: [
     {
-      type: "field_slider",
-      name: "duration",
-      value: 1,
+      type: "input_value",
+      name: "DURATION",
+      check: "Number",
       min: 1,
       max: 90,
     },
@@ -209,24 +203,17 @@ Blockly.Blocks["random_eyes"] = {
   },
 };
 
-
 var winkEye = {
   type: "wink_eye",
-  message0: "blinka ögat (%1)",
+  message0: "Blinka %1",
   args0: [
     {
       type: "field_dropdown",
       name: "eye",
       options: [
-        [
-          "vänster öga",
-          "left"
-        ],
-        [
-          "höger öga",
-          "right"
-        ]
-      ]
+        ["vänster öga", "left"],
+        ["höger öga", "right"],
+      ],
     },
   ],
   inputsInline: true,

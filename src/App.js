@@ -35,16 +35,24 @@ import BlocklyComponent, {
   Mutation,
 } from "./blockly";
 
+// require "@blockly/field-date";
+// import "@blockly/field-slider";
+
 import "./blocks/customBlocks";
 import "./blocks/expressionsBlocks";
 import "./blocks/movementBlocks";
 import "./blocks/speechBlocks";
 import "./blocks/waitBlock";
+import "./blocks/field_slider";
 import "./generator/generator";
 import "./generator/expressionsGen";
 import "./generator/movementGen";
 import "./generator/speechGen";
 import "./generator/waitGen";
+
+// eslint-disable-next-line no-unused-vars
+// import * as Blockly from "blockly";
+// import "@blockly/field-slider";
 
 function App(props) {
   return (
@@ -66,7 +74,7 @@ function App(props) {
       `}
         >
           {/**
-           * 
+           *
            */}
           <Category name="Uttryck" colour="#5B6DA5">
             <Block type="rotate_eyes">
@@ -95,13 +103,31 @@ function App(props) {
             </Block>
             <Block type="angry_eyes" />
             <Block type="sad_eyes" />
-            <Block type="blink_eyes" />
-            <Block type="squint_eyes" />
-            <Block type="random_eyes" />
+            <Block type="blink_eyes">
+              <Value name="DURATION">
+                <Shadow type="math_number">
+                  <Field name="NUM">1</Field>
+                </Shadow>
+              </Value>
+            </Block>
+            <Block type="squint_eyes">
+              <Value name="DURATION">
+                <Shadow type="math_number">
+                  <Field name="NUM">1</Field>
+                </Shadow>
+              </Value>
+            </Block>
+            <Block type="random_eyes">
+              <Value name="DURATION">
+                <Shadow type="math_number">
+                  <Field name="NUM">1</Field>
+                </Shadow>
+              </Value>
+            </Block>
             <Block type="wink_eye" />
           </Category>
           {/**
-           * 
+           *
            */}
           <Category name="Armgester" colour="#8CA55B">
             <Block type="rotate_left_shoulder_roll" />
@@ -112,7 +138,7 @@ function App(props) {
             <Block type="rotate_right_elbow_roll" />
           </Category>
           {/**
-           * 
+           *
            */}
           <Category name="Huvudgester" colour="#A58C5B">
             <Block type="move_head_left_right" />
@@ -123,7 +149,7 @@ function App(props) {
             <Block type="spin_head" />
           </Category>
           {/**
-           * 
+           *
            */}
           <Category name="Rörelser" colour="#5BA574">
             <Block type="move_pepper" />
@@ -133,15 +159,18 @@ function App(props) {
             <Block type="robot_dance" />
           </Category>
           <Category name="Tala" colour="#5BA5A5">
-            <Block type="say" />
+            <Block type="say">
+              <Value name="TEXT">
+                <Shadow type="text">
+                  <Field name="TEXT">Hej, mitt namn är Pepper!</Field>
+                </Shadow>
+              </Value>
+            </Block>
           </Category>
           {/**
-           * 
+           *
            */}
-          <Category
-            name="Logik"
-            categorystyle="logic_category"
-          >
+          <Category name="Logik" categorystyle="logic_category">
             <Block type="controls_if"></Block>
             <Block type="logic_compare"></Block>
             <Block type="logic_operation"></Block>
@@ -151,12 +180,9 @@ function App(props) {
             <Block type="logic_ternary"></Block>
           </Category>
           {/**
-           * 
+           *
            */}
-          <Category
-            name="Loopar"
-            categorystyle="loop_category"
-          >
+          <Category name="Loopar" categorystyle="loop_category">
             <Block type="controls_repeat_ext">
               <Value name="TIMES">
                 <Shadow type="math_number">
@@ -187,12 +213,9 @@ function App(props) {
             <Block type="controls_flow_statements"></Block>
           </Category>
           {/**
-           * 
+           *
            */}
-          <Category
-            name="Matematik"
-            categorystyle="math_category"
-          >
+          <Category name="Matematik" categorystyle="math_category">
             <Block type="math_number" gap="32">
               <Field name="NUM">123</Field>
             </Block>
@@ -294,12 +317,9 @@ function App(props) {
             </Block>
           </Category>
           {/**
-           * 
+           *
            */}
-          <Category
-            name="Text"
-            categorystyle="text_category"
-          >
+          <Category name="Text" categorystyle="text_category">
             <Block type="text"></Block>
             <Block type="text_multiline"></Block>
             <Block type="text_join"></Block>
@@ -404,12 +424,9 @@ function App(props) {
             </Block>
           </Category>
           {/**
-           * 
+           *
            */}
-          <Category
-            name="Listor"
-            categorystyle="list_category"
-          >
+          <Category name="Listor" categorystyle="list_category">
             <Block type="lists_create_with">
               <Mutation items="0"></Mutation>
             </Block>
@@ -462,12 +479,9 @@ function App(props) {
             <Block type="lists_reverse"></Block>
           </Category>
           {/**
-           * 
+           *
            */}
-          <Category
-            name="Färger"
-            categorystyle="colour_category"
-          >
+          <Category name="Färger" categorystyle="colour_category">
             <Block type="colour_picker"></Block>
             <Block type="colour_random"></Block>
             <Block type="colour_rgb">
@@ -506,7 +520,7 @@ function App(props) {
             </Block>
           </Category>
           {/**
-           * 
+           *
            */}
           <Category
             name="Variabler"
@@ -514,7 +528,7 @@ function App(props) {
             custom="VARIABLE"
           ></Category>
           {/**
-           * 
+           *
            */}
           <Category
             name="Funktioner"
@@ -522,14 +536,14 @@ function App(props) {
             custom="PROCEDURE"
           ></Category>
           {/**
-           * 
+           *
            */}
           <Category name="Annat" colour="#A55B67">
             <Block type="wait"></Block>
           </Category>
         </BlocklyComponent>
       </header>
-    </div >
+    </div>
   );
 }
 
