@@ -38,24 +38,25 @@ import BlocklyComponent, {
 // require "@blockly/field-date";
 // import "@blockly/field-slider";
 
+import "./fields/shadowFields";
+
 import "./blocks/customBlocks";
 import "./blocks/expressionsBlocks";
 import "./blocks/movementBlocks";
 import "./blocks/speechBlocks";
 import "./blocks/waitBlock";
-import "./blocks/field_slider";
+
 import "./generator/generator";
 import "./generator/expressionsGen";
 import "./generator/movementGen";
 import "./generator/speechGen";
 import "./generator/waitGen";
+import "./generator/shadowFieldGen";
 
 import Blockly from "blockly/core";
-
 import locale from "blockly/msg/sv";
 
 Blockly.setLocale(locale);
-
 
 // eslint-disable-next-line no-unused-vars
 // import * as Blockly from "blockly";
@@ -91,8 +92,8 @@ function App(props) {
                 </Shadow>
               </Value>
               <Value name="DURATION">
-                <Shadow type="math_number">
-                  <Field name="NUM">1</Field>
+                <Shadow type="number_constraint">
+                  {/* <Field name="NUM">1</Field> */}
                 </Shadow>
               </Value>
             </Block>
@@ -103,8 +104,8 @@ function App(props) {
                 </Shadow>
               </Value>
               <Value name="DURATION">
-                <Shadow type="math_number">
-                  <Field name="NUM">1</Field>
+                <Shadow type="number_constraint">
+                  {/* <Field name="NUM">1</Field> */}
                 </Shadow>
               </Value>
             </Block>
@@ -112,22 +113,22 @@ function App(props) {
             <Block type="sad_eyes" />
             <Block type="blink_eyes">
               <Value name="DURATION">
-                <Shadow type="math_number">
-                  <Field name="NUM">1</Field>
+                <Shadow type="number_constraint">
+                  {/* <Field name="NUM">1</Field> */}
                 </Shadow>
               </Value>
             </Block>
             <Block type="squint_eyes">
-            <Value name="DURATION">
-                <Shadow type="math_number">
-                  <Field name="NUM">1</Field>
+              <Value name="DURATION">
+                <Shadow type="number_constraint">
+                  {/* <Field name="NUM">1</Field> */}
                 </Shadow>
               </Value>
             </Block>
             <Block type="random_eyes">
-            <Value name="DURATION">
-                <Shadow type="math_number">
-                  <Field name="NUM">1</Field>
+              <Value name="DURATION">
+                <Shadow type="number_constraint">
+                  {/* <Field name="NUM">1</Field> */}
                 </Shadow>
               </Value>
             </Block>
@@ -166,7 +167,13 @@ function App(props) {
             <Block type="robot_dance" />
           </Category>
           <Category name="Tala" colour="#5BA5A5">
-            <Block type="say"></Block>
+            <Block type="say">
+              <Value name="TEXT">
+                <Shadow type="text">
+                  <Field name="TEXT">Hej, mitt namn är Pepper!</Field>
+                </Shadow>
+              </Value>
+            </Block>
           </Category>
           {/**
            *
