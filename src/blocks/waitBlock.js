@@ -5,7 +5,7 @@ var wait = {
   message0: "vänta: %1 sekunder",
   args0: [
     {
-      type: "field_input",
+      type: "field_slider",
       name: "duration",
       value: 1,
       min: 1,

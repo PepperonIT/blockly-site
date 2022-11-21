@@ -31,9 +31,6 @@ import locale from "blockly/msg/sv";
 import "blockly/blocks";
 import axios from "axios";
 
-// Get yout IP on Linux by running `ifconfig`
-const myIP = "130.240.156.237" // Only use localhost if site is running on dev-machine ONLY. Otherwise use full IP! Remeber to open ports!
-
 Blockly.setLocale(locale);
 
 function BlocklyComponent(props) {
@@ -49,6 +46,9 @@ function BlocklyComponent(props) {
     // ==========================================
     // SEND TO PYTHON SERVER (LEAVE HERE FOR NOW)
     // ==========================================
+    // Get yout IP on Linux by running `ifconfig`
+    const myIP = "130.240.156.237" // Only use localhost if site is running on dev-machine ONLY. Otherwise use full IP! Remeber to open ports!
+
     axios
       .post(`http://${myIP}:5000/code`, code, {
         headers: { "Content-Type": "text/plain" },
