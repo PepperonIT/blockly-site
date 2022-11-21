@@ -2,7 +2,7 @@ import * as Blockly from "blockly/core";
 
 var wait = {
   type: "wait",
-  message0: "vänta: %1 sekunder",
+  message0: "Vänta: %1 sekunder",
   args0: [
     {
       type: "field_slider",

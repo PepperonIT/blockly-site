@@ -8,7 +8,7 @@ Blockly.defineBlocksWithJsonArray([
     args0: [
       {
         type: "field_slider",
-        name: "NUMBER",
+        name: "NUMBER_C",
         min: 1,
         max: 60,
         check: "Number",

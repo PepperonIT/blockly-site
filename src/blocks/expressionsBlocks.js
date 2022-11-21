@@ -10,7 +10,7 @@ import "@blockly/field-slider";
  */
 var rotateEyes = {
   type: "rotate_eyes",
-  message0: "Rotera ögonen (färg: %1 tid: %2 s)",
+  message0: "Rotera ögonen med färgen %1 i tiden %2 sekunder",
   args0: [
     {
       type: "input_value",
@@ -57,7 +57,7 @@ Blockly.Blocks["rotate_eyes"] = {
 
 var fadeEyes = {
   type: "fade_eyes",
-  message0: "Blekna ögonen (färg: %1 tid: %2 s)",
+  message0: "Blekna ögonen med färgen %1 i tiden %2 sekunder",
   args0: [
     {
       type: "input_value",
