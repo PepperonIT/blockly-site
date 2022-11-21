@@ -8,14 +8,22 @@ import "blockly/python";
  * */
 
 Blockly.Python["rotate_eyes"] = function (block) {
-  var rgb = block.getFieldValue("rgb");
-  var duration = block.getFieldValue("duration");
+  var rgb =
+    Blockly.Python.valueToCode(block, "COLOUR", Blockly.Python.ORDER_NONE) ||
+    "''";
+  var duration =
+    Blockly.Python.valueToCode(block, "DURATION", Blockly.Python.ORDER_NONE) ||
+    "''";
   return `pep_expr.rotate_eyes(${String(rgb)},${String(duration)})\n`;
 };
 
 Blockly.Python["fade_eyes"] = function (block) {
-  var rgb = block.getFieldValue("rgb");
-  var duration = block.getFieldValue("duration");
+  var rgb =
+    Blockly.Python.valueToCode(block, "COLOUR", Blockly.Python.ORDER_NONE) ||
+    "''";
+  var duration =
+    Blockly.Python.valueToCode(block, "DURATION", Blockly.Python.ORDER_NONE) ||
+    "''";
   return `pep_expr.fade_eyes(${String(rgb)},${String(duration)})\n`;
 };
 
@@ -28,17 +36,23 @@ Blockly.Python["sad_eyes"] = function (block) {
 };
 
 Blockly.Python["blink_eyes"] = function (block) {
-  var duration = block.getFieldValue("duration");
+  var duration =
+    Blockly.Python.valueToCode(block, "DURATION", Blockly.Python.ORDER_NONE) ||
+    "''";
   return `pep_expr.blink_eyes(${String(duration)})\n`;
 };
 
 Blockly.Python["squint_eyes"] = function (block) {
-  var duration = block.getFieldValue("duration");
+  var duration =
+    Blockly.Python.valueToCode(block, "DURATION", Blockly.Python.ORDER_NONE) ||
+    "''";
   return `pep_expr.squint_eyes(${String(duration)})\n`;
 };
 
 Blockly.Python["random_eyes"] = function (block) {
-  var duration = block.getFieldValue("duration");
+  var duration =
+    Blockly.Python.valueToCode(block, "DURATION", Blockly.Python.ORDER_NONE) ||
+    "''";
   return `pep_expr.random_eyes(${String(duration)})\n`;
 };
 

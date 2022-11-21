@@ -77,12 +77,53 @@ function App(props) {
            *
            */}
           <Category name="Uttryck" colour="#5B6DA5">
-            <Block type="rotate_eyes"></Block>
-            <Block type="fade_eyes"></Block>
+            <Block type="rotate_eyes">
+              <Value name="COLOUR">
+                <Shadow type="colour_picker">
+                  <Field name="COLOUR">#8080ff</Field>
+                </Shadow>
+              </Value>
+              <Value name="DURATION">
+                <Shadow type="math_number">
+                  <Field name="NUM">1</Field>
+                </Shadow>
+              </Value>
+            </Block>
+            <Block type="fade_eyes">
+              <Value name="COLOUR">
+                <Shadow type="colour_picker">
+                  <Field name="COLOUR">#8080ff</Field>
+                </Shadow>
+              </Value>
+              <Value name="DURATION">
+                <Shadow type="math_number">
+                  <Field name="NUM">1</Field>
+                </Shadow>
+              </Value>
+            </Block>
             <Block type="angry_eyes" />
             <Block type="sad_eyes" />
-            <Block type="blink_eyes"></Block>
-            <Block type="squint_eyes"></Block>
+            <Block type="blink_eyes">
+              <Value name="DURATION">
+                <Shadow type="math_number">
+                  <Field name="NUM">1</Field>
+                </Shadow>
+              </Value>
+            </Block>
+            <Block type="squint_eyes">
+            <Value name="DURATION">
+                <Shadow type="math_number">
+                  <Field name="NUM">1</Field>
+                </Shadow>
+              </Value>
+            </Block>
+            <Block type="random_eyes">
+            <Value name="DURATION">
+                <Shadow type="math_number">
+                  <Field name="NUM">1</Field>
+                </Shadow>
+              </Value>
+            </Block>
             <Block type="wink_eye" />
           </Category>
           {/**
