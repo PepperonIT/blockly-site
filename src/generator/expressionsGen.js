@@ -17,7 +17,9 @@ Blockly.Python["rotate_eyes"] = function (block) {
 
   var duration = getDuration(block);
 
-  return `pep_expr.rotate_eyes(${String(rgb)},${String(duration)})\n`;
+  return `${checkDuration(duration)}\npep_expr.rotate_eyes(${String(
+    rgb
+  )},${String(duration)})\n`;
 };
 
 Blockly.Python["fade_eyes"] = function (block) {
@@ -68,18 +70,29 @@ function getDuration(block) {
   } else if (duration < 1) {
     duration = 1;
   }
+  return duration;
+}
 
-  if (block.getFieldValue("VAR") !== duration) {
-    duration = Blockly.Python.nameDB_.getName(
-      block.getFieldValue("VAR"),
-      Blockly.Names.VARIABLE
-    );
+function checkDuration(duration) {
+  var typeCheck = false;
+  const vars = Blockly.Workspace.getVariablesOfType();
+  for (var i = 0; i < vars.length; i++) {
+    console.log(vars[i]);
 
-    if (duration > 60) {
-      duration = 60;
-    } else if (duration < 1) {
-      duration = 1;
+    if (vars[i].name === duration) {
+      if (vars.type === "Number") {
+        typeCheck = true;
+      }
     }
   }
-  return duration;
+
+  try {
+    if (!typeCheck) {
+      throw duration;
+    }
+  } catch (err) {
+    alert(`Variable ${err} must be of type "Number"`);
+  }
+  var code = `if ${duration} > 60:\n  ${duration} = 60\nelif ${duration} < 1:\n ${duration} = 1`;
+  return code;
 }
