@@ -2,6 +2,8 @@ import * as Blockly from "blockly/core";
 import "blockly/python";
 import "@blockly/field-slider";
 
+// const { NameType } = goog.require("Blockly.Names");
+
 /**
  *
  * TODO: remove all /n in the return statments
@@ -12,7 +14,9 @@ Blockly.Python["rotate_eyes"] = function (block) {
   var rgb =
     Blockly.Python.valueToCode(block, "COLOUR", Blockly.Python.ORDER_ATOMIC) ||
     "''";
+
   var duration = getDuration(block);
+
   return `pep_expr.rotate_eyes(${String(rgb)},${String(duration)})\n`;
 };
 
@@ -53,24 +57,29 @@ Blockly.Python["wink_eye"] = function (block) {
 };
 
 function getDuration(block) {
-  var duration;
+  var duration =
+    Blockly.Python.valueToCode(
+      block,
+      "DURATION",
+      Blockly.Python.ORDER_ATOMIC
+    ) || "0";
+  if (duration > 60) {
+    duration = 60;
+  } else if (duration < 1) {
+    duration = 1;
+  }
 
-  var children = block.getChildren(true);
+  if (block.getFieldValue("VAR") !== duration) {
+    duration = Blockly.Python.nameDB_.getName(
+      block.getFieldValue("VAR"),
+      Blockly.Names.VARIABLE
+    );
 
-  children.every((element) => {
-    if (element.getField("NUM") != null) {
-      duration =
-        Blockly.Python.valueToCode(
-          block,
-          "DURATION",
-          Blockly.Python.ORDER_ATOMIC
-        ) || "''";
-      return false;
-    } else if (element.getField("NUMBER_C") != null) {
-      duration = Blockly.Python.statementToCode(block, "DURATION");
-      return false;
+    if (duration > 60) {
+      duration = 60;
+    } else if (duration < 1) {
+      duration = 1;
     }
-    return true;
-  });
+  }
   return duration;
 }

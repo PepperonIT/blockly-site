@@ -92,9 +92,7 @@ function App(props) {
                 </Shadow>
               </Value>
               <Value name="DURATION">
-                <Shadow type="number_constraint">
-                  {/* <Field name="NUM">1</Field> */}
-                </Shadow>
+                <Shadow type="number_constraint"></Shadow>
               </Value>
             </Block>
             <Block type="fade_eyes">
@@ -104,32 +102,24 @@ function App(props) {
                 </Shadow>
               </Value>
               <Value name="DURATION">
-                <Shadow type="number_constraint">
-                  {/* <Field name="NUM">1</Field> */}
-                </Shadow>
+                <Shadow type="number_constraint"></Shadow>
               </Value>
             </Block>
             <Block type="angry_eyes" />
             <Block type="sad_eyes" />
             <Block type="blink_eyes">
               <Value name="DURATION">
-                <Shadow type="number_constraint">
-                  {/* <Field name="NUM">1</Field> */}
-                </Shadow>
+                <Shadow type="number_constraint"></Shadow>
               </Value>
             </Block>
             <Block type="squint_eyes">
               <Value name="DURATION">
-                <Shadow type="number_constraint">
-                  {/* <Field name="NUM">1</Field> */}
-                </Shadow>
+                <Shadow type="number_constraint"></Shadow>
               </Value>
             </Block>
             <Block type="random_eyes">
               <Value name="DURATION">
-                <Shadow type="number_constraint">
-                  {/* <Field name="NUM">1</Field> */}
-                </Shadow>
+                <Shadow type="number_constraint"></Shadow>
               </Value>
             </Block>
             <Block type="wink_eye" />
@@ -149,7 +139,14 @@ function App(props) {
            *
            */}
           <Category name="Huvudgester" colour="#A58C5B">
-            <Block type="move_head_left_right" />
+            <Block type="move_head_left_right">
+              <Value name="DEGREES">
+                <Shadow type="angle_constraint_1"></Shadow>
+              </Value>
+              <Value name="SPEED">
+                <Shadow type="speed_constraint"></Shadow>
+              </Value>
+            </Block>
             <Block type="move_head_up_down" />
             <Block type="reset_head" />
             <Block type="nod_head" />

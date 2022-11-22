@@ -8,8 +8,8 @@ import "blockly/python";
 
 Blockly.Python["move_head_left_right"] = function (block) {
   var yaw = "True";
-  var degrees = block.getFieldValue("degrees");
-  var speed = block.getFieldValue("speed");
+  var degrees = getAngle(block);
+  var speed = getSpeed(block);
   return `head_ges.move_head(${yaw}, ${String(degrees)}, ${String(speed)})\n`;
 };
 
@@ -83,11 +83,11 @@ Blockly.Python["rotate_right_elbow_roll"] = function (block) {
  */
 
 Blockly.Python["move_pepper"] = function (block) {
-  var x = block.getFieldValue("x") / 100;
-  var y = block.getFieldValue("y") / 100;
-  var angle = block.getFieldValue("angle") / 10;
+  var x = block.getFieldValue("x");
+  var y = block.getFieldValue("y");
+  var angle = block.getFieldValue("angle");
   var duration = block.getFieldValue("duration");
-  return `pep_move.move(${String(x)},${String(y)}, ${String(angle)}, ${String(
+  return `pep_move.move(${String(x)}, ${String(y)}, ${String(angle)}, ${String(
     duration
   )})\n`;
 };
@@ -97,10 +97,10 @@ Blockly.Python["stop_movement"] = function (block) {
 };
 
 /**
- * @danse
+ * @dance
  */
 
- Blockly.Python["dance"] = function (block) {
+Blockly.Python["dance"] = function (block) {
   return `comp_handler.dance()\n`;
 };
 
@@ -111,3 +111,46 @@ Blockly.Python["ketchup_dance"] = function (block) {
 Blockly.Python["robot_dance"] = function (block) {
   return `comp_handler.robot_arms()\n`;
 };
+
+function getAngle(block) {
+  var angle =
+    Blockly.Python.valueToCode(
+      block,
+      "DURATION",
+      Blockly.Python.ORDER_ATOMIC
+    ) || "0";
+  if (angle > 119.5) {
+    angle = 119.5;
+  } else if (angle < -119.5) {
+    angle = -119.5;
+  }
+
+  if (Blockly.Python.FieldVariable.getValue() > 119.5) {
+    angle = 119.5;
+  } else if (Blockly.Python.FieldVariable.getValue() < -119.5) {
+    angle = -119.5;
+  }
+
+  return angle;
+}
+
+function getSpeed(block) {
+  var speed =
+    Blockly.Python.valueToCode(
+      block,
+      "DURATION",
+      Blockly.Python.ORDER_ATOMIC
+    ) || "0";
+  if (speed > 100) {
+    speed = 100;
+  } else if (speed < 0) {
+    speed = 0;
+  }
+
+  if (Blockly.Python.FieldVariable.getValue() > 100) {
+    speed = 100;
+  } else if (Blockly.Python.FieldVariable.getValue() < 0) {
+    speed = 0;
+  }
+  return speed;
+}

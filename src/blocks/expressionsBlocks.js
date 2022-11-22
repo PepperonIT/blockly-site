@@ -22,6 +22,8 @@ var rotateEyes = {
       type: "input_value",
       name: "DURATION",
       check: "Number",
+      min: 0,
+      max: 60,
     },
   ],
   inputsInline: true,

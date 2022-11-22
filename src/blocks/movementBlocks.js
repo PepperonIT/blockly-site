@@ -17,18 +17,14 @@ var moveHeadLeftRight = {
   message0: "Rör huvudet (vänster, höger) (grader %1 fart %2)",
   args0: [
     {
-      type: "field_slider",
-      name: "degrees",
-      value: 0,
-      min: -119.5,
-      max: 119.5,
+      type: "input_value",
+      name: "DEGREES",
+      check: "Number",
     },
     {
-      type: "field_slider",
-      name: "speed",
-      value: 0,
-      min: 0,
-      max: 100,
+      type: "input_value",
+      name: "SPEED",
+      check: "Number",
     },
   ],
   inputsInline: true,
@@ -442,7 +438,7 @@ Blockly.Blocks["stop_movement"] = {
 };
 
 /**
- * @ danse
+ * @ dance
  */
 
 var dance = {
