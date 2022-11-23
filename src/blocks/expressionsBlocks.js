@@ -26,6 +26,7 @@ var rotateEyes = {
       max: 60,
     },
   ],
+  // output: ["Colour", "Number"],
   inputsInline: true,
   previousStatement: null,
   nextStatement: null,
@@ -184,6 +185,7 @@ var randomEyes = {
       check: "Number",
     },
   ],
+  // output: "Number",
   inputsInline: true,
   previousStatement: null,
   nextStatement: null,
@@ -196,6 +198,7 @@ Blockly.Blocks["random_eyes"] = {
     this.jsonInit(randomEyes);
     this.setStyle("loop_blocks");
     this.setColour(225);
+    this.setOutput(true, "Number");
   },
 };
 

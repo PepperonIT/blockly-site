@@ -27,7 +27,9 @@ Blockly.Python["fade_eyes"] = function (block) {
     Blockly.Python.valueToCode(block, "COLOUR", Blockly.Python.ORDER_ATOMIC) ||
     "''";
   var duration = getDuration(block);
-  return `pep_expr.fade_eyes(${String(rgb)},${String(duration)})\n`;
+  return `${checkDuration(duration)}\npep_expr.fade_eyes(${String(
+    rgb
+  )},${String(duration)})\n`;
 };
 
 Blockly.Python["angry_eyes"] = function (block) {
@@ -40,17 +42,23 @@ Blockly.Python["sad_eyes"] = function (block) {
 
 Blockly.Python["blink_eyes"] = function (block) {
   var duration = getDuration(block);
-  return `pep_expr.blink_eyes(${String(duration)})\n`;
+  return `${checkDuration(duration)}\npep_expr.blink_eyes(${String(
+    duration
+  )})\n`;
 };
 
 Blockly.Python["squint_eyes"] = function (block) {
   var duration = getDuration(block);
-  return `pep_expr.squint_eyes(${String(duration)})\n`;
+  return `${checkDuration(duration)}\npep_expr.squint_eyes(${String(
+    duration
+  )})\n`;
 };
 
 Blockly.Python["random_eyes"] = function (block) {
   var duration = getDuration(block);
-  return `pep_expr.random_eyes(${String(duration)})\n`;
+  return `${checkDuration(duration)}\npep_expr.random_eyes(${String(
+    duration
+  )})\n`;
 };
 
 Blockly.Python["wink_eye"] = function (block) {
@@ -74,25 +82,6 @@ function getDuration(block) {
 }
 
 function checkDuration(duration) {
-  var typeCheck = false;
-  const vars = Blockly.Workspace.getVariablesOfType();
-  for (var i = 0; i < vars.length; i++) {
-    console.log(vars[i]);
-
-    if (vars[i].name === duration) {
-      if (vars.type === "Number") {
-        typeCheck = true;
-      }
-    }
-  }
-
-  try {
-    if (!typeCheck) {
-      throw duration;
-    }
-  } catch (err) {
-    alert(`Variable ${err} must be of type "Number"`);
-  }
   var code = `if ${duration} > 60:\n  ${duration} = 60\nelif ${duration} < 1:\n ${duration} = 1`;
   return code;
 }

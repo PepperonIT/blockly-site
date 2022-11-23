@@ -47,7 +47,7 @@ function BlocklyComponent(props) {
     // SEND TO PYTHON SERVER (LEAVE HERE FOR NOW)
     // ==========================================
     // Get yout IP on Linux by running `ifconfig`
-    const myIP = "130.240.156.237" // Only use localhost if site is running on dev-machine ONLY. Otherwise use full IP! Remeber to open ports!
+    const myIP = "130.240.156.237"; // Only use localhost if site is running on dev-machine ONLY. Otherwise use full IP! Remeber to open ports!
 
     axios
       .post(`http://${myIP}:5000/code`, code, {
@@ -68,6 +68,40 @@ function BlocklyComponent(props) {
       toolbox: toolbox.current,
       ...rest,
     });
+
+    // Returns an arry of XML nodes.
+    // var coloursFlyoutCallback = function (workspace) {
+    //   // Returns an array of hex colours, e.g. ['#4286f4', '#ef0447']
+    //   var colourList = primaryWorkspace.current.getAllVariables();
+    //   var blockList = [];
+    //   for (var i = 0; i < colourList.length; i++) {
+    //     var block = document.createElement("block");
+    //     block.setAttribute("type", "field_variable");
+    //     var field = document.createElement("field");
+    //     field.setAttribute("name", "VARS");
+    //     field.innerText = colourList[i];
+    //     block.appendChild(field);
+    //     blockList.push(block);
+    //   }
+    //   return blockList;
+    // };
+
+    // // Associates the function with the string 'VARS'
+    // primaryWorkspace.current.registerToolboxCategoryCallback(
+    //   "VARS",
+    //   coloursFlyoutCallback
+    // );
+
+    // primaryWorkspace.current.registerButtonCallback(
+    //   "intVar",
+    //   function (button) {
+    //     Blockly.Variables.createVariable(
+    //       button.getTargetWorkspace(),
+    //       null,
+    //       "Number"
+    //     );
+    //   }
+    // );
 
     if (initialXml) {
       Blockly.Xml.domToWorkspace(

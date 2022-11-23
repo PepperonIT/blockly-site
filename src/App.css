@@ -16,6 +16,29 @@
   color: rgb(0, 0, 0);
 }
 
+.Queue-div {
+  background-color: #DDDDDD;
+  height: 90vh;
+  width: 20%;
+  right: 0;
+  top: 10vh;
+  position: absolute;
+  float: right;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 1vmin);
+  color: rgb(0, 0, 0);
+}
+
+ul {
+  list-style-type: None;
+  justify-content: center;
+  padding: 0;
+  text-align: center;
+}
+
+li
+
 .App-link {
   color: #61dafb;
 }
