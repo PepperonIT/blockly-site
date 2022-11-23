@@ -30,6 +30,8 @@ import Blockly from "blockly/core";
 import BlocklyPy from "blockly/python";
 import "blockly/blocks";
 import axios from "axios";
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 Blockly.setLocale(sv);
 
@@ -144,10 +146,26 @@ function BlocklyComponent(props) {
     }
   }, [primaryWorkspace, toolbox, blocklyDiv, props]);
 
+  const codeSentMessage = () => {
+    confirmAlert({
+      title: 'Din kod har lagts i kön!',
+      buttons: [
+        {
+          label: 'Vad bra',
+        },
+      ],
+    });
+  };
+
+  const sendCode = () => {
+    generateCode();
+    codeSentMessage();
+  }
+
   return (
     <React.Fragment>
       {/* <button onClick={setLanguage("sv")}>Byt språk</button> */}
-      <button onClick={generateCode}>Skicka koden till Pepper</button>
+      <button onClick={sendCode}>Skicka koden till Pepper</button>
       <div ref={blocklyDiv} id="blocklyDiv" />
       <div style={{ display: "none" }} ref={toolbox}>
         {props.children}
