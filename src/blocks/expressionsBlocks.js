@@ -198,7 +198,7 @@ Blockly.Blocks["random_eyes"] = {
     this.jsonInit(randomEyes);
     this.setStyle("loop_blocks");
     this.setColour(225);
-    this.setOutput(true, "Number");
+    // this.setOutput(true, "Number");
   },
 };
 

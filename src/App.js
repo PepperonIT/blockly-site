@@ -53,10 +53,10 @@ import "./generator/speechGen";
 import "./generator/waitGen";
 import "./generator/shadowFieldGen";
 
-import Blockly from "blockly/core";
-import locale from "blockly/msg/sv";
+// import Blockly from "blockly/core";
+// import locale from "blockly/msg/sv";
 
-Blockly.setLocale(locale);
+// Blockly.setLocale(locale);
 
 // eslint-disable-next-line no-unused-vars
 // import * as Blockly from "blockly";

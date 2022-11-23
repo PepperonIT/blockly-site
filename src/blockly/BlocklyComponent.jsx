@@ -24,14 +24,14 @@
 import React from "react";
 import "./BlocklyComponent.css";
 import { useEffect, useRef } from "react";
-
+import sv from "blockly/msg/sv";
+import en from "blockly/msg/en";
 import Blockly from "blockly/core";
 import BlocklyPy from "blockly/python";
-import locale from "blockly/msg/sv";
 import "blockly/blocks";
 import axios from "axios";
 
-Blockly.setLocale(locale);
+Blockly.setLocale(sv);
 
 function BlocklyComponent(props) {
   const blocklyDiv = useRef();
@@ -61,6 +61,39 @@ function BlocklyComponent(props) {
         console.error(err);
       });
   };
+
+  // const setLanguage = async (newLan) => {
+  //   var xmlDom = Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
+  //   var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
+  //   localStorage.setItem("blockly.xml", xmlText);
+
+  //   primaryWorkspace.current.dispose();
+
+  //   if (newLan === "sv") {
+  //     Blockly.setLocale(sv);
+  //   } else {
+  //     Blockly.setLocale(en);
+  //   }
+  //   // window.location.reload();
+
+  //   var xmlTextTemp = localStorage.getItem("blockly.xml");
+
+  //   await new Promise((r) => setTimeout(r, 2000));
+
+  //   var { initialXml, children, ...rest } = props;
+  //   primaryWorkspace.current = Blockly.inject(blocklyDiv.current, {
+  //     toolbox: toolbox.current,
+  //     ...rest,
+  //   });
+
+  //   initialXml = xmlTextTemp;
+
+  //   if (initialXml) {
+  //     Blockly.mainWorkspace.clear();
+  //     xmlDom = Blockly.Xml.textToDom(initialXml);
+  //     Blockly.Xml.domToWorkspace(Blockly.mainWorkspace, xmlDom);
+  //   }
+  // };
 
   useEffect(() => {
     const { initialXml, children, ...rest } = props;
@@ -113,6 +146,7 @@ function BlocklyComponent(props) {
 
   return (
     <React.Fragment>
+      {/* <button onClick={setLanguage("sv")}>Byt språk</button> */}
       <button onClick={generateCode}>Skicka koden till Pepper</button>
       <div ref={blocklyDiv} id="blocklyDiv" />
       <div style={{ display: "none" }} ref={toolbox}>
