@@ -404,8 +404,8 @@ var movePepper = {
       type: "input_value",
       name: "DEGREES",
       value: 0,
-      min: -10,
-      max: 10,
+      min: -100,
+      max: 100,
       check: "Number",
     },
     {

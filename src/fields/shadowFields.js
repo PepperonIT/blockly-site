@@ -85,8 +85,8 @@ Blockly.defineBlocksWithJsonArray([
       {
         type: "field_slider",
         name: "ANGLE_C",
-        max: -100,
-        min: 100,
+        max: 100,
+        min: -100,
         check: "Number",
       },
     ],
