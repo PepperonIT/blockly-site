@@ -129,12 +129,54 @@ function App(props) {
              *
              */}
             <Category name="Armgester" colour="#8CA55B">
-              <Block type="rotate_left_shoulder_roll" />
-              <Block type="rotate_left_shoulder_pitch" />
-              <Block type="rotate_left_elbow_roll" />
-              <Block type="rotate_right_shoulder_roll" />
-              <Block type="rotate_right_shoulder_pitch" />
-              <Block type="rotate_right_elbow_roll" />
+              <Block type="rotate_left_shoulder_roll">
+                <Value name="DEGREES">
+                  <Shadow type="angle_constraint_3"></Shadow>
+                </Value>
+                <Value name="SPEED">
+                  <Shadow type="speed_constraint"></Shadow>
+                </Value>
+              </Block>
+              <Block type="rotate_left_shoulder_pitch">
+                <Value name="DEGREES">
+                  <Shadow type="angle_constraint_1"></Shadow>
+                </Value>
+                <Value name="SPEED">
+                  <Shadow type="speed_constraint"></Shadow>
+                </Value>
+              </Block>
+              <Block type="rotate_left_elbow_roll">
+                <Value name="DEGREES">
+                  <Shadow type="angle_constraint_4"></Shadow>
+                </Value>
+                <Value name="SPEED">
+                  <Shadow type="speed_constraint"></Shadow>
+                </Value>
+              </Block>
+              <Block type="rotate_right_shoulder_roll">
+                <Value name="DEGREES">
+                  <Shadow type="angle_constraint_4"></Shadow>
+                </Value>
+                <Value name="SPEED">
+                  <Shadow type="speed_constraint"></Shadow>
+                </Value>
+              </Block>
+              <Block type="rotate_right_shoulder_pitch">
+                <Value name="DEGREES">
+                  <Shadow type="angle_constraint_1"></Shadow>
+                </Value>
+                <Value name="SPEED">
+                  <Shadow type="speed_constraint"></Shadow>
+                </Value>
+              </Block>
+              <Block type="rotate_right_elbow_roll">
+                <Value name="DEGREES">
+                  <Shadow type="angle_constraint_3"></Shadow>
+                </Value>
+                <Value name="SPEED">
+                  <Shadow type="speed_constraint"></Shadow>
+                </Value>
+              </Block>
             </Category>
             {/**
              *
@@ -148,17 +190,41 @@ function App(props) {
                   <Shadow type="speed_constraint"></Shadow>
                 </Value>
               </Block>
-              <Block type="move_head_up_down" />
+              <Block type="move_head_up_down">
+                <Value name="DEGREES">
+                  <Shadow type="angle_constraint_2"></Shadow>
+                </Value>
+                <Value name="SPEED">
+                  <Shadow type="speed_constraint"></Shadow>
+                </Value>
+              </Block>
               <Block type="reset_head" />
               <Block type="nod_head" />
               <Block type="shake_head" />
-              <Block type="spin_head" />
+              <Block type="spin_head">
+                <Value name="DURATION">
+                  <Shadow type="number_constraint"></Shadow>
+                </Value>
+              </Block>
             </Category>
             {/**
              *
              */}
             <Category name="Rörelser" colour="#5BA574">
-              <Block type="move_pepper" />
+              <Block type="move_pepper">
+                <Value name="X">
+                  <Shadow type="speed_constraint_2"></Shadow>
+                </Value>
+                <Value name="Y">
+                  <Shadow type="speed_constraint_2"></Shadow>
+                </Value>
+                <Value name="DEGREES">
+                  <Shadow type="angle_constraint_5"></Shadow>
+                </Value>
+                <Value name="DURATION">
+                  <Shadow type="number_constraint"></Shadow>
+                </Value>
+              </Block>
               <Block type="stop_movement" />
               <Block type="dance" />
               <Block type="ketchup_dance" />

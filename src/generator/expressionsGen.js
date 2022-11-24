@@ -68,11 +68,8 @@ Blockly.Python["wink_eye"] = function (block) {
 
 function getDuration(block) {
   var duration =
-    Blockly.Python.valueToCode(
-      block,
-      "DURATION",
-      Blockly.Python.ORDER_ATOMIC
-    ) || "0";
+    Blockly.Python.valueToCode(block, "DURATION", Blockly.Python.ORDER_NONE) ||
+    "0";
   if (duration > 60) {
     duration = 60;
   } else if (duration < 1) {

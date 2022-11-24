@@ -31,7 +31,67 @@ Blockly.defineBlocksWithJsonArray([
       },
     ],
     output: "Number",
-    colour: 225,
+    style: "math_blocks",
+  },
+  {
+    type: "angle_constraint_2",
+    message0: "%1",
+    args0: [
+      {
+        type: "field_slider",
+        name: "ANGLE_C",
+        min: -40.5,
+        max: 20.5,
+        check: "Number",
+      },
+    ],
+    output: "Number",
+    style: "math_blocks",
+  },
+  {
+    type: "angle_constraint_3",
+    message0: "%1",
+    args0: [
+      {
+        type: "field_slider",
+        name: "ANGLE_C",
+        min: 0.5,
+        max: 89.5,
+        check: "Number",
+      },
+    ],
+    output: "Number",
+    style: "math_blocks",
+  },
+  {
+    type: "angle_constraint_4",
+    message0: "%1",
+    args0: [
+      {
+        type: "field_slider",
+        name: "ANGLE_C",
+        max: -0.5,
+        min: -89.5,
+        check: "Number",
+      },
+    ],
+    output: "Number",
+    style: "math_blocks",
+  },
+  {
+    type: "angle_constraint_5",
+    message0: "%1",
+    args0: [
+      {
+        type: "field_slider",
+        name: "ANGLE_C",
+        max: -100,
+        min: 100,
+        check: "Number",
+      },
+    ],
+    output: "Number",
+    style: "math_blocks",
   },
   {
     type: "speed_constraint",
@@ -46,7 +106,22 @@ Blockly.defineBlocksWithJsonArray([
       },
     ],
     output: "Number",
-    colour: 225,
+    style: "math_blocks",
+  },
+  {
+    type: "speed_constraint_2",
+    message0: "%1",
+    args0: [
+      {
+        type: "field_slider",
+        name: "SPEED_C",
+        min: -100,
+        max: 100,
+        check: "Number",
+      },
+    ],
+    output: "Number",
+    style: "math_blocks",
   },
   /**
    * Typed Variables
