@@ -1,0 +1,145 @@
+.body-div{
+    background: linear-gradient(#084266, #9198e5);    height:100vh;
+    display:block;
+    justify-content:center;
+    align-items:center;
+    
+}
+
+.body-h1{
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: white;
+}
+¨
+.Container{
+    min-height: 692px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    overflow-y: scroll;
+    z-index: 0;
+    overflow: hidden;
+    background: linear-gradient(#287CB3, gray);
+}
+
+.FormWrap{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.FormContent{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Form{
+    background: #010101;
+    max-width: 400px;
+    height: auto;
+    width: 100%;
+    z-index: 1;
+    display: grid;
+    margin: 0 auto;
+    padding: 80px 32px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.9);
+}
+
+.FormH1{
+    margin-bottom: 40px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.FormLabel{
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #fff;
+
+}
+
+.FormInput{
+    padding: 16px 16px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 4px;
+}
+
+.FormButton{
+    background:  #093A59;
+    padding: 16px 0;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/**
+*https://alvarotrigo.com/blog/toggle-switch-css/
+*/
+
+.toggle {
+    cursor: pointer;
+    display: inline-block;
+  }
+  
+  .toggle-switch {
+    padding: 16px 16px;
+    margin-bottom: 10px;
+    display: inline-block;
+    background: #ccc;
+    border-radius: 16px;
+    width: 58px;
+    height: 32px;
+    position: relative;
+    vertical-align: middle;
+    transition: background 0.25s;
+  }
+  .toggle-switch:before, .toggle-switch:after {
+    content: "";
+  }
+  .toggle-switch:before {
+    display: block;
+    background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    transition: left 0.25s;
+  }
+  .toggle:hover .toggle-switch:before {
+    background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+  }
+  .toggle-checkbox:checked + .toggle-switch {
+    background: #023b57;
+  }
+  .toggle-checkbox:checked + .toggle-switch:before {
+    left: 30px;
+  }
+  
+  .toggle-checkbox {
+    position: absolute;
+    visibility: hidden;
+  }
+  
+  .toggle-label {
+    color: rgb(255, 255, 255);
+    margin-left: 5px;
+    position: relative;
+    top: 2px;
+  }
