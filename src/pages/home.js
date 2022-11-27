@@ -42,7 +42,7 @@ function Home (){
         <>
 
         <div className='body-div'>
-            <h1 className='body-h1'>text here</h1>
+            <h1 className='body-h1'>Luleå Makerspace</h1>
             <div className='Container'>
                 <div className='FormWrap'>
                     <div className='FormContent'>
@@ -63,7 +63,7 @@ function Home (){
                             <div className="toggle-switch"/>
                             <span className="toggle-label">Advanced</span>
                             </label>
-                            <button className='FormButton' onClick={handleSubmit}>Click me</button>
+                            <button className='FormButton' onClick={handleSubmit}>Start</button>
                         </form>
                     </div>
                 </div>

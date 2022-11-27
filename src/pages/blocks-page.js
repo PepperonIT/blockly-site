@@ -13,7 +13,9 @@ import { Navigate } from "react-router-dom";
 
     if(cookies.get('language')==="en" && cookies.get('mode')==="basic"){
       return (
+        <>
         <BlocksEnBasic/>  
+        </>
       );
     }else if((cookies.get('language')==="en" && cookies.get('mode')==="advanced")){
       return (
