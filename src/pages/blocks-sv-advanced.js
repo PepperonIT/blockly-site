@@ -23,6 +23,7 @@
 
  import React from "react";
  import "../styles/blockly.css"
+ import QueueComponent from "../queue/QueueComponent";
  
  // import logo from "./logo.svg";
  
@@ -550,15 +551,8 @@
             </Category>
           </BlocklyComponent>
           <div className="Queue-div">
-            <ul>
-              <li>prgm 7</li>
-              <li>prgm 6</li>
-              <li>prgm 5</li>
-              <li>prgm 4</li>
-              <li>prgm 3</li>
-              <li>prgm 2</li>
-              <li>prgm 1</li>
-            </ul>
+            <QueueComponent>
+            </QueueComponent>
           </div>
         </div>
       </header>
