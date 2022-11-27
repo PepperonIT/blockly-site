@@ -33,15 +33,18 @@ import axios from "axios";
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import Cookies from 'universal-cookie';
+import {useNavigate} from 'react-router-dom';
 
 
 
 
 
 function BlocklyComponent(props) {
+  const navigate = useNavigate();
   const cookies = new Cookies();
   const blocklyDiv = useRef();
   const toolbox = useRef();
+  
   let primaryWorkspace = useRef();
 
   if (cookies.get('language')==="en"){
@@ -114,6 +117,8 @@ function BlocklyComponent(props) {
       ...rest,
     });
 
+
+
     // Returns an arry of XML nodes.
     // var coloursFlyoutCallback = function (workspace) {
     //   // Returns an array of hex colours, e.g. ['#4286f4', '#ef0447']
@@ -172,10 +177,15 @@ function BlocklyComponent(props) {
     codeSentMessage();
   }
 
+  const goToHome =() => {
+    navigate("/")
+  }
+
   return (
     <React.Fragment>
       {/* <button onClick={setLanguage("sv")}>Byt språk</button> */}
       <button onClick={sendCode}>Skicka koden till Pepper</button>
+      <button onClick={goToHome}>Back to home</button>
       <div ref={blocklyDiv} id="blocklyDiv" />
       <div style={{ display: "none" }} ref={toolbox}>
         {props.children}

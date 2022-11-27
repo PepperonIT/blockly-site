@@ -23,6 +23,7 @@
 
  import React from "react";
  import "../styles/blockly.css"
+ import QueueComponent from "../queue/QueueComponent";
  
  // import logo from "./logo.svg";
  
@@ -39,18 +40,18 @@
  
  import "../fields/shadowFields";
  
- import "../blocks/customBlocks";
- import "../blocks/expressionsBlocks";
- import "../blocks/movementBlocks";
- import "../blocks/speechBlocks";
- import "../blocks/waitBlock";
+ import "../blocks/sv-blocks/customBlocks";
+ import "../blocks/sv-blocks/expressionsBlocks";
+ import "../blocks/sv-blocks/movementBlocks";
+ import "../blocks/sv-blocks/speechBlocks";
+ import "../blocks/sv-blocks/waitBlock";
  
- import "../generator/generator";
- import "../generator/expressionsGen";
- import "../generator/movementGen";
- import "../generator/speechGen";
- import "../generator/waitGen";
- import "../generator/shadowFieldGen";
+ import "../generator/sv-generator/generator";
+ import "../generator/sv-generator/expressionsGen";
+ import "../generator/sv-generator/movementGen";
+ import "../generator/sv-generator/speechGen";
+ import "../generator/sv-generator/waitGen";
+ import "../generator/sv-generator/shadowFieldGen";
 
 
  function BlocksSvBasic() {
@@ -446,15 +447,8 @@
             </Category>
           </BlocklyComponent>
           <div className="Queue-div">
-            <ul>
-              <li>prgm 7</li>
-              <li>prgm 6</li>
-              <li>prgm 5</li>
-              <li>prgm 4</li>
-              <li>prgm 3</li>
-              <li>prgm 2</li>
-              <li>prgm 1</li>
-            </ul>
+            <QueueComponent>
+            </QueueComponent>
           </div>
         </div>
       </header>
