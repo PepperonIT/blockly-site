@@ -41,18 +41,18 @@
  
  import "../fields/shadowFields";
  
- import "../blocks/customBlocks";
- import "../blocks/expressionsBlocks";
- import "../blocks/movementBlocks";
- import "../blocks/speechBlocks";
- import "../blocks/waitBlock";
+ import "../blocks/sv-blocks/customBlocks";
+ import "../blocks/sv-blocks/expressionsBlocks";
+ import "../blocks/sv-blocks/movementBlocks";
+ import "../blocks/sv-blocks/speechBlocks";
+ import "../blocks/sv-blocks/waitBlock";
  
- import "../generator/generator";
- import "../generator/expressionsGen";
- import "../generator/movementGen";
- import "../generator/speechGen";
- import "../generator/waitGen";
- import "../generator/shadowFieldGen";
+ import "../generator/sv-generator/generator";
+ import "../generator/sv-generator/expressionsGen";
+ import "../generator/sv-generator/movementGen";
+ import "../generator/sv-generator/speechGen";
+ import "../generator/sv-generator/waitGen";
+ import "../generator/sv-generator/shadowFieldGen";
 
 
  function BlocksSvAdvanced() {
