@@ -1,0 +1,13 @@
+.queue {
+    background-color: red;
+    height: 90vh;
+    width: 20%;
+    right: 0;
+    top: 10vh;
+    position: absolute;
+    float: right;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 1vmin);
+    color: rgb(0, 0, 0);
+  }
