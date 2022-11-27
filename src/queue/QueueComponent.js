@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./QueueComponent.css";
 
 class QueueComponent extends Component {
   state = {
@@ -9,9 +10,15 @@ class QueueComponent extends Component {
     return (
       <React.Fragment>
         <ul>
+            <li><h1>
+            Kö
+            <hr class="solid"></hr>
+            </h1></li>
             {this.state.queue_items.map(listitem => (
               <li>
+                 <span class="b">
                  {listitem}
+                 </span>
               </li>
             ))}
         </ul>

@@ -48,7 +48,7 @@ function Home (){
                     <div className='FormContent'>
                         <form className='Form'>
                             <h1 className='FormH1'>
-                                Enter you nickname
+                                Enter your nickname
                             </h1>
                             <input className='FormInput' type="text" id="nickname" name="nickname" onChange={event => setNickName(event.target.value)} value={nickName} required/>
 

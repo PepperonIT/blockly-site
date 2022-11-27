@@ -11,3 +11,20 @@
     font-size: calc(10px + 1vmin);
     color: rgb(0, 0, 0);
   }
+
+hr.solid {
+    border-top: 3px solid #bbb;
+    margin-bottom: 5px;
+}
+
+span.b {
+    display: inline-block;
+    width: 280px;
+    height: 70px;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 2px solid black;
+    border-radius: 5px;  
+    background-color: teal; 
+  }
