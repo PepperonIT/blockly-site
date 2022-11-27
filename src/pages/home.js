@@ -52,16 +52,16 @@ function Home (){
                             </h1>
                             <input className='FormInput' type="text" id="nickname" name="nickname" onChange={event => setNickName(event.target.value)} value={nickName} required/>
 
-                            <label class="toggle">
-                            <input class="toggle-checkbox" type="checkbox" defaultChecked={false} id="english" name="english" onChange={event => setEnglish(event.target.checked)} value={english}/>
-                            <div class="toggle-switch"/>
-                            <span class="toggle-label">English</span>
+                            <label className="toggle">
+                            <input className="toggle-checkbox" type="checkbox" defaultChecked={false} id="english" name="english" onChange={event => setEnglish(event.target.checked)} value={english}/>
+                            <div className="toggle-switch"/>
+                            <span className="toggle-label">English</span>
                             </label>
 
-                            <label class="toggle">
-                            <input class="toggle-checkbox" type="checkbox" efaultChecked={false} id="advanced" name="advanced" onChange={event => setAdvanced(event.target.checked)} value={advanced}/>
-                            <div class="toggle-switch"/>
-                            <span class="toggle-label">Advanced</span>
+                            <label className="toggle">
+                            <input className="toggle-checkbox" type="checkbox" defaultChecked={false} id="advanced" name="advanced" onChange={event => setAdvanced(event.target.checked)} value={advanced}/>
+                            <div className="toggle-switch"/>
+                            <span className="toggle-label">Advanced</span>
                             </label>
                             <button className='FormButton' onClick={handleSubmit}>Click me</button>
                         </form>

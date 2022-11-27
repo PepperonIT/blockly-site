@@ -28,7 +28,7 @@ import { Navigate } from "react-router-dom";
         <BlocksSvAdvanced/>
       );
     }else{
-      return <Navigate to="/dashboard"/>
+      return <Navigate to="/"/>
     }
 }
  
