@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 import "../styles/homeStyle.css";
@@ -9,9 +9,6 @@ function Home() {
   const [nickName, setNickName] = useState("");
   const [english, setEnglish] = useState("");
   const [advanced, setAdvanced] = useState("");
-  const myRef = useRef();
-
-  console.log(myRef.current);
 
   var formText = [];
   const svForm = [
@@ -73,7 +70,7 @@ function Home() {
           <div className="FormWrap">
             <div className="FormContent">
               <form className="Form">
-                <h1 className="FormH1" id="nicknameH1" ref={myRef}>
+                <h1 className="FormH1" id="nicknameH1">
                   {formText[0]}
                 </h1>
                 <input
@@ -81,7 +78,6 @@ function Home() {
                   type="text"
                   id="nickname"
                   name="nickname"
-                  ref={myRef}
                   onChange={(event) => setNickName(event.target.value)}
                   value={formText[0]}
                   required
