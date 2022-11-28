@@ -21,40 +21,39 @@
  * @author samelh@google.com (Sam El-Husseini)
  */
 
- import React from "react";
- import "../styles/blockly.css"
- 
- // import logo from "./logo.svg";
- 
- import BlocklyComponent, {
-   Block,
-   Value,
-   Field,
-   Shadow,
-   Category,
-   Mutation,
- } from "../blockly";
- 
- // require "@blockly/field-date";
- // import "@blockly/field-slider";
- 
- import "../fields/shadowFields";
- 
- import "../blocks/en-blocks/customBlocks";
- import "../blocks/en-blocks/expressionsBlocks";
- import "../blocks/en-blocks/movementBlocks";
- import "../blocks/en-blocks/speechBlocks";
- import "../blocks/en-blocks/waitBlock";
- 
- import "../generator/en-generator/generator";
- import "../generator/en-generator/expressionsGen";
- import "../generator/en-generator/movementGen";
- import "../generator/en-generator/speechGen";
- import "../generator/en-generator/waitGen";
- import "../generator/en-generator/shadowFieldGen";
+import React from "react";
+import "../styles/blockly.css";
 
+// import logo from "./logo.svg";
 
- function BlocksEnBasic() {
+import BlocklyComponent, {
+  Block,
+  Value,
+  Field,
+  Shadow,
+  Category,
+  Mutation,
+} from "../blockly";
+
+// require "@blockly/field-date";
+// import "@blockly/field-slider";
+
+import "../fields/shadowFields";
+
+import "../blocks/en-blocks/customBlocks";
+import "../blocks/en-blocks/expressionsBlocks";
+import "../blocks/en-blocks/movementBlocks";
+import "../blocks/en-blocks/speechBlocks";
+import "../blocks/en-blocks/waitBlock";
+
+import "../generator/en-generator/generator";
+import "../generator/en-generator/expressionsGen";
+import "../generator/en-generator/movementGen";
+import "../generator/en-generator/speechGen";
+import "../generator/en-generator/waitGen";
+import "../generator/en-generator/shadowFieldGen";
+
+function BlocksEnBasic() {
   return (
     <div className="Blocks">
       <header className="App-header">
@@ -77,7 +76,7 @@
             {/**
              *
              */}
-            <Category name="Expression" colour="#5B6DA5">
+            <Category name="Expressions" colour="#5B6DA5">
               <Block type="rotate_eyes_en">
                 <Value name="COLOUR">
                   <Shadow type="colour_picker">
@@ -121,18 +120,15 @@
              *
              */}
             <Category name="Arm gestures" colour="#8CA55B">
-              <Block type="rotate_left_shoulder_roll_en" />
-              <Block type="rotate_left_shoulder_pitch_en" />
-              <Block type="rotate_left_elbow_roll_en" />
-              <Block type="rotate_right_shoulder_roll_en" />
-              <Block type="rotate_right_shoulder_pitch_en" />
-              <Block type="rotate_right_elbow_roll_en" />
-            </Category>
-            {/**
-             *
-             */}
-            <Category name="Head gestures" colour="#A58C5B">
-              <Block type="move_head_left_right_en">
+              <Block type="rotate_left_shoulder_roll">
+                <Value name="DEGREES">
+                  <Shadow type="angle_constraint_3"></Shadow>
+                </Value>
+                <Value name="SPEED">
+                  <Shadow type="speed_constraint"></Shadow>
+                </Value>
+              </Block>
+              <Block type="rotate_left_shoulder_pitch">
                 <Value name="DEGREES">
                   <Shadow type="angle_constraint_1"></Shadow>
                 </Value>
@@ -140,27 +136,99 @@
                   <Shadow type="speed_constraint"></Shadow>
                 </Value>
               </Block>
-              <Block type="move_head_up_down_en" />
-              <Block type="reset_head_en" />
-              <Block type="nod_head_en" />
-              <Block type="shake_head_en" />
-              <Block type="spin_head_en" />
+              <Block type="rotate_left_elbow_roll">
+                <Value name="DEGREES">
+                  <Shadow type="angle_constraint_4"></Shadow>
+                </Value>
+                <Value name="SPEED">
+                  <Shadow type="speed_constraint"></Shadow>
+                </Value>
+              </Block>
+              <Block type="rotate_right_shoulder_roll">
+                <Value name="DEGREES">
+                  <Shadow type="angle_constraint_4"></Shadow>
+                </Value>
+                <Value name="SPEED">
+                  <Shadow type="speed_constraint"></Shadow>
+                </Value>
+              </Block>
+              <Block type="rotate_right_shoulder_pitch">
+                <Value name="DEGREES">
+                  <Shadow type="angle_constraint_1"></Shadow>
+                </Value>
+                <Value name="SPEED">
+                  <Shadow type="speed_constraint"></Shadow>
+                </Value>
+              </Block>
+              <Block type="rotate_right_elbow_roll">
+                <Value name="DEGREES">
+                  <Shadow type="angle_constraint_3"></Shadow>
+                </Value>
+                <Value name="SPEED">
+                  <Shadow type="speed_constraint"></Shadow>
+                </Value>
+              </Block>
+            </Category>
+            {/**
+             *
+             */}
+            <Category name="Head gestures" colour="#A58C5B">
+              <Block type="move_head_left_right">
+                <Value name="DEGREES">
+                  <Shadow type="angle_constraint_1"></Shadow>
+                </Value>
+                <Value name="SPEED">
+                  <Shadow type="speed_constraint"></Shadow>
+                </Value>
+              </Block>
+              <Block type="move_head_up_down">
+                <Value name="DEGREES">
+                  <Shadow type="angle_constraint_2"></Shadow>
+                </Value>
+                <Value name="SPEED">
+                  <Shadow type="speed_constraint"></Shadow>
+                </Value>
+              </Block>
+              <Block type="reset_head" />
+              <Block type="nod_head" />
+              <Block type="shake_head" />
+              <Block type="spin_head">
+                <Value name="DURATION">
+                  <Shadow type="number_constraint"></Shadow>
+                </Value>
+              </Block>
             </Category>
             {/**
              *
              */}
             <Category name="Movements" colour="#5BA574">
-              <Block type="move_pepper_en" />
-              <Block type="stop_movement_en" />
-              <Block type="dance_en" />
-              <Block type="ketchup_dance_en" />
-              <Block type="robot_dance_en" />
+              <Block type="move_pepper">
+                <Value name="X">
+                  <Shadow type="speed_constraint_2"></Shadow>
+                </Value>
+                <Value name="Y">
+                  <Shadow type="speed_constraint_2"></Shadow>
+                </Value>
+                <Value name="DEGREES">
+                  <Shadow type="angle_constraint_5"></Shadow>
+                </Value>
+                <Value name="DURATION">
+                  <Shadow type="number_constraint"></Shadow>
+                </Value>
+              </Block>
+              <Block type="stop_movement" />
+              <Block type="dance" />
+              <Block type="ketchup_dance" />
+              <Block type="robot_dance" />
             </Category>
+            {/**
+             *
+             */}
             <Category name="Speak" colour="#5BA5A5">
-              <Block type="say_en">
+              <Block type="say">
                 <Value name="TEXT">
                   <Shadow type="text">
-                    <Field name="TEXT">Hej, mitt namn är Pepper!</Field>
+                    <Field name="TEXT">Hi, my name is Pepper!</Field>
                   </Shadow>
                 </Value>
               </Block>
@@ -431,7 +499,6 @@
              *
              */}
 
-
             {/* <Category name="Vars" custom="VARS">
             <button text="A button" callbackKey="intVar"></button>
           </Category> */}
@@ -462,6 +529,5 @@
     </div>
   );
 }
- 
- export default BlocksEnBasic;
- 
+
+export default BlocksEnBasic;

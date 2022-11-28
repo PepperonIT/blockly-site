@@ -21,41 +21,40 @@
  * @author samelh@google.com (Sam El-Husseini)
  */
 
- import React from "react";
- import "../styles/blockly.css"
- import QueueComponent from "../queue/QueueComponent";
- 
- // import logo from "./logo.svg";
- 
- import BlocklyComponent, {
-   Block,
-   Value,
-   Field,
-   Shadow,
-   Category,
-   Mutation,
- } from "../blockly";
- 
- // require "@blockly/field-date";
- // import "@blockly/field-slider";
- 
- import "../fields/shadowFields";
- 
- import "../blocks/sv-blocks/customBlocks";
- import "../blocks/sv-blocks/expressionsBlocks";
- import "../blocks/sv-blocks/movementBlocks";
- import "../blocks/sv-blocks/speechBlocks";
- import "../blocks/sv-blocks/waitBlock";
- 
- import "../generator/sv-generator/generator";
- import "../generator/sv-generator/expressionsGen";
- import "../generator/sv-generator/movementGen";
- import "../generator/sv-generator/speechGen";
- import "../generator/sv-generator/waitGen";
- import "../generator/sv-generator/shadowFieldGen";
+import React from "react";
+import "../styles/blockly.css";
+import QueueComponent from "../queue/QueueComponent";
 
+// import logo from "./logo.svg";
 
- function BlocksSvAdvanced() {
+import BlocklyComponent, {
+  Block,
+  Value,
+  Field,
+  Shadow,
+  Category,
+  Mutation,
+} from "../blockly";
+
+// require "@blockly/field-date";
+// import "@blockly/field-slider";
+
+import "../fields/shadowFields";
+
+import "../blocks/sv-blocks/customBlocks";
+import "../blocks/sv-blocks/expressionsBlocks";
+import "../blocks/sv-blocks/movementBlocks";
+import "../blocks/sv-blocks/speechBlocks";
+import "../blocks/sv-blocks/waitBlock";
+
+import "../generator/sv-generator/generator";
+import "../generator/sv-generator/expressionsGen";
+import "../generator/sv-generator/movementGen";
+import "../generator/sv-generator/speechGen";
+import "../generator/sv-generator/waitGen";
+import "../generator/sv-generator/shadowFieldGen";
+
+function BlocksSvAdvanced() {
   return (
     <div className="Blocks">
       <header className="App-header">
@@ -122,12 +121,54 @@
              *
              */}
             <Category name="Armgester" colour="#8CA55B">
-              <Block type="rotate_left_shoulder_roll" />
-              <Block type="rotate_left_shoulder_pitch" />
-              <Block type="rotate_left_elbow_roll" />
-              <Block type="rotate_right_shoulder_roll" />
-              <Block type="rotate_right_shoulder_pitch" />
-              <Block type="rotate_right_elbow_roll" />
+              <Block type="rotate_left_shoulder_roll">
+                <Value name="DEGREES">
+                  <Shadow type="angle_constraint_3"></Shadow>
+                </Value>
+                <Value name="SPEED">
+                  <Shadow type="speed_constraint"></Shadow>
+                </Value>
+              </Block>
+              <Block type="rotate_left_shoulder_pitch">
+                <Value name="DEGREES">
+                  <Shadow type="angle_constraint_1"></Shadow>
+                </Value>
+                <Value name="SPEED">
+                  <Shadow type="speed_constraint"></Shadow>
+                </Value>
+              </Block>
+              <Block type="rotate_left_elbow_roll">
+                <Value name="DEGREES">
+                  <Shadow type="angle_constraint_4"></Shadow>
+                </Value>
+                <Value name="SPEED">
+                  <Shadow type="speed_constraint"></Shadow>
+                </Value>
+              </Block>
+              <Block type="rotate_right_shoulder_roll">
+                <Value name="DEGREES">
+                  <Shadow type="angle_constraint_4"></Shadow>
+                </Value>
+                <Value name="SPEED">
+                  <Shadow type="speed_constraint"></Shadow>
+                </Value>
+              </Block>
+              <Block type="rotate_right_shoulder_pitch">
+                <Value name="DEGREES">
+                  <Shadow type="angle_constraint_1"></Shadow>
+                </Value>
+                <Value name="SPEED">
+                  <Shadow type="speed_constraint"></Shadow>
+                </Value>
+              </Block>
+              <Block type="rotate_right_elbow_roll">
+                <Value name="DEGREES">
+                  <Shadow type="angle_constraint_3"></Shadow>
+                </Value>
+                <Value name="SPEED">
+                  <Shadow type="speed_constraint"></Shadow>
+                </Value>
+              </Block>
             </Category>
             {/**
              *
@@ -141,22 +182,49 @@
                   <Shadow type="speed_constraint"></Shadow>
                 </Value>
               </Block>
-              <Block type="move_head_up_down" />
+              <Block type="move_head_up_down">
+                <Value name="DEGREES">
+                  <Shadow type="angle_constraint_2"></Shadow>
+                </Value>
+                <Value name="SPEED">
+                  <Shadow type="speed_constraint"></Shadow>
+                </Value>
+              </Block>
               <Block type="reset_head" />
               <Block type="nod_head" />
               <Block type="shake_head" />
-              <Block type="spin_head" />
+              <Block type="spin_head">
+                <Value name="DURATION">
+                  <Shadow type="number_constraint"></Shadow>
+                </Value>
+              </Block>
             </Category>
             {/**
              *
              */}
             <Category name="Rörelser" colour="#5BA574">
-              <Block type="move_pepper" />
+              <Block type="move_pepper">
+                <Value name="X">
+                  <Shadow type="speed_constraint_2"></Shadow>
+                </Value>
+                <Value name="Y">
+                  <Shadow type="speed_constraint_2"></Shadow>
+                </Value>
+                <Value name="DEGREES">
+                  <Shadow type="angle_constraint_5"></Shadow>
+                </Value>
+                <Value name="DURATION">
+                  <Shadow type="number_constraint"></Shadow>
+                </Value>
+              </Block>
               <Block type="stop_movement" />
               <Block type="dance" />
               <Block type="ketchup_dance" />
               <Block type="robot_dance" />
             </Category>
+            {/**
+             *
+             */}
             <Category name="Tala" colour="#5BA5A5">
               <Block type="say">
                 <Value name="TEXT">
@@ -551,16 +619,12 @@
             </Category>
           </BlocklyComponent>
           <div className="Queue-div">
-            <QueueComponent>
-            </QueueComponent>
+            <QueueComponent></QueueComponent>
           </div>
         </div>
       </header>
     </div>
   );
- 
-  
- }
- 
- export default BlocksSvAdvanced;
- 
+}
+
+export default BlocksSvAdvanced;
