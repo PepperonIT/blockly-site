@@ -41,13 +41,11 @@ import BlocklyComponent, {
 
 import "../fields/shadowFields";
 
-import "../blocks/sv-blocks/customBlocks";
 import "../blocks/sv-blocks/expressionsBlocks";
 import "../blocks/sv-blocks/movementBlocks";
 import "../blocks/sv-blocks/speechBlocks";
 import "../blocks/sv-blocks/waitBlock";
 
-import "../generator/sv-generator/generator";
 import "../generator/sv-generator/expressionsGen";
 import "../generator/sv-generator/movementGen";
 import "../generator/sv-generator/speechGen";

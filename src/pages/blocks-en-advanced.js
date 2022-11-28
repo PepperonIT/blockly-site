@@ -23,6 +23,7 @@
 
 import React from "react";
 import "../styles/blockly.css";
+import QueueComponent from "../queue/QueueComponent";
 
 // import logo from "./logo.svg";
 
@@ -40,13 +41,11 @@ import BlocklyComponent, {
 
 import "../fields/shadowFields";
 
-import "../blocks/en-blocks/customBlocks";
 import "../blocks/en-blocks/expressionsBlocks";
 import "../blocks/en-blocks/movementBlocks";
 import "../blocks/en-blocks/speechBlocks";
 import "../blocks/en-blocks/waitBlock";
 
-import "../generator/en-generator/generator";
 import "../generator/en-generator/expressionsGen";
 import "../generator/en-generator/movementGen";
 import "../generator/en-generator/speechGen";
@@ -618,15 +617,7 @@ function BlocksEnAdvanced() {
             </Category>
           </BlocklyComponent>
           <div className="Queue-div">
-            <ul>
-              <li>prgm 7</li>
-              <li>prgm 6</li>
-              <li>prgm 5</li>
-              <li>prgm 4</li>
-              <li>prgm 3</li>
-              <li>prgm 2</li>
-              <li>prgm 1</li>
-            </ul>
+            <QueueComponent></QueueComponent>
           </div>
         </div>
       </header>
