@@ -613,7 +613,11 @@ function BlocksEnAdvanced() {
              *
              */}
             <Category name="Other" colour="#A55B67">
-              <Block type="wait"></Block>
+              <Block type="wait">
+                <Value name="DURATION">
+                  <Shadow type="number_constraint"></Shadow>
+                </Value>
+              </Block>
             </Category>
           </BlocklyComponent>
           <div className="Queue-div">

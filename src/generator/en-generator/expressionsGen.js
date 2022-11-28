@@ -17,9 +17,7 @@ Blockly.Python["rotate_eyes_en"] = function (block) {
 
   var duration = getDuration(block);
 
-  return `${checkDuration(duration)}\npep_expr.rotate_eyes(${String(
-    rgb
-  )},${String(duration)})\n`;
+  return `pep_expr.rotate_eyes(${String(rgb)},${String(duration)})\n`;
 };
 
 Blockly.Python["fade_eyes_en"] = function (block) {
@@ -27,9 +25,7 @@ Blockly.Python["fade_eyes_en"] = function (block) {
     Blockly.Python.valueToCode(block, "COLOUR", Blockly.Python.ORDER_ATOMIC) ||
     "''";
   var duration = getDuration(block);
-  return `${checkDuration(duration)}\npep_expr.fade_eyes(${String(
-    rgb
-  )},${String(duration)})\n`;
+  return `pep_expr.fade_eyes(${String(rgb)},${String(duration)})\n`;
 };
 
 Blockly.Python["angry_eyes_en"] = function (block) {
@@ -42,23 +38,17 @@ Blockly.Python["sad_eyes_en"] = function (block) {
 
 Blockly.Python["blink_eyes_en"] = function (block) {
   var duration = getDuration(block);
-  return `${checkDuration(duration)}\npep_expr.blink_eyes(${String(
-    duration
-  )})\n`;
+  return `pep_expr.blink_eyes(${String(duration)})\n`;
 };
 
 Blockly.Python["squint_eyes_en"] = function (block) {
   var duration = getDuration(block);
-  return `${checkDuration(duration)}\npep_expr.squint_eyes(${String(
-    duration
-  )})\n`;
+  return `pep_expr.squint_eyes(${String(duration)})\n`;
 };
 
 Blockly.Python["random_eyes_en"] = function (block) {
   var duration = getDuration(block);
-  return `${checkDuration(duration)}\npep_expr.random_eyes(${String(
-    duration
-  )})\n`;
+  return `pep_expr.random_eyes(${String(duration)})\n`;
 };
 
 Blockly.Python["wink_eye_en"] = function (block) {
@@ -68,20 +58,12 @@ Blockly.Python["wink_eye_en"] = function (block) {
 
 function getDuration(block) {
   var duration =
-    Blockly.Python.valueToCode(
-      block,
-      "DURATION",
-      Blockly.Python.ORDER_ATOMIC
-    ) || "0";
+    Blockly.Python.valueToCode(block, "DURATION", Blockly.Python.ORDER_NONE) ||
+    "0";
   if (duration > 60) {
     duration = 60;
   } else if (duration < 1) {
     duration = 1;
   }
   return duration;
-}
-
-function checkDuration(duration) {
-  var code = `if ${duration} > 60:\n  ${duration} = 60\nelif ${duration} < 1:\n ${duration} = 1`;
-  return code;
 }

@@ -5,11 +5,11 @@ var wait = {
   message0: "Vänta: %1 sekunder",
   args0: [
     {
-      type: "field_slider",
-      name: "duration",
-      value: 1,
-      min: 1,
-      max: 100,
+      type: "input_value",
+      name: "DURATION",
+      check: "Number",
+      min: 0,
+      max: 60,
     },
   ],
   inputsInline: true,
