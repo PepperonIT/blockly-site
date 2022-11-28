@@ -79,7 +79,7 @@ function Home() {
                   id="nickname"
                   name="nickname"
                   onChange={(event) => setNickName(event.target.value)}
-                  value={formText[0]}
+                  value={nickName}
                   required
                 />
                 <label className="toggle">
