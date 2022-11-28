@@ -30,26 +30,22 @@ import Blockly from "blockly/core";
 import BlocklyPy from "blockly/python";
 import "blockly/blocks";
 import axios from "axios";
-import { confirmAlert } from 'react-confirm-alert'; // Import
-import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
-import Cookies from 'universal-cookie';
-import {useNavigate} from 'react-router-dom';
-
-
-
-
+import { confirmAlert } from "react-confirm-alert"; // Import
+import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
+import Cookies from "universal-cookie";
+import { useNavigate } from "react-router-dom";
 
 function BlocklyComponent(props) {
   const navigate = useNavigate();
   const cookies = new Cookies();
   const blocklyDiv = useRef();
   const toolbox = useRef();
-  
+
   let primaryWorkspace = useRef();
 
-  if (cookies.get('language')==="en"){
+  if (cookies.get("language") === "en") {
     Blockly.setLocale(en);
-  }else{
+  } else {
     Blockly.setLocale(sv);
   }
 
@@ -117,8 +113,6 @@ function BlocklyComponent(props) {
       ...rest,
     });
 
-
-
     // Returns an arry of XML nodes.
     // var coloursFlyoutCallback = function (workspace) {
     //   // Returns an array of hex colours, e.g. ['#4286f4', '#ef0447']
@@ -163,10 +157,10 @@ function BlocklyComponent(props) {
 
   const codeSentMessage = () => {
     confirmAlert({
-      title: 'Din kod har lagts i kön!',
+      title: "Din kod har lagts i kön!",
       buttons: [
         {
-          label: 'Vad bra',
+          label: "Vad bra",
         },
       ],
     });
@@ -175,11 +169,11 @@ function BlocklyComponent(props) {
   const sendCode = () => {
     generateCode();
     codeSentMessage();
-  }
+  };
 
-  const goToHome =() => {
-    navigate("/")
-  }
+  const goToHome = () => {
+    navigate("/");
+  };
 
   return (
     <React.Fragment>
