@@ -120,15 +120,15 @@ function BlocksEnAdvanced() {
              *
              */}
             <Category name="Arm gestures" colour="#8CA55B">
-              <Block type="rotate_left_shoulder_roll">
+              <Block type="rotate_left_shoulder_roll_en">
                 <Value name="DEGREES">
                   <Shadow type="angle_constraint_3"></Shadow>
                 </Value>
                 <Value name="SPEED">
-                  <Shadow type="speed_constraint"></Shadow>
+                  <Shadow type="speed_constraint_en"></Shadow>
                 </Value>
               </Block>
-              <Block type="rotate_left_shoulder_pitch">
+              <Block type="rotate_left_shoulder_pitch_en">
                 <Value name="DEGREES">
                   <Shadow type="angle_constraint_1"></Shadow>
                 </Value>
@@ -136,7 +136,7 @@ function BlocksEnAdvanced() {
                   <Shadow type="speed_constraint"></Shadow>
                 </Value>
               </Block>
-              <Block type="rotate_left_elbow_roll">
+              <Block type="rotate_left_elbow_roll_en">
                 <Value name="DEGREES">
                   <Shadow type="angle_constraint_4"></Shadow>
                 </Value>
@@ -144,7 +144,7 @@ function BlocksEnAdvanced() {
                   <Shadow type="speed_constraint"></Shadow>
                 </Value>
               </Block>
-              <Block type="rotate_right_shoulder_roll">
+              <Block type="rotate_right_shoulder_roll_en">
                 <Value name="DEGREES">
                   <Shadow type="angle_constraint_4"></Shadow>
                 </Value>
@@ -152,7 +152,7 @@ function BlocksEnAdvanced() {
                   <Shadow type="speed_constraint"></Shadow>
                 </Value>
               </Block>
-              <Block type="rotate_right_shoulder_pitch">
+              <Block type="rotate_right_shoulder_pitch_en">
                 <Value name="DEGREES">
                   <Shadow type="angle_constraint_1"></Shadow>
                 </Value>
@@ -160,7 +160,7 @@ function BlocksEnAdvanced() {
                   <Shadow type="speed_constraint"></Shadow>
                 </Value>
               </Block>
-              <Block type="rotate_right_elbow_roll">
+              <Block type="rotate_right_elbow_roll_en">
                 <Value name="DEGREES">
                   <Shadow type="angle_constraint_3"></Shadow>
                 </Value>
@@ -173,7 +173,7 @@ function BlocksEnAdvanced() {
              *
              */}
             <Category name="Head gestures" colour="#A58C5B">
-              <Block type="move_head_left_right">
+              <Block type="move_head_left_right_en">
                 <Value name="DEGREES">
                   <Shadow type="angle_constraint_1"></Shadow>
                 </Value>
@@ -181,7 +181,7 @@ function BlocksEnAdvanced() {
                   <Shadow type="speed_constraint"></Shadow>
                 </Value>
               </Block>
-              <Block type="move_head_up_down">
+              <Block type="move_head_up_down_en">
                 <Value name="DEGREES">
                   <Shadow type="angle_constraint_2"></Shadow>
                 </Value>
@@ -189,10 +189,10 @@ function BlocksEnAdvanced() {
                   <Shadow type="speed_constraint"></Shadow>
                 </Value>
               </Block>
-              <Block type="reset_head" />
-              <Block type="nod_head" />
-              <Block type="shake_head" />
-              <Block type="spin_head">
+              <Block type="reset_head_en" />
+              <Block type="nod_head_en" />
+              <Block type="shake_head_en" />
+              <Block type="spin_head_en">
                 <Value name="DURATION">
                   <Shadow type="number_constraint"></Shadow>
                 </Value>
@@ -202,7 +202,7 @@ function BlocksEnAdvanced() {
              *
              */}
             <Category name="Movements" colour="#5BA574">
-              <Block type="move_pepper">
+              <Block type="move_pepper_en">
                 <Value name="X">
                   <Shadow type="speed_constraint_2"></Shadow>
                 </Value>
@@ -216,16 +216,16 @@ function BlocksEnAdvanced() {
                   <Shadow type="number_constraint"></Shadow>
                 </Value>
               </Block>
-              <Block type="stop_movement" />
-              <Block type="dance" />
-              <Block type="ketchup_dance" />
-              <Block type="robot_dance" />
+              <Block type="stop_movement_en" />
+              <Block type="dance_en" />
+              <Block type="ketchup_dance_en" />
+              <Block type="robot_dance_en" />
             </Category>
             {/**
              *
              */}
             <Category name="Speak" colour="#5BA5A5">
-              <Block type="say">
+              <Block type="say_en">
                 <Value name="TEXT">
                   <Shadow type="text">
                     <Field name="TEXT">Hi, my name is Pepper!</Field>
