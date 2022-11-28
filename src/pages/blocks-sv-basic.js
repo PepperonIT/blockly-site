@@ -51,7 +51,7 @@ import "../generator/sv-generator/expressionsGen";
 import "../generator/sv-generator/movementGen";
 import "../generator/sv-generator/speechGen";
 import "../generator/sv-generator/waitGen";
-import "../generator/sv-generator/shadowFieldGen";
+import "../generator/shadowFieldGen";
 
 function BlocksSvBasic() {
   return (

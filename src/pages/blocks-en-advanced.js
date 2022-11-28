@@ -51,7 +51,7 @@ import "../generator/en-generator/expressionsGen";
 import "../generator/en-generator/movementGen";
 import "../generator/en-generator/speechGen";
 import "../generator/en-generator/waitGen";
-import "../generator/en-generator/shadowFieldGen";
+import "../generator/shadowFieldGen";
 
 function BlocksEnAdvanced() {
   return (
