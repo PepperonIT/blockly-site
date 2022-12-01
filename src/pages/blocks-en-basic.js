@@ -44,12 +44,12 @@ import "../fields/shadowFields";
 import "../blocks/en-blocks/expressionsBlocks";
 import "../blocks/en-blocks/movementBlocks";
 import "../blocks/en-blocks/speechBlocks";
-import "../blocks/en-blocks/waitBlock";
+import "../blocks/en-blocks/miscBlocks";
 
 import "../generator/en-generator/expressionsGen";
 import "../generator/en-generator/movementGen";
 import "../generator/en-generator/speechGen";
-import "../generator/en-generator/waitGen";
+import "../generator/en-generator/miscGen";
 import "../generator/shadowFieldGen";
 
 function BlocksEnBasic() {
@@ -509,9 +509,17 @@ function BlocksEnBasic() {
              *
              */}
             <Category name="Other" colour="#A55B67">
-              <Block type="wait">
+              <Block type="wait_en">
                 <Value name="DURATION">
                   <Shadow type="number_constraint"></Shadow>
+                </Value>
+              </Block>
+              <Block type="play_music_en"></Block>
+              <Block type="search_picture_en">
+                <Value name="TEXT">
+                  <Shadow type="text">
+                    <Field name="TEXT">Cat pictures</Field>
+                  </Shadow>
                 </Value>
               </Block>
             </Category>

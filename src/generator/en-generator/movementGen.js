@@ -17,7 +17,7 @@ Blockly.Python["move_head_left_right_en"] = function (block) {
   }
 
   var speed = getSpeed(block);
-  return `head_ges.move_head(${yaw}, ${String(degrees)}, ${String(speed)})\n`;
+  return `head_ges.move_head(${yaw}, ${degrees}, ${speed})\n`;
 };
 
 Blockly.Python["move_head_up_down_en"] = function (block) {
@@ -31,7 +31,7 @@ Blockly.Python["move_head_up_down_en"] = function (block) {
   }
 
   var speed = getSpeed(block);
-  return `head_ges.move_head(${yaw}, ${String(degrees)}, ${String(speed)})\n`;
+  return `head_ges.move_head(${yaw}, ${degrees}, ${speed})\n`;
 };
 
 Blockly.Python["reset_head_en"] = function (block) {
@@ -151,9 +151,7 @@ Blockly.Python["move_pepper_en"] = function (block) {
   }
 
   var duration = getDuration(block);
-  return `pep_move.move(${String(x)}, ${String(y)}, ${String(
-    degrees
-  )}, ${String(duration)})\n`;
+  return `pep_move.move(${x}, ${y}, ${degrees}, ${duration})\n`;
 };
 
 Blockly.Python["stop_movement_en"] = function (block) {

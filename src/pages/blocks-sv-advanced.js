@@ -44,12 +44,12 @@ import "../fields/shadowFields";
 import "../blocks/sv-blocks/expressionsBlocks";
 import "../blocks/sv-blocks/movementBlocks";
 import "../blocks/sv-blocks/speechBlocks";
-import "../blocks/sv-blocks/waitBlock";
+import "../blocks/sv-blocks/miscBlocks";
 
 import "../generator/sv-generator/expressionsGen";
 import "../generator/sv-generator/movementGen";
 import "../generator/sv-generator/speechGen";
-import "../generator/sv-generator/waitGen";
+import "../generator/sv-generator/miscGen";
 import "../generator/shadowFieldGen";
 
 function BlocksSvAdvanced() {
@@ -616,6 +616,14 @@ function BlocksSvAdvanced() {
               <Block type="wait">
                 <Value name="DURATION">
                   <Shadow type="number_constraint"></Shadow>
+                </Value>
+              </Block>
+              <Block type="play_music"></Block>
+              <Block type="search_picture">
+                <Value name="TEXT">
+                  <Shadow type="text">
+                    <Field name="TEXT">Kattbilder</Field>
+                  </Shadow>
                 </Value>
               </Block>
             </Category>

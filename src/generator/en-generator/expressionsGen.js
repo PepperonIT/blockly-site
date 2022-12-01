@@ -17,7 +17,7 @@ Blockly.Python["rotate_eyes_en"] = function (block) {
 
   var duration = getDuration(block);
 
-  return `pep_expr.rotate_eyes(${String(rgb)},${String(duration)})\n`;
+  return `pep_expr.rotate_eyes(${rgb},${duration})\n`;
 };
 
 Blockly.Python["fade_eyes_en"] = function (block) {
@@ -25,7 +25,7 @@ Blockly.Python["fade_eyes_en"] = function (block) {
     Blockly.Python.valueToCode(block, "COLOUR", Blockly.Python.ORDER_ATOMIC) ||
     "''";
   var duration = getDuration(block);
-  return `pep_expr.fade_eyes(${String(rgb)},${String(duration)})\n`;
+  return `pep_expr.fade_eyes(${rgb},${duration})\n`;
 };
 
 Blockly.Python["angry_eyes_en"] = function (block) {
@@ -38,22 +38,22 @@ Blockly.Python["sad_eyes_en"] = function (block) {
 
 Blockly.Python["blink_eyes_en"] = function (block) {
   var duration = getDuration(block);
-  return `pep_expr.blink_eyes(${String(duration)})\n`;
+  return `pep_expr.blink_eyes(${duration})\n`;
 };
 
 Blockly.Python["squint_eyes_en"] = function (block) {
   var duration = getDuration(block);
-  return `pep_expr.squint_eyes(${String(duration)})\n`;
+  return `pep_expr.squint_eyes(${duration})\n`;
 };
 
 Blockly.Python["random_eyes_en"] = function (block) {
   var duration = getDuration(block);
-  return `pep_expr.random_eyes(${String(duration)})\n`;
+  return `pep_expr.random_eyes(${duration})\n`;
 };
 
 Blockly.Python["wink_eye_en"] = function (block) {
   var eye = block.getFieldValue("eye");
-  return `pep_expr.wink_eye(${String(eye)})\n`;
+  return `pep_expr.wink_eye(${eye})\n`;
 };
 
 function getDuration(block) {
