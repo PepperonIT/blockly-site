@@ -6,7 +6,7 @@ import "blockly/python";
  *
  */
 
-Blockly.Python["move_head_left_right"] = function (block) {
+Blockly.Python["move_head_left_right_en"] = function (block) {
   var yaw = "True";
   var degrees = getAngle(block);
 
@@ -17,10 +17,10 @@ Blockly.Python["move_head_left_right"] = function (block) {
   }
 
   var speed = getSpeed(block);
-  return `head_ges.move_head(${yaw}, ${String(degrees)}, ${String(speed)})\n`;
+  return `head_ges.move_head(${yaw}, ${degrees}, ${speed})\n`;
 };
 
-Blockly.Python["move_head_up_down"] = function (block) {
+Blockly.Python["move_head_up_down_en"] = function (block) {
   var yaw = "False";
   var degrees = getAngle(block);
 
@@ -31,22 +31,22 @@ Blockly.Python["move_head_up_down"] = function (block) {
   }
 
   var speed = getSpeed(block);
-  return `head_ges.move_head(${yaw}, ${String(degrees)}, ${String(speed)})\n`;
+  return `head_ges.move_head(${yaw}, ${degrees}, ${speed})\n`;
 };
 
-Blockly.Python["reset_head"] = function (block) {
+Blockly.Python["reset_head_en"] = function (block) {
   return `head_ges.reset_head()\n`;
 };
 
-Blockly.Python["nod_head"] = function (block) {
+Blockly.Python["nod_head_en"] = function (block) {
   return `head_ges.nod_head()\n`;
 };
 
-Blockly.Python["shake_head"] = function (block) {
+Blockly.Python["shake_head_en"] = function (block) {
   return `head_ges.shake_head()\n`;
 };
 
-Blockly.Python["spin_head"] = function (block) {
+Blockly.Python["spin_head_en"] = function (block) {
   var duration = getDuration(block);
   return `head_ges.spin_head(${duration})\n`;
 };
@@ -56,7 +56,7 @@ Blockly.Python["spin_head"] = function (block) {
  *
  */
 
-Blockly.Python["rotate_left_shoulder_roll"] = function (block) {
+Blockly.Python["rotate_left_shoulder_roll_en"] = function (block) {
   var degrees = getAngle(block);
 
   if (degrees > 119.5) {
@@ -69,7 +69,7 @@ Blockly.Python["rotate_left_shoulder_roll"] = function (block) {
   return `arm_ges.rotate_left_shoulder_roll(${speed},${degrees})\n`;
 };
 
-Blockly.Python["rotate_left_shoulder_pitch"] = function (block) {
+Blockly.Python["rotate_left_shoulder_pitch_en"] = function (block) {
   var degrees = getAngle(block);
 
   if (degrees > 89.5) {
@@ -82,7 +82,7 @@ Blockly.Python["rotate_left_shoulder_pitch"] = function (block) {
   return `arm_ges.rotate_left_shoulder_pitch(${speed},${degrees})\n`;
 };
 
-Blockly.Python["rotate_left_elbow_roll"] = function (block) {
+Blockly.Python["rotate_left_elbow_roll_en"] = function (block) {
   var degrees = getAngle(block);
 
   if (degrees > -0.5) {
@@ -95,7 +95,7 @@ Blockly.Python["rotate_left_elbow_roll"] = function (block) {
   return `arm_ges.rotate_left_elbow_roll(${speed},${degrees})\n`;
 };
 
-Blockly.Python["rotate_right_shoulder_roll"] = function (block) {
+Blockly.Python["rotate_right_shoulder_roll_en"] = function (block) {
   var degrees = getAngle(block);
 
   if (degrees > -0.5) {
@@ -108,7 +108,7 @@ Blockly.Python["rotate_right_shoulder_roll"] = function (block) {
   return `arm_ges.rotate_right_shoulder_roll(${speed},${degrees})\n`;
 };
 
-Blockly.Python["rotate_right_shoulder_pitch"] = function (block) {
+Blockly.Python["rotate_right_shoulder_pitch_en"] = function (block) {
   var degrees = getAngle(block);
 
   if (degrees > 119.5) {
@@ -121,7 +121,7 @@ Blockly.Python["rotate_right_shoulder_pitch"] = function (block) {
   return `arm_ges.rotate_right_shoulder_pitch(${speed},${degrees})\n`;
 };
 
-Blockly.Python["rotate_right_elbow_roll"] = function (block) {
+Blockly.Python["rotate_right_elbow_roll_en"] = function (block) {
   var degrees = getAngle(block);
 
   if (degrees > 89.5) {
@@ -138,7 +138,7 @@ Blockly.Python["rotate_right_elbow_roll"] = function (block) {
  * @translation
  */
 
-Blockly.Python["move_pepper"] = function (block) {
+Blockly.Python["move_pepper_en"] = function (block) {
   var x = get2DSpeed(block, "X");
   var y = get2DSpeed(block, "Y");
 
@@ -151,12 +151,10 @@ Blockly.Python["move_pepper"] = function (block) {
   }
 
   var duration = getDuration(block);
-  return `pep_move.move(${String(x)}, ${String(y)}, ${String(
-    degrees
-  )}, ${String(duration)})\n`;
+  return `pep_move.move(${x}, ${y}, ${degrees}, ${duration})\n`;
 };
 
-Blockly.Python["stop_movement"] = function (block) {
+Blockly.Python["stop_movement_en"] = function (block) {
   return `pep_move.stop_movement()\n`;
 };
 
@@ -164,15 +162,15 @@ Blockly.Python["stop_movement"] = function (block) {
  * @dance
  */
 
-Blockly.Python["dance"] = function (block) {
+Blockly.Python["dance_en"] = function (block) {
   return `comp_handler.dance()\n`;
 };
 
-Blockly.Python["ketchup_dance"] = function (block) {
+Blockly.Python["ketchup_dance_en"] = function (block) {
   return `comp_handler.ketchup_arms()\n`;
 };
 
-Blockly.Python["robot_dance"] = function (block) {
+Blockly.Python["robot_dance_en"] = function (block) {
   return `comp_handler.robot_arms()\n`;
 };
 

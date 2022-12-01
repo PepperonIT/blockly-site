@@ -30,21 +30,50 @@ import Blockly from "blockly/core";
 import BlocklyPy from "blockly/python";
 import "blockly/blocks";
 import axios from "axios";
-import { confirmAlert } from 'react-confirm-alert'; // Import
-import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
-
-Blockly.setLocale(sv);
+import { confirmAlert } from "react-confirm-alert"; // Import
+import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
+import Cookies from "universal-cookie";
+import { useNavigate } from "react-router-dom";
 
 function BlocklyComponent(props) {
+  const navigate = useNavigate();
+  const cookies = new Cookies();
   const blocklyDiv = useRef();
   const toolbox = useRef();
+
   let primaryWorkspace = useRef();
+
+  var formText = {};
+  const svForm = {
+    import: "Ladda upp fil",
+    export: "Ladda ned block",
+    send: "Skicka koden till Pepper",
+    backToHome: "Tillbaka till startsidan",
+  };
+  const enForm = {
+    import: "Import",
+    export: "Export",
+    send: "Send code to Pepper",
+    backToHome: "Back to home",
+  };
+
+  if (cookies.get("language") === "en") {
+    Blockly.setLocale(en);
+    formText = enForm;
+  } else {
+    Blockly.setLocale(sv);
+    formText = svForm;
+  }
 
   const generateCode = () => {
     // Python
     var code = BlocklyPy.workspaceToCode(primaryWorkspace.current);
     console.log(code); // See that the code is generated, viewable from browser
 
+    sendCodeString(code);
+  };
+
+  const sendCodeString = (code) => {
     // ==========================================
     // SEND TO PYTHON SERVER (LEAVE HERE FOR NOW)
     // ==========================================
@@ -64,79 +93,12 @@ function BlocklyComponent(props) {
       });
   };
 
-  // const setLanguage = async (newLan) => {
-  //   var xmlDom = Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
-  //   var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
-  //   localStorage.setItem("blockly.xml", xmlText);
-
-  //   primaryWorkspace.current.dispose();
-
-  //   if (newLan === "sv") {
-  //     Blockly.setLocale(sv);
-  //   } else {
-  //     Blockly.setLocale(en);
-  //   }
-  //   // window.location.reload();
-
-  //   var xmlTextTemp = localStorage.getItem("blockly.xml");
-
-  //   await new Promise((r) => setTimeout(r, 2000));
-
-  //   var { initialXml, children, ...rest } = props;
-  //   primaryWorkspace.current = Blockly.inject(blocklyDiv.current, {
-  //     toolbox: toolbox.current,
-  //     ...rest,
-  //   });
-
-  //   initialXml = xmlTextTemp;
-
-  //   if (initialXml) {
-  //     Blockly.mainWorkspace.clear();
-  //     xmlDom = Blockly.Xml.textToDom(initialXml);
-  //     Blockly.Xml.domToWorkspace(Blockly.mainWorkspace, xmlDom);
-  //   }
-  // };
-
   useEffect(() => {
     const { initialXml, children, ...rest } = props;
     primaryWorkspace.current = Blockly.inject(blocklyDiv.current, {
       toolbox: toolbox.current,
       ...rest,
     });
-
-    // Returns an arry of XML nodes.
-    // var coloursFlyoutCallback = function (workspace) {
-    //   // Returns an array of hex colours, e.g. ['#4286f4', '#ef0447']
-    //   var colourList = primaryWorkspace.current.getAllVariables();
-    //   var blockList = [];
-    //   for (var i = 0; i < colourList.length; i++) {
-    //     var block = document.createElement("block");
-    //     block.setAttribute("type", "field_variable");
-    //     var field = document.createElement("field");
-    //     field.setAttribute("name", "VARS");
-    //     field.innerText = colourList[i];
-    //     block.appendChild(field);
-    //     blockList.push(block);
-    //   }
-    //   return blockList;
-    // };
-
-    // // Associates the function with the string 'VARS'
-    // primaryWorkspace.current.registerToolboxCategoryCallback(
-    //   "VARS",
-    //   coloursFlyoutCallback
-    // );
-
-    // primaryWorkspace.current.registerButtonCallback(
-    //   "intVar",
-    //   function (button) {
-    //     Blockly.Variables.createVariable(
-    //       button.getTargetWorkspace(),
-    //       null,
-    //       "Number"
-    //     );
-    //   }
-    // );
 
     if (initialXml) {
       Blockly.Xml.domToWorkspace(
@@ -146,12 +108,76 @@ function BlocklyComponent(props) {
     }
   }, [primaryWorkspace, toolbox, blocklyDiv, props]);
 
+  const saveBlocks = () => {
+    var xmlDom = Blockly.Xml.workspaceToDom(primaryWorkspace.current);
+    var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
+    // do whatever you want to this xml
+
+    var filename = "workspace.xml";
+    var pom = document.createElement("a");
+    var bb = new Blob([xmlText], { type: "text/plain" });
+
+    pom.setAttribute("href", window.URL.createObjectURL(bb));
+    pom.setAttribute("download", filename);
+
+    pom.dataset.downloadurl = ["text/plain", pom.download, pom.href].join(":");
+    pom.draggable = true;
+    pom.classList.add("dragout");
+
+    pom.click();
+  };
+
+  const loadBlocks = (file) => {
+    // var xml;
+    // document.getElementById("buttonid").addEventListener("click", openDialog);
+    // function openDialog() {
+    //   document.getElementById("fileid").click();
+    // }
+    // document.getElementById("fileid").addEventListener("change", submitForm);
+    // function submitForm() {
+    //   xml = document.getElementById("formid").submit();
+    // }
+
+    var xml;
+
+    var reader = new FileReader();
+    reader.onload = function () {
+      xml = reader.result;
+      // console.log(xml);
+
+      if (typeof xml != "string" || xml.length < 5) {
+        return false;
+      }
+      try {
+        var dom = Blockly.Xml.textToDom(xml);
+        Blockly.mainWorkspace.clear();
+        Blockly.Xml.domToWorkspace(Blockly.mainWorkspace, dom);
+        return true;
+      } catch (e) {
+        return false;
+      }
+      // xml is the same block xml you stored
+    };
+    reader.readAsText(file);
+  };
+
+  const hiddenFileInput = React.useRef(null);
+
+  const handleClick = (event) => {
+    hiddenFileInput.current.click();
+  };
+  const handleChange = (event) => {
+    const fileUploaded = event.target.files[0];
+    // props.handleFile(fileUploaded);
+    loadBlocks(fileUploaded);
+  };
+
   const codeSentMessage = () => {
     confirmAlert({
-      title: 'Din kod har lagts i kön!',
+      title: "Din kod har lagts i kön!",
       buttons: [
         {
-          label: 'Vad bra',
+          label: "Vad bra",
         },
       ],
     });
@@ -160,12 +186,25 @@ function BlocklyComponent(props) {
   const sendCode = () => {
     generateCode();
     codeSentMessage();
-  }
+  };
+
+  const goToHome = () => {
+    navigate("/");
+  };
 
   return (
     <React.Fragment>
-      {/* <button onClick={setLanguage("sv")}>Byt språk</button> */}
-      <button onClick={sendCode}>Skicka koden till Pepper</button>
+      <button onClick={handleClick}>{formText.import}</button>
+      <input
+        type="file"
+        accept="text/xml"
+        ref={hiddenFileInput}
+        onChange={handleChange}
+        style={{ display: "none" }}
+      />
+      <button onClick={saveBlocks}>{formText.export}</button>
+      <button onClick={sendCode}>{formText.send}</button>
+      <button onClick={goToHome}>{formText.backToHome}</button>
       <div ref={blocklyDiv} id="blocklyDiv" />
       <div style={{ display: "none" }} ref={toolbox}>
         {props.children}

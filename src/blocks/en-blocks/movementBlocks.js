@@ -1,6 +1,6 @@
 import * as Blockly from "blockly/core";
-import "../fields/BlocklyReactField";
-import "../fields/DateField";
+import "../../fields/BlocklyReactField";
+import "../../fields/DateField";
 import "@blockly/field-date";
 
 const MoveHeadColour = 40;
@@ -13,8 +13,8 @@ const MovePepperColour = 140;
  */
 
 var moveHeadLeftRight = {
-  type: "move_head_left_right",
-  message0: "Rör huvudet (vänster, höger) (grader %1 fart %2)",
+  type: "move_head_left_right_en",
+  message0: "Move head (left, right) (degrees %1 speed %2)",
   args0: [
     {
       type: "input_value",
@@ -34,7 +34,7 @@ var moveHeadLeftRight = {
   helpUrl: "",
 };
 
-Blockly.Blocks["move_head_left_right"] = {
+Blockly.Blocks["move_head_left_right_en"] = {
   init: function () {
     this.jsonInit(moveHeadLeftRight);
     this.setStyle("loop_blocks");
@@ -43,8 +43,8 @@ Blockly.Blocks["move_head_left_right"] = {
 };
 
 var moveHeadUpDown = {
-  type: "move_head_up_down",
-  message0: "Rör huvudet (upp, ner) (grader %1 fart %2)",
+  type: "move_head_up_down_en",
+  message0: "Move head (up, down) (degrees %1 speed %2)",
   args0: [
     {
       type: "input_value",
@@ -64,7 +64,7 @@ var moveHeadUpDown = {
   helpUrl: "",
 };
 
-Blockly.Blocks["move_head_up_down"] = {
+Blockly.Blocks["move_head_up_down_en"] = {
   init: function () {
     this.jsonInit(moveHeadUpDown);
     this.setStyle("loop_blocks");
@@ -73,8 +73,8 @@ Blockly.Blocks["move_head_up_down"] = {
 };
 
 var resetHead = {
-  type: "reset_head",
-  message0: "Återställ huvudet",
+  type: "reset_head_en",
+  message0: "Reset head",
   inputsInline: true,
   previousStatement: null,
   nextStatement: null,
@@ -82,7 +82,7 @@ var resetHead = {
   helpUrl: "",
 };
 
-Blockly.Blocks["reset_head"] = {
+Blockly.Blocks["reset_head_en"] = {
   init: function () {
     this.jsonInit(resetHead);
     this.setStyle("loop_blocks");
@@ -91,8 +91,8 @@ Blockly.Blocks["reset_head"] = {
 };
 
 var nodHead = {
-  type: "nod_head",
-  message0: "Nicka huvudet",
+  type: "nod_head_en",
+  message0: "Nod head",
   inputsInline: true,
   previousStatement: null,
   nextStatement: null,
@@ -100,7 +100,7 @@ var nodHead = {
   helpUrl: "",
 };
 
-Blockly.Blocks["nod_head"] = {
+Blockly.Blocks["nod_head_en"] = {
   init: function () {
     this.jsonInit(nodHead);
     this.setStyle("loop_blocks");
@@ -109,7 +109,7 @@ Blockly.Blocks["nod_head"] = {
 };
 
 var shakeHead = {
-  type: "shake_head",
+  type: "shake_head_en",
   message0: "Skaka huvudet",
   inputsInline: true,
   previousStatement: null,
@@ -118,7 +118,7 @@ var shakeHead = {
   helpUrl: "",
 };
 
-Blockly.Blocks["shake_head"] = {
+Blockly.Blocks["shake_head_en"] = {
   init: function () {
     this.jsonInit(shakeHead);
     this.setStyle("loop_blocks");
@@ -127,8 +127,8 @@ Blockly.Blocks["shake_head"] = {
 };
 
 var spinHead = {
-  type: "spin_head",
-  message0: "Snurra huvudet (tid:%1 s)",
+  type: "spin_head_en",
+  message0: "Spin head for %1 seconds)",
   args0: [
     {
       type: "input_value",
@@ -146,7 +146,7 @@ var spinHead = {
   helpUrl: "",
 };
 
-Blockly.Blocks["spin_head"] = {
+Blockly.Blocks["spin_head_en"] = {
   init: function () {
     this.jsonInit(spinHead);
     this.setStyle("loop_blocks");
@@ -160,8 +160,8 @@ Blockly.Blocks["spin_head"] = {
  */
 
 var rotateLeftShoulderRoll = {
-  type: "rotate_left_shoulder_roll",
-  message0: "Rotera vänster axel (rulla) (fart %1 vinkel %2)",
+  type: "rotate_left_shoulder_roll_en",
+  message0: "Rotate left shoulder (roll) (speed %1 angle %2)",
   args0: [
     {
       type: "input_value",
@@ -187,7 +187,7 @@ var rotateLeftShoulderRoll = {
   helpUrl: "",
 };
 
-Blockly.Blocks["rotate_left_shoulder_roll"] = {
+Blockly.Blocks["rotate_left_shoulder_roll_en"] = {
   init: function () {
     this.jsonInit(rotateLeftShoulderRoll);
     this.setStyle("loop_blocks");
@@ -196,8 +196,8 @@ Blockly.Blocks["rotate_left_shoulder_roll"] = {
 };
 
 var rotateLeftShoulderPitch = {
-  type: "rotate_left_shoulder_pitch",
-  message0: "Rotera vänster axel (upp och ner) (fart %1 vinkel %2)",
+  type: "rotate_left_shoulder_pitch_en",
+  message0: "Rotate left shoulder (up and down) (speed %1 angle %2)",
   args0: [
     {
       type: "input_value",
@@ -223,7 +223,7 @@ var rotateLeftShoulderPitch = {
   helpUrl: "",
 };
 
-Blockly.Blocks["rotate_left_shoulder_pitch"] = {
+Blockly.Blocks["rotate_left_shoulder_pitch_en"] = {
   init: function () {
     this.jsonInit(rotateLeftShoulderPitch);
     this.setStyle("loop_blocks");
@@ -232,8 +232,8 @@ Blockly.Blocks["rotate_left_shoulder_pitch"] = {
 };
 
 var rotateLeftElbowRoll = {
-  type: "rotate_left_elbow_roll",
-  message0: "rotera vänster armbåge (rulla) (fart %1 vinkel %2)",
+  type: "rotate_left_elbow_roll_en",
+  message0: "rotate left elbow (roll) (speed %1 angle %2)",
   args0: [
     {
       type: "input_value",
@@ -259,7 +259,7 @@ var rotateLeftElbowRoll = {
   helpUrl: "",
 };
 
-Blockly.Blocks["rotate_left_elbow_roll"] = {
+Blockly.Blocks["rotate_left_elbow_roll_en"] = {
   init: function () {
     this.jsonInit(rotateLeftElbowRoll);
     this.setStyle("loop_blocks");
@@ -268,8 +268,8 @@ Blockly.Blocks["rotate_left_elbow_roll"] = {
 };
 
 var rotateRightShoulderRoll = {
-  type: "rotate_right_shoulder_roll",
-  message0: "Rotera höger axel (rulla) (fart %1 vinkel %2)",
+  type: "rotate_right_shoulder_roll_en",
+  message0: "Rotate right axis (roll) (speed %1 angle %2)",
   args0: [
     {
       type: "input_value",
@@ -295,7 +295,7 @@ var rotateRightShoulderRoll = {
   helpUrl: "",
 };
 
-Blockly.Blocks["rotate_right_shoulder_roll"] = {
+Blockly.Blocks["rotate_right_shoulder_roll_en"] = {
   init: function () {
     this.jsonInit(rotateRightShoulderRoll);
     this.setStyle("loop_blocks");
@@ -304,8 +304,8 @@ Blockly.Blocks["rotate_right_shoulder_roll"] = {
 };
 
 var rotateRightShoulderPitch = {
-  type: "rotate_right_shoulder_pitch",
-  message0: "Rotera höger axel (upp och ner) (fart %1 vinkel %2)",
+  type: "rotate_right_shoulder_pitch_en",
+  message0: "Rotate right shoulder (up and down) (speed %1 angle %2)",
   args0: [
     {
       type: "input_value",
@@ -331,7 +331,7 @@ var rotateRightShoulderPitch = {
   helpUrl: "",
 };
 
-Blockly.Blocks["rotate_right_shoulder_pitch"] = {
+Blockly.Blocks["rotate_right_shoulder_pitch_en"] = {
   init: function () {
     this.jsonInit(rotateRightShoulderPitch);
     this.setStyle("loop_blocks");
@@ -340,8 +340,8 @@ Blockly.Blocks["rotate_right_shoulder_pitch"] = {
 };
 
 var rotateRightElbowRoll = {
-  type: "rotate_right_elbow_roll",
-  message0: "Rotera höger armbåge (rulla) (fart %1 vinkel %2)",
+  type: "rotate_right_elbow_roll_en",
+  message0: "Rotate right elbow (roll) (speed %1 angle %2)",
   args0: [
     {
       type: "input_value",
@@ -367,7 +367,7 @@ var rotateRightElbowRoll = {
   helpUrl: "",
 };
 
-Blockly.Blocks["rotate_right_elbow_roll"] = {
+Blockly.Blocks["rotate_right_elbow_roll_en"] = {
   init: function () {
     this.jsonInit(rotateRightElbowRoll);
     this.setStyle("loop_blocks");
@@ -380,9 +380,9 @@ Blockly.Blocks["rotate_right_elbow_roll"] = {
  */
 
 var movePepper = {
-  type: "move_pepper",
+  type: "move_pepper_en",
   message0:
-    "Flytta Pepper (bakåt,framåt): %1 (vänster,höger): %2 rotera: %3 tid: %4 s",
+    "Move Pepper (backward,forward): %1 (left,right): %2 rotate: %3 for %4 seconds",
   args0: [
     {
       type: "input_value",
@@ -424,7 +424,7 @@ var movePepper = {
   helpUrl: "",
 };
 
-Blockly.Blocks["move_pepper"] = {
+Blockly.Blocks["move_pepper_en"] = {
   init: function () {
     this.jsonInit(movePepper);
     this.setStyle("loop_blocks");
@@ -433,8 +433,8 @@ Blockly.Blocks["move_pepper"] = {
 };
 
 var stopMovement = {
-  type: "stop_movement",
-  message0: "Stoppa rörelsen",
+  type: "stop_movement_en",
+  message0: "Stop movement",
   inputsInline: true,
   previousStatement: null,
   nextStatement: null,
@@ -442,7 +442,7 @@ var stopMovement = {
   helpUrl: "",
 };
 
-Blockly.Blocks["stop_movement"] = {
+Blockly.Blocks["stop_movement_en"] = {
   init: function () {
     this.jsonInit(stopMovement);
     this.setStyle("loop_blocks");
@@ -455,8 +455,8 @@ Blockly.Blocks["stop_movement"] = {
  */
 
 var dance = {
-  type: "dance",
-  message0: "dansa",
+  type: "dance_en",
+  message0: "dance",
   inputsInline: true,
   previousStatement: null,
   nextStatement: null,
@@ -464,7 +464,7 @@ var dance = {
   helpUrl: "",
 };
 
-Blockly.Blocks["dance"] = {
+Blockly.Blocks["dance_en"] = {
   init: function () {
     this.jsonInit(dance);
     this.setStyle("loop_blocks");
@@ -473,8 +473,8 @@ Blockly.Blocks["dance"] = {
 };
 
 var ketchupDance = {
-  type: "ketchup_dance",
-  message0: "ketchupdansen",
+  type: "ketchup_dance_en",
+  message0: "Ketchup dance",
   inputsInline: true,
   previousStatement: null,
   nextStatement: null,
@@ -482,7 +482,7 @@ var ketchupDance = {
   helpUrl: "",
 };
 
-Blockly.Blocks["ketchup_dance"] = {
+Blockly.Blocks["ketchup_dance_en"] = {
   init: function () {
     this.jsonInit(ketchupDance);
     this.setStyle("loop_blocks");
@@ -491,8 +491,8 @@ Blockly.Blocks["ketchup_dance"] = {
 };
 
 var robotDance = {
-  type: "robot_dance",
-  message0: "Robotdans",
+  type: "robot_dance_en",
+  message0: "Robot dance",
   inputsInline: true,
   previousStatement: null,
   nextStatement: null,
@@ -500,7 +500,7 @@ var robotDance = {
   helpUrl: "",
 };
 
-Blockly.Blocks["robot_dance"] = {
+Blockly.Blocks["robot_dance_en"] = {
   init: function () {
     this.jsonInit(robotDance);
     this.setStyle("loop_blocks");
