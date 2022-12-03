@@ -1,0 +1,7 @@
+version: '3.9'
+services:
+  blockly-site:
+    container_name: blockly-site
+    image: blockly-site
+    ports:
+      - 3000:3000
