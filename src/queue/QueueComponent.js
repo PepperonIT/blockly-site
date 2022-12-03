@@ -1,24 +1,48 @@
 import React, { Component } from "react";
-import { Value } from "../blockly";
 import "./QueueComponent.css";
+import axios from "axios";
 
 class QueueComponent extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      testDigit: [1, 2, 3]
+      queue: [["", ""]] //Default empty state
     }
   }
 
-  componentDidMount = () => {
-    this.myTimer = setInterval(() => {
-      this.setState((prevState) => ({
-        testDigit: prevState.testDigit.map(value => value + 1) //Testing placeholder
-      }));
-    }, 1000) //Update interval
+  /**
+   * Updates the queue with a call to the server
+   */
+  updateQueue() {
+    const myIP = "0.0.0.0"; // Only use localhost if site is running on dev-machine ONLY. Otherwise use full IP! Remember to open ports!
+    var newQueue;
+    
+    axios
+      .get(`http://${myIP}:5000/queue`)
+      .then((res) => {
+        this.setState(() => ({
+          queue: res.data.queue
+        }));
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }
 
+  /**
+   * Periodically calls the updateQueue method to ensure
+   * that the queue is reasonably up to date
+   */
+  componentDidMount = () => {
+    this.myTimer = setInterval(() => {
+      this.updateQueue()
+    }, 1000) //Update interval in ms
+  }
+
+  /**
+   * Clears unmounted components to save memory
+   */
   componentWillUnmount = () => {
     clearInterval(this.myTimer);
   }
@@ -33,13 +57,13 @@ class QueueComponent extends Component {
         <ul>
             <li><h1>
             Kö
-            <hr class="solid"></hr>
+            <hr className="solid"></hr>
             </h1></li>
-            {this.state.testDigit.map(listitem => (
+            {this.state.queue.map((item, index) => ( //Hack solution. Should probably be refactored later.
               <li>
-                 <span class="b">
-                 {listitem}
-                 </span>
+              <span className="b">
+                {this.state.queue[index][1]}
+              </span>
               </li>
             ))}
         </ul>
