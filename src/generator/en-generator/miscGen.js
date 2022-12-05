@@ -23,6 +23,10 @@ Blockly.Python["search_picture_en"] = function (block) {
   return `XXXXXXXXXXX(${searchString})\n`;
 };
 
+Blockly.Python["play_rock_paper_scisors_en"] = function (block) {
+  return `XXXXXXXXXXX()\n`;
+};
+
 function getDuration(block) {
   var duration =
     Blockly.Python.valueToCode(block, "DURATION", Blockly.Python.ORDER_NONE) ||

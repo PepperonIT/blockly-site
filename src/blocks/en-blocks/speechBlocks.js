@@ -20,7 +20,7 @@ var say = {
 Blockly.Blocks["say_en"] = {
   init: function () {
     this.jsonInit(say);
-    this.setStyle("loop_blocks");
+    this.setStyle("text_blocks");
     this.setColour(180);
   },
 };

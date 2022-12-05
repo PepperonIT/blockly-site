@@ -79,3 +79,21 @@ Blockly.Blocks["search_picture"] = {
     this.setColour(350);
   },
 };
+
+var playRPS = {
+  type: "play_rock_paper_scisors",
+  message0: "Spela sten-sax-påse",
+  inputsInline: true,
+  previousStatement: null,
+  nextStatement: null,
+  tooltip: "Spela sten-sax-påse med Pepper",
+  helpUrl: "",
+};
+
+Blockly.Blocks["play_rock_paper_scisors"] = {
+  init: function () {
+    this.jsonInit(playRPS);
+    this.setStyle("loop_blocks");
+    this.setColour(350);
+  },
+};

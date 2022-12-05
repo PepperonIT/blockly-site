@@ -75,6 +75,24 @@ var searchPic = {
 Blockly.Blocks["search_picture_en"] = {
   init: function () {
     this.jsonInit(searchPic);
+    this.setStyle("text_blocks");
+    this.setColour(350);
+  },
+};
+
+var playRPS = {
+  type: "play_rock_paper_scisors_en",
+  message0: "Play rock paper scissors",
+  inputsInline: true,
+  previousStatement: null,
+  nextStatement: null,
+  tooltip: "Play rock paper scissors with Pepper",
+  helpUrl: "",
+};
+
+Blockly.Blocks["play_rock_paper_scisors_en"] = {
+  init: function () {
+    this.jsonInit(playRPS);
     this.setStyle("loop_blocks");
     this.setColour(350);
   },
