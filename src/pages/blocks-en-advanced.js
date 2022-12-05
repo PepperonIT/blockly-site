@@ -36,20 +36,17 @@ import BlocklyComponent, {
   Mutation,
 } from "../blockly";
 
-// require "@blockly/field-date";
-// import "@blockly/field-slider";
-
 import "../fields/shadowFields";
 
-import "../blocks/en-blocks/expressionsBlocks";
-import "../blocks/en-blocks/movementBlocks";
-import "../blocks/en-blocks/speechBlocks";
-import "../blocks/en-blocks/miscBlocks";
+import "../blocks/expressionsBlocks";
+import "../blocks/movementBlocks";
+import "../blocks/speechBlocks";
+import "../blocks/miscBlocks";
 
-import "../generator/en-generator/expressionsGen";
-import "../generator/en-generator/movementGen";
-import "../generator/en-generator/speechGen";
-import "../generator/en-generator/miscGen";
+import "../generator/expressionsGen";
+import "../generator/miscGen";
+import "../generator/movementGen";
+import "../generator/speechGen";
 import "../generator/shadowFieldGen";
 
 function BlocksEnAdvanced() {
@@ -76,7 +73,7 @@ function BlocksEnAdvanced() {
              *
              */}
             <Category name="Expressions" colour="#5B6DA5">
-              <Block type="rotate_eyes_en">
+              <Block type="rotate_eyes">
                 <Value name="COLOUR">
                   <Shadow type="colour_picker">
                     <Field name="COLOUR">#8080ff</Field>
@@ -86,7 +83,7 @@ function BlocksEnAdvanced() {
                   <Shadow type="number_constraint"></Shadow>
                 </Value>
               </Block>
-              <Block type="fade_eyes_en">
+              <Block type="fade_eyes">
                 <Value name="COLOUR">
                   <Shadow type="colour_picker">
                     <Field name="COLOUR">#8080ff</Field>
@@ -96,38 +93,38 @@ function BlocksEnAdvanced() {
                   <Shadow type="number_constraint"></Shadow>
                 </Value>
               </Block>
-              <Block type="angry_eyes_en" />
-              <Block type="sad_eyes_en" />
-              <Block type="blink_eyes_en">
+              <Block type="angry_eyes" />
+              <Block type="sad_eyes" />
+              <Block type="blink_eyes">
                 <Value name="DURATION">
                   <Shadow type="number_constraint"></Shadow>
                 </Value>
               </Block>
-              <Block type="squint_eyes_en">
+              <Block type="squint_eyes">
                 <Value name="DURATION">
                   <Shadow type="number_constraint"></Shadow>
                 </Value>
               </Block>
-              <Block type="random_eyes_en">
+              <Block type="random_eyes">
                 <Value name="DURATION">
                   <Shadow type="number_constraint"></Shadow>
                 </Value>
               </Block>
-              <Block type="wink_eye_en" />
+              <Block type="wink_eye" />
             </Category>
             {/**
              *
              */}
             <Category name="Arm gestures" colour="#8CA55B">
-              <Block type="rotate_left_shoulder_roll_en">
+              <Block type="rotate_left_shoulder_roll">
                 <Value name="DEGREES">
                   <Shadow type="angle_constraint_3"></Shadow>
                 </Value>
                 <Value name="SPEED">
-                  <Shadow type="speed_constraint_en"></Shadow>
+                  <Shadow type="speed_constraint"></Shadow>
                 </Value>
               </Block>
-              <Block type="rotate_left_shoulder_pitch_en">
+              <Block type="rotate_left_shoulder_pitch">
                 <Value name="DEGREES">
                   <Shadow type="angle_constraint_1"></Shadow>
                 </Value>
@@ -135,7 +132,7 @@ function BlocksEnAdvanced() {
                   <Shadow type="speed_constraint"></Shadow>
                 </Value>
               </Block>
-              <Block type="rotate_left_elbow_roll_en">
+              <Block type="rotate_left_elbow_roll">
                 <Value name="DEGREES">
                   <Shadow type="angle_constraint_4"></Shadow>
                 </Value>
@@ -143,7 +140,7 @@ function BlocksEnAdvanced() {
                   <Shadow type="speed_constraint"></Shadow>
                 </Value>
               </Block>
-              <Block type="rotate_right_shoulder_roll_en">
+              <Block type="rotate_right_shoulder_roll">
                 <Value name="DEGREES">
                   <Shadow type="angle_constraint_4"></Shadow>
                 </Value>
@@ -151,7 +148,7 @@ function BlocksEnAdvanced() {
                   <Shadow type="speed_constraint"></Shadow>
                 </Value>
               </Block>
-              <Block type="rotate_right_shoulder_pitch_en">
+              <Block type="rotate_right_shoulder_pitch">
                 <Value name="DEGREES">
                   <Shadow type="angle_constraint_1"></Shadow>
                 </Value>
@@ -159,7 +156,7 @@ function BlocksEnAdvanced() {
                   <Shadow type="speed_constraint"></Shadow>
                 </Value>
               </Block>
-              <Block type="rotate_right_elbow_roll_en">
+              <Block type="rotate_right_elbow_roll">
                 <Value name="DEGREES">
                   <Shadow type="angle_constraint_3"></Shadow>
                 </Value>
@@ -172,7 +169,7 @@ function BlocksEnAdvanced() {
              *
              */}
             <Category name="Head gestures" colour="#A58C5B">
-              <Block type="move_head_left_right_en">
+              <Block type="move_head_left_right">
                 <Value name="DEGREES">
                   <Shadow type="angle_constraint_1"></Shadow>
                 </Value>
@@ -180,7 +177,7 @@ function BlocksEnAdvanced() {
                   <Shadow type="speed_constraint"></Shadow>
                 </Value>
               </Block>
-              <Block type="move_head_up_down_en">
+              <Block type="move_head_up_down">
                 <Value name="DEGREES">
                   <Shadow type="angle_constraint_2"></Shadow>
                 </Value>
@@ -188,10 +185,10 @@ function BlocksEnAdvanced() {
                   <Shadow type="speed_constraint"></Shadow>
                 </Value>
               </Block>
-              <Block type="reset_head_en" />
-              <Block type="nod_head_en" />
-              <Block type="shake_head_en" />
-              <Block type="spin_head_en">
+              <Block type="reset_head" />
+              <Block type="nod_head" />
+              <Block type="shake_head" />
+              <Block type="spin_head">
                 <Value name="DURATION">
                   <Shadow type="number_constraint"></Shadow>
                 </Value>
@@ -201,7 +198,7 @@ function BlocksEnAdvanced() {
              *
              */}
             <Category name="Movements" colour="#5BA574">
-              <Block type="move_pepper_en">
+              <Block type="move_pepper">
                 <Value name="X">
                   <Shadow type="speed_constraint_2"></Shadow>
                 </Value>
@@ -215,16 +212,16 @@ function BlocksEnAdvanced() {
                   <Shadow type="number_constraint"></Shadow>
                 </Value>
               </Block>
-              <Block type="stop_movement_en" />
-              <Block type="dance_en" />
-              <Block type="ketchup_dance_en" />
-              <Block type="robot_dance_en" />
+              <Block type="stop_movement" />
+              <Block type="dance" />
+              <Block type="ketchup_dance" />
+              <Block type="robot_dance" />
             </Category>
             {/**
              *
              */}
             <Category name="Speak" colour="#5BA5A5">
-              <Block type="say_en">
+              <Block type="say">
                 <Value name="TEXT">
                   <Shadow type="text">
                     <Field name="TEXT">Hi, my name is Pepper!</Field>
@@ -613,13 +610,13 @@ function BlocksEnAdvanced() {
              *
              */}
             <Category name="Other" colour="#A55B67">
-              <Block type="wait_en">
+              <Block type="wait">
                 <Value name="DURATION">
                   <Shadow type="number_constraint"></Shadow>
                 </Value>
               </Block>
-              <Block type="play_music_en"></Block>
-              <Block type="search_picture_en">
+              <Block type="play_music"></Block>
+              <Block type="search_picture">
                 <Value name="TEXT">
                   <Shadow type="text">
                     <Field name="TEXT">Cat pictures</Field>

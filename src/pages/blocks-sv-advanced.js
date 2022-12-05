@@ -36,20 +36,17 @@ import BlocklyComponent, {
   Mutation,
 } from "../blockly";
 
-// require "@blockly/field-date";
-// import "@blockly/field-slider";
-
 import "../fields/shadowFields";
 
-import "../blocks/sv-blocks/expressionsBlocks";
-import "../blocks/sv-blocks/movementBlocks";
-import "../blocks/sv-blocks/speechBlocks";
-import "../blocks/sv-blocks/miscBlocks";
+import "../blocks/expressionsBlocks";
+import "../blocks/movementBlocks";
+import "../blocks/speechBlocks";
+import "../blocks/miscBlocks";
 
-import "../generator/sv-generator/expressionsGen";
-import "../generator/sv-generator/movementGen";
-import "../generator/sv-generator/speechGen";
-import "../generator/sv-generator/miscGen";
+import "../generator/expressionsGen";
+import "../generator/miscGen";
+import "../generator/movementGen";
+import "../generator/speechGen";
 import "../generator/shadowFieldGen";
 
 function BlocksSvAdvanced() {

@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 import "../styles/homeStyle.css";
+const exprBlocks = require("../blocks/expressionsBlocks");
+const speechBlocks = require("../blocks/speechBlocks");
+const miscBlocks = require("../blocks/miscBlocks");
+const movementBlocks = require("../blocks/movementBlocks");
 
 function Home() {
   const navigate = useNavigate();
@@ -31,11 +35,18 @@ function Home() {
   }
 
   function changeLanguage() {
-    console.log(english);
     if (english) {
       formText = enForm;
+      exprBlocks.setEN();
+      speechBlocks.setEN();
+      miscBlocks.setEN();
+      movementBlocks.setEN();
     } else {
       formText = svForm;
+      exprBlocks.setSV();
+      speechBlocks.setSV();
+      miscBlocks.setSV();
+      movementBlocks.setSV();
     }
   }
 

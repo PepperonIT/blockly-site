@@ -2,8 +2,6 @@ import * as Blockly from "blockly/core";
 import "blockly/python";
 import "@blockly/field-slider";
 
-// const { NameType } = goog.require("Blockly.Names");
-
 /**
  *
  * TODO: remove all /n in the return statments
