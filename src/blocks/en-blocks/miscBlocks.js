@@ -2,7 +2,7 @@ import * as Blockly from "blockly/core";
 
 var wait = {
   type: "wait_en",
-  message0: "wait for %1 seconds",
+  message0: "Wait for %1 seconds",
   args0: [
     {
       type: "input_value",

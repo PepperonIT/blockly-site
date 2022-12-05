@@ -110,7 +110,7 @@ Blockly.Blocks["nod_head_en"] = {
 
 var shakeHead = {
   type: "shake_head_en",
-  message0: "Skaka huvudet",
+  message0: "Shake head",
   inputsInline: true,
   previousStatement: null,
   nextStatement: null,
@@ -128,7 +128,7 @@ Blockly.Blocks["shake_head_en"] = {
 
 var spinHead = {
   type: "spin_head_en",
-  message0: "Spin head for %1 seconds)",
+  message0: "Spin head for %1 seconds",
   args0: [
     {
       type: "input_value",
@@ -233,7 +233,7 @@ Blockly.Blocks["rotate_left_shoulder_pitch_en"] = {
 
 var rotateLeftElbowRoll = {
   type: "rotate_left_elbow_roll_en",
-  message0: "rotate left elbow (roll) (speed %1 angle %2)",
+  message0: "Rotate left elbow (roll) (speed %1 angle %2)",
   args0: [
     {
       type: "input_value",
@@ -456,7 +456,7 @@ Blockly.Blocks["stop_movement_en"] = {
 
 var dance = {
   type: "dance_en",
-  message0: "dance",
+  message0: "Dance",
   inputsInline: true,
   previousStatement: null,
   nextStatement: null,

@@ -1,6 +1,6 @@
 import * as Blockly from "blockly/core";
 import "../../fields/BlocklyReactField";
-import "../../fields/DateField"
+import "../../fields/DateField";
 import "@blockly/field-date";
 
 const MoveHeadColour = 40;
@@ -128,7 +128,7 @@ Blockly.Blocks["shake_head"] = {
 
 var spinHead = {
   type: "spin_head",
-  message0: "Snurra huvudet (tid:%1 s)",
+  message0: "Snurra huvudet i %1 sekunder",
   args0: [
     {
       type: "input_value",
@@ -233,7 +233,7 @@ Blockly.Blocks["rotate_left_shoulder_pitch"] = {
 
 var rotateLeftElbowRoll = {
   type: "rotate_left_elbow_roll",
-  message0: "rotera vänster armbåge (rulla) (fart %1 vinkel %2)",
+  message0: "Rotera vänster armbåge (rulla) (fart %1 vinkel %2)",
   args0: [
     {
       type: "input_value",
@@ -456,7 +456,7 @@ Blockly.Blocks["stop_movement"] = {
 
 var dance = {
   type: "dance",
-  message0: "dansa",
+  message0: "Dansa",
   inputsInline: true,
   previousStatement: null,
   nextStatement: null,
@@ -474,7 +474,7 @@ Blockly.Blocks["dance"] = {
 
 var ketchupDance = {
   type: "ketchup_dance",
-  message0: "ketchupdansen",
+  message0: "Ketchupdansen",
   inputsInline: true,
   previousStatement: null,
   nextStatement: null,

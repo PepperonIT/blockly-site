@@ -2,7 +2,7 @@ import * as Blockly from "blockly/core";
 
 var say = {
   type: "say_en",
-  message0: "say %1",
+  message0: "Say %1",
   args0: [
     {
       type: "input_value",

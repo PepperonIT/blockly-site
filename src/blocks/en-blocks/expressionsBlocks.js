@@ -1,6 +1,6 @@
 import * as Blockly from "blockly/core";
 import "../../fields/BlocklyReactField";
-import "../../fields/DateField"
+import "../../fields/DateField";
 import "@blockly/field-date";
 import "@blockly/field-slider";
 
@@ -204,7 +204,7 @@ Blockly.Blocks["random_eyes_en"] = {
 
 var winkEye = {
   type: "wink_eye_en",
-  message0: "wink eye %1",
+  message0: "Wink eye %1",
   args0: [
     {
       type: "field_dropdown",
