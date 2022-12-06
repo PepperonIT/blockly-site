@@ -131,7 +131,7 @@ function UpdateBlocks() {
     helpUrl: "",
   };
 
-  Blockly.Blocks["play_rock_paper_scisors"] = {
+  Blockly.Blocks["play_rock_paper_scissors"] = {
     init: function () {
       this.jsonInit(playRPS);
       this.setStyle("loop_blocks");

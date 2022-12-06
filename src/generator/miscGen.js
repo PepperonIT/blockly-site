@@ -23,7 +23,7 @@ Blockly.Python["search_picture"] = function (block) {
   return `XXXXXXXXXXX(${searchString})\n`;
 };
 
-Blockly.Python["play_rock_paper_scisors"] = function (block) {
+Blockly.Python["play_rock_paper_scissors"] = function (block) {
   return `XXXXXXXXXXX()\n`;
 };
 

@@ -553,7 +553,6 @@ function BlocksSvAdvanced() {
                     <Shadow type="text"></Shadow>
                   </Value>
                 </Block>
-                {/* <label text="Input/Output:" web-class="ioLabel"></label> */}
                 <Block type="text_print" disabled="true">
                   <Value name="TEXT">
                     <Shadow type="text">
@@ -704,8 +703,8 @@ function BlocksSvAdvanced() {
                     <Shadow type="number_constraint"></Shadow>
                   </Value>
                 </Block>
-                <Block type="play_music"></Block>
-                <Block type="search_picture">
+                <Block type="play_music" disabled="true"></Block>
+                <Block type="search_picture" disabled="true">
                   <Value name="TEXT">
                     <Shadow type="text">
                       <Field name="TEXT">
@@ -714,6 +713,7 @@ function BlocksSvAdvanced() {
                     </Shadow>
                   </Value>
                 </Block>
+                <Block type="play_rock_paper_scissors" disabled="true"></Block>
               </Category>
             </BlocklyComponent>
             <div className="Queue-div">
