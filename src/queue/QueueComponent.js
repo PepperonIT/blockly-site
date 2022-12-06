@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./QueueComponent.css";
 import axios from "axios";
+import Cookies from "universal-cookie";
 
 class QueueComponent extends Component {
 
@@ -9,14 +10,16 @@ class QueueComponent extends Component {
     this.state = {
       queue: [["", ""]] //Default empty state
     }
+    
   }
+
+  cookies = new Cookies();
 
   /**
    * Updates the queue with a call to the server
    */
   updateQueue() {
-    const myIP = "0.0.0.0"; // Only use localhost if site is running on dev-machine ONLY. Otherwise use full IP! Remember to open ports!
-    var newQueue;
+    const myIP = "localhost"; // Only use localhost if site is running on dev-machine ONLY. Otherwise use full IP! Remember to open ports!
     
     axios
       .get(`http://${myIP}:5000/queue`)
@@ -28,6 +31,19 @@ class QueueComponent extends Component {
       .catch((err) => {
         console.error(err);
       });
+  }
+
+  deleteQueueItem(id) {
+    const myIP = "localhost";
+
+    axios
+      .delete(`http://${myIP}:5000/remove?pid=${id}`)
+      .then((res) => {
+        console.log("Todo");
+      })
+      .catch((err) => {
+        console.log(err);
+      })
   }
 
   /**
@@ -63,6 +79,9 @@ class QueueComponent extends Component {
               <li>
               <span className="b">
                 {this.state.queue[index][1]}
+                {this.cookies.get("nickname") === "admin" && // admin check
+                  <button className="deletebutton" onclick={this.deleteQueueItem(this.state.queue[index][0])}>x</button>
+                }
               </span>
               </li>
             ))}
