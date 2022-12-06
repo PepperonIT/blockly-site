@@ -62,6 +62,7 @@ function BlocksSvAdvanced() {
     head_gestures: "Huvudgester",
     movement: "Rörelser",
     speak: "Tala",
+    speak_placeholder: "Hej, mitt namn är Pepper!",
     logic: "Logik",
     loops: "Loopar",
     mathematics: "Matematik",
@@ -71,6 +72,7 @@ function BlocksSvAdvanced() {
     variables: "Variabler",
     functions: "Funktioner",
     other: "Annat",
+    search_pic_placeholder: "Kattbilder",
   };
 
   const EN_CATEGORY_STRINGS = {
@@ -79,6 +81,7 @@ function BlocksSvAdvanced() {
     head_gestures: "Head gestures",
     movement: "Movements",
     speak: "Speak",
+    speak_placeholder: "Hi, my name is Pepper!",
     logic: "Logic",
     loops: "Loops",
     mathematics: "Mathematics",
@@ -88,6 +91,7 @@ function BlocksSvAdvanced() {
     variables: "Variables",
     functions: "Functions",
     other: "Other",
+    search_pic_placeholder: "Cat pictures",
   };
 
   CATEGORY_STRINGS = SV_CATEGORY_STRINGS;
@@ -280,7 +284,9 @@ function BlocksSvAdvanced() {
                 <Block type="say">
                   <Value name="TEXT">
                     <Shadow type="text">
-                      <Field name="TEXT">Hej, mitt namn är Pepper!</Field>
+                      <Field name="TEXT">
+                        {CATEGORY_STRINGS["speak_placeholder"]}
+                      </Field>
                     </Shadow>
                   </Value>
                 </Block>
@@ -702,7 +708,9 @@ function BlocksSvAdvanced() {
                 <Block type="search_picture">
                   <Value name="TEXT">
                     <Shadow type="text">
-                      <Field name="TEXT">Kattbilder</Field>
+                      <Field name="TEXT">
+                        {CATEGORY_STRINGS["search_pic_placeholder"]}
+                      </Field>
                     </Shadow>
                   </Value>
                 </Block>
