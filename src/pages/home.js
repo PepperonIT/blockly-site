@@ -6,6 +6,7 @@ const exprBlocks = require("../blocks/expressionsBlocks");
 const speechBlocks = require("../blocks/speechBlocks");
 const miscBlocks = require("../blocks/miscBlocks");
 const movementBlocks = require("../blocks/movementBlocks");
+const blocksPage = require("./blocks-page");
 
 function Home() {
   const navigate = useNavigate();
@@ -35,6 +36,7 @@ function Home() {
   }
 
   function changeLanguage() {
+    // blocksPage.changeLanguage();
     if (english) {
       formText = enForm;
       exprBlocks.setEN();
