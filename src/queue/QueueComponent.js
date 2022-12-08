@@ -35,6 +35,7 @@ class QueueComponent extends Component {
 
   deleteQueueItem(id) {
     const myIP = "localhost";
+    console.log("test");
 
     axios
       .delete(`http://${myIP}:5000/remove?pid=${id}`)
@@ -42,7 +43,7 @@ class QueueComponent extends Component {
         console.log("Todo");
       })
       .catch((err) => {
-        console.log(err);
+        //console.log(err);
       })
   }
 
@@ -80,7 +81,7 @@ class QueueComponent extends Component {
               <span className="b">
                 {this.state.queue[index][1]}
                 {this.cookies.get("nickname") === "admin" && // admin check
-                  <button className="deletebutton" onclick={this.deleteQueueItem(this.state.queue[index][0])}>x</button>
+                  <button className="deletebutton" onClick={() => this.deleteQueueItem(this.state.queue[index][0])}>x</button>
                 }
               </span>
               </li>
