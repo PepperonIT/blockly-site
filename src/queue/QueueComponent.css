@@ -37,8 +37,24 @@ button.deletebutton {
   border-bottom-right-radius: 2px;
   border-bottom-left-radius: 0px;
   border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
+  border-top-right-radius: 2px;
   right: 0;
+  bottom: 0;
+  position: absolute;
+  text-align: center;
+  margin: 0 auto;
+}
+
+button.editbutton {
+  background-color: cyan;
+  color: black;
+  height: 100%;
+  width: 70px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 0px;
+  left: 0;
   bottom: 0;
   position: absolute;
   text-align: center;
