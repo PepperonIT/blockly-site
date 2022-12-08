@@ -6,7 +6,6 @@ const exprBlocks = require("../blocks/expressionsBlocks");
 const speechBlocks = require("../blocks/speechBlocks");
 const miscBlocks = require("../blocks/miscBlocks");
 const movementBlocks = require("../blocks/movementBlocks");
-const blocksPage = require("./blocks-page");
 
 function Home() {
   const navigate = useNavigate();
@@ -15,13 +14,17 @@ function Home() {
   const [english, setEnglish] = useState("");
   const [advanced, setAdvanced] = useState("");
 
-  var formText = [];
+  var formText = []; // The text shown in the form
+
+  // Swedish variant
   const svForm = [
     "Ange smeknamn",
     "Engelska",
     "Avancerad programmering",
     "Starta",
   ];
+
+  // English variant
   const enForm = [
     "Enter your nickname",
     "English",
@@ -31,12 +34,7 @@ function Home() {
 
   formText = svForm;
 
-  function refreshPage() {
-    window.location.reload(true);
-  }
-
   function changeLanguage() {
-    // blocksPage.changeLanguage();
     if (english) {
       formText = enForm;
       exprBlocks.setEN();
@@ -57,7 +55,6 @@ function Home() {
 
     if (nickName.trim().length === 0) {
       alert("nickname cannot be empty!");
-      refreshPage();
     } else {
       cookies.set("nickname", nickName, { path: "/" });
       if (english) {
@@ -82,7 +79,7 @@ function Home() {
         <div className="Container">
           <div className="FormWrap">
             <div className="FormContent">
-              <form className="Form">
+              <form className="Form" onSubmit={handleSubmit}>
                 <h1 className="FormH1" id="nicknameH1">
                   {formText[0]}
                 </h1>
@@ -121,7 +118,11 @@ function Home() {
                   <div className="toggle-switch" />
                   <span className="toggle-label">{formText[2]}</span>
                 </label>
-                <button className="FormButton" onClick={handleSubmit}>
+                <button
+                  className="FormButton"
+                  type="submit"
+                  onClick={handleSubmit}
+                >
                   {formText[3]}
                 </button>
               </form>

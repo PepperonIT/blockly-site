@@ -124,7 +124,7 @@ function BlocksSvAdvanced() {
        `}
             >
               {/**
-               *
+               * EXPRESSIONS
                */}
               <Category name={CATEGORY_STRINGS["expressions"]} colour="#5B6DA5">
                 <Block type="rotate_eyes">
@@ -167,7 +167,7 @@ function BlocksSvAdvanced() {
                 <Block type="wink_eye" />
               </Category>
               {/**
-               *
+               * ARM GESTURES
                */}
               <Category
                 name={CATEGORY_STRINGS["arm_gestures"]}
@@ -223,7 +223,7 @@ function BlocksSvAdvanced() {
                 </Block>
               </Category>
               {/**
-               *
+               * HEAD GESTURES
                */}
               <Category
                 name={CATEGORY_STRINGS["head_gestures"]}
@@ -255,7 +255,7 @@ function BlocksSvAdvanced() {
                 </Block>
               </Category>
               {/**
-               *
+               * MOVEMENT
                */}
               <Category name={CATEGORY_STRINGS["movement"]} colour="#5BA574">
                 <Block type="move_pepper">
@@ -278,7 +278,7 @@ function BlocksSvAdvanced() {
                 <Block type="robot_dance" />
               </Category>
               {/**
-               *
+               * SPEAK
                */}
               <Category name={CATEGORY_STRINGS["speak"]} colour="#5BA5A5">
                 <Block type="say">
@@ -291,11 +291,12 @@ function BlocksSvAdvanced() {
                   </Value>
                 </Block>
               </Category>
-              {/**
-               *
-               */}
+
               {cookies.get("mode") === "advanced" && (
                 <>
+                  {/**
+                   * LOGIC
+                   */}
                   <Category
                     name={CATEGORY_STRINGS["logic"]}
                     categorystyle="logic_category"
@@ -308,15 +309,9 @@ function BlocksSvAdvanced() {
                     <Block type="logic_null"></Block>
                     <Block type="logic_ternary"></Block>
                   </Category>
-                </>
-              )}
-
-              {/**
-               *
-               */}
-
-              {cookies.get("mode") === "advanced" && (
-                <>
+                  {/**
+                   * LOOPS
+                   */}
                   <Category
                     name={CATEGORY_STRINGS["loops"]}
                     categorystyle="loop_category"
@@ -328,7 +323,6 @@ function BlocksSvAdvanced() {
                         </Shadow>
                       </Value>
                     </Block>
-                    {/* <Block type="controls_repeat" disabled="true"></Block> */}
                     <Block type="controls_whileUntil"></Block>
                     <Block type="controls_for">
                       <Value name="FROM">
@@ -354,7 +348,7 @@ function BlocksSvAdvanced() {
               )}
 
               {/**
-               *
+               * MATHEMATICS
                */}
               <Category
                 name={CATEGORY_STRINGS["mathematics"]}
@@ -461,7 +455,7 @@ function BlocksSvAdvanced() {
                 </Block>
               </Category>
               {/**
-               *
+               * TEXT
                */}
               <Category
                 name={CATEGORY_STRINGS["text"]}
@@ -568,12 +562,12 @@ function BlocksSvAdvanced() {
                   </Value>
                 </Block>
               </Category>
-              {/**
-               *
-               */}
 
               {cookies.get("mode") === "advanced" && (
                 <>
+                  {/**
+                   * LISTS
+                   */}
                   <Category
                     name={CATEGORY_STRINGS["lists"]}
                     categorystyle="list_category"
@@ -633,7 +627,7 @@ function BlocksSvAdvanced() {
               )}
 
               {/**
-               *
+               * COLOURS
                */}
               <Category
                 name={CATEGORY_STRINGS["colours"]}
@@ -676,16 +670,20 @@ function BlocksSvAdvanced() {
                   </Value>
                 </Block>
               </Category>
-              {/**
-               *
-               */}
+
               {cookies.get("mode") === "advanced" && (
                 <>
+                  {/**
+                   * VARIABLES
+                   */}
                   <Category
                     name={CATEGORY_STRINGS["variables"]}
                     categorystyle="variable_category"
                     custom="VARIABLE"
                   ></Category>
+                  {/**
+                   * FUNCTIONS
+                   */}
                   <Category
                     name={CATEGORY_STRINGS["functions"]}
                     categorystyle="procedure_category"
@@ -695,7 +693,7 @@ function BlocksSvAdvanced() {
               )}
 
               {/**
-               *
+               * OTHER/MISC
                */}
               <Category name={CATEGORY_STRINGS["other"]} colour="#A55B67">
                 <Block type="wait">
@@ -716,6 +714,9 @@ function BlocksSvAdvanced() {
                 <Block type="play_rock_paper_scissors" disabled="true"></Block>
               </Category>
             </BlocklyComponent>
+            {/**
+             * PROGRAM QUEUE
+             */}
             <div className="Queue-div">
               <QueueComponent></QueueComponent>
             </div>

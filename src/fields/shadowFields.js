@@ -1,6 +1,9 @@
 import * as Blockly from "blockly/core";
 import "@blockly/field-slider";
 
+/**
+ * ShadowBlocks with different constraints for different parent blocks.
+ */
 Blockly.defineBlocksWithJsonArray([
   {
     type: "number_constraint",
@@ -123,41 +126,4 @@ Blockly.defineBlocksWithJsonArray([
     output: "Number",
     style: "math_blocks",
   },
-  /**
-   * Typed Variables
-   */
-  //   {
-  //     type: "variables_get_int",
-  //     message0: "%1",
-  //     args0: [
-  //       {
-  //         type: "field_variable",
-  //         name: "VAR",
-  //         variable: "%{BKY_VARIABLES_DEFAULT_NAME}",
-  //         variableTypes: ["Number"], // Specifies what types to put in the dropdown
-  //         defaultType: "Number",
-  //       },
-  //     ],
-  //     output: "Number",
-  //   },
-  // {
-  //   type: "variables_set_int",
-  //   message0: "%{BKY_VARIABLES_SET}",
-  //   args0: [
-  //     {
-  //       type: "field_variable",
-  //       name: "VAR",
-  //       variable: "%{BKY_VARIABLES_DEFAULT_NAME}",
-  //       variableTypes: ["Number"],
-  //       defaultType: "Number",
-  //     },
-  //     {
-  //       type: "input_value",
-  //       name: "VALUE",
-  //       check: "Number",
-  //     },
-  //   ],
-  //   previousStatement: null,
-  //   nextStatement: null,
-  // },
 ]);

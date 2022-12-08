@@ -6,8 +6,11 @@ const MoveArmsColour = 80;
 const MovePepperColour = 140;
 
 const cookies = new Cookies();
-var BLOCK_STRINGS = {};
+var BLOCK_STRINGS = {}; //Defines the text for each block
 
+/**
+ * @Swedish
+ */
 const SV_BLOCK_STRINGS = {
   move_head_left_right: "Rör huvudet (vänster, höger) (grader %1 fart %2)",
   move_head_up_down: "Rör huvudet (upp, ner) (grader %1 fart %2)",
@@ -31,6 +34,9 @@ const SV_BLOCK_STRINGS = {
   robot_dance: "Robotdansen",
 };
 
+/**
+ * @English
+ */
 const EN_BLOCK_STRINGS = {
   move_head_left_right: "Move head (left, right) (degrees %1 speed %2)",
   move_head_up_down: "Move head (up, down) (degrees %1 speed %2)",
@@ -70,12 +76,14 @@ export function setEN() {
   UpdateBlocks();
 }
 
+/**
+ * @movementBlocks
+ */
 function UpdateBlocks() {
   /**
-   * @head_gesture
-   *
+   * @move_head_left_right
+   * Move Peppers head left or right with given speed and angle.
    */
-
   var moveHeadLeftRight = {
     type: "move_head_left_right",
     message0: BLOCK_STRINGS["move_head_left_right"],
@@ -106,6 +114,10 @@ function UpdateBlocks() {
     },
   };
 
+  /**
+   * @move_head_up_down
+   * Move Peppers head up or down with given speed and angle.
+   */
   var moveHeadUpDown = {
     type: "move_head_up_down",
     message0: BLOCK_STRINGS["move_head_up_down"],
@@ -136,6 +148,10 @@ function UpdateBlocks() {
     },
   };
 
+  /**
+   * @reset_head
+   * Reset Peppers head to standard position.
+   */
   var resetHead = {
     type: "reset_head",
     message0: BLOCK_STRINGS["reset_head"],
@@ -154,6 +170,10 @@ function UpdateBlocks() {
     },
   };
 
+  /**
+   * @nod_head
+   * Nod Peppers head.
+   */
   var nodHead = {
     type: "nod_head",
     message0: BLOCK_STRINGS["nod_head"],
@@ -172,6 +192,10 @@ function UpdateBlocks() {
     },
   };
 
+  /**
+   * @shake_head
+   * Shake Peppers head
+   */
   var shakeHead = {
     type: "shake_head",
     message0: BLOCK_STRINGS["shake_head"],
@@ -190,6 +214,10 @@ function UpdateBlocks() {
     },
   };
 
+  /**
+   * @spin_head
+   * Spin Peppers head for a duration.
+   */
   var spinHead = {
     type: "spin_head",
     message0: BLOCK_STRINGS["spin_head"],
@@ -219,8 +247,8 @@ function UpdateBlocks() {
   };
 
   /**
-   * @arm_gesture
-   *
+   * @rotate_left_shoulder_roll
+   * Rotate Peppers left shoulder's roll to target angle with given speed.
    */
 
   var rotateLeftShoulderRoll = {
@@ -259,6 +287,10 @@ function UpdateBlocks() {
     },
   };
 
+  /**
+   * @rotate_left_shoulder_pitch
+   * Rotates Peppers left shoulder's pitch to target angle with given speed.
+   */
   var rotateLeftShoulderPitch = {
     type: "rotate_left_shoulder_pitch",
     message0: BLOCK_STRINGS["rotate_left_shoulder_pitch"],
@@ -295,6 +327,10 @@ function UpdateBlocks() {
     },
   };
 
+  /**
+   * @rotate_left_elbow_roll
+   * Rotate Peppers left elbow to target angle at given speed.
+   */
   var rotateLeftElbowRoll = {
     type: "rotate_left_elbow_roll",
     message0: BLOCK_STRINGS["rotate_left_elbow_roll"],
@@ -331,6 +367,10 @@ function UpdateBlocks() {
     },
   };
 
+  /**
+   * @rotate_right_shoulder_roll
+   * Rotate Peppers right shoulder's roll to target angle with given speed.
+   */
   var rotateRightShoulderRoll = {
     type: "rotate_right_shoulder_roll",
     message0: BLOCK_STRINGS["rotate_right_shoulder_roll"],
@@ -367,6 +407,10 @@ function UpdateBlocks() {
     },
   };
 
+  /**
+   * @rotate_right_shoulder_pitch
+   * Rotates Peppers right shoulder's pitch to target angle with given speed.
+   */
   var rotateRightShoulderPitch = {
     type: "rotate_right_shoulder_pitch",
     message0: BLOCK_STRINGS["rotate_right_shoulder_pitch"],
@@ -403,6 +447,10 @@ function UpdateBlocks() {
     },
   };
 
+  /**
+   * @rotate_right_elbow_roll
+   * Rotate Peppers right elbow to target angle at given speed.
+   */
   var rotateRightElbowRoll = {
     type: "rotate_right_elbow_roll",
     message0: BLOCK_STRINGS["rotate_right_elbow_roll"],
@@ -440,7 +488,8 @@ function UpdateBlocks() {
   };
 
   /**
-   * @translation
+   * @move_pepper
+   * Move Pepper around on the ground on both X-axis and Y-axis at given speed with a given rotation angle.
    */
 
   var movePepper = {
@@ -495,6 +544,10 @@ function UpdateBlocks() {
     },
   };
 
+  /**
+   * @stop_movement
+   * Stop all Peppers movements and stop all threads running.
+   */
   var stopMovement = {
     type: "stop_movement",
     message0: BLOCK_STRINGS["stop_movement"],
@@ -514,7 +567,8 @@ function UpdateBlocks() {
   };
 
   /**
-   * @ dance
+   * @dance
+   * Make Pepper do a simple dancemove for a predefined time.
    */
 
   var dance = {
@@ -535,6 +589,10 @@ function UpdateBlocks() {
     },
   };
 
+  /**
+   * @ketchup_dance
+   * Make Pepper do the ketchup dance for a predefined time.
+   */
   var ketchupDance = {
     type: "ketchup_dance",
     message0: BLOCK_STRINGS["ketchup_dance"],
@@ -553,6 +611,10 @@ function UpdateBlocks() {
     },
   };
 
+  /**
+   * @robot_dance
+   * Make Pepper do the robot dance for a predefined time.
+   */
   var robotDance = {
     type: "robot_dance",
     message0: BLOCK_STRINGS["robot_dance"],
