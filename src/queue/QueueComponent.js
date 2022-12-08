@@ -4,6 +4,7 @@ import axios from "axios";
 import Cookies from "universal-cookie";
 import { confirmAlert } from "react-confirm-alert"; // Import
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
+import BlocklyPy from "blockly/python";
 
 class QueueComponent extends Component {
 
@@ -68,8 +69,12 @@ class QueueComponent extends Component {
   editQueueItem(id) {
     const myIP = "localhost";
 
+    var code = BlocklyPy.workspaceToCode(primaryWorkspace.current);
+
     axios
-      .put(`http://${myIP}:5000/edit?pid=${id}`)
+      .put(`http://${myIP}:5000/edit?pid=${id}`, code, {
+        headers: { "Content-Type": "text/plain" },
+      })
       .then((res) => {
         console.log("Todo");
       })
