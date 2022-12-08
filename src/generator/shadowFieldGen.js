@@ -1,6 +1,11 @@
 import * as Blockly from "blockly/core";
 import "blockly/python";
 
+/**
+ *
+ * @param {*} block
+ * @returns Python code with constraints given in shadowField.js
+ */
 Blockly.Python["number_constraint"] = function (block) {
   let code = Number(block.getFieldValue("NUMBER_C"));
   let order;
@@ -17,6 +22,11 @@ Blockly.Python["number_constraint"] = function (block) {
   return [code, order];
 };
 
+/**
+ *
+ * @param {*} block
+ * @returns Python code with constraints given in shadowField.js
+ */
 Blockly.Python["angle_constraint_1"] = function (block) {
   let code = Number(block.getFieldValue("ANGLE_C"));
   let order;
@@ -33,6 +43,11 @@ Blockly.Python["angle_constraint_1"] = function (block) {
   return [code, order];
 };
 
+/**
+ *
+ * @param {*} block
+ * @returns Python code with constraints given in shadowField.js
+ */
 Blockly.Python["angle_constraint_2"] = function (block) {
   let code = Number(block.getFieldValue("ANGLE_C"));
   let order;
@@ -49,6 +64,11 @@ Blockly.Python["angle_constraint_2"] = function (block) {
   return [code, order];
 };
 
+/**
+ *
+ * @param {*} block
+ * @returns Python code with constraints given in shadowField.js
+ */
 Blockly.Python["angle_constraint_3"] = function (block) {
   let code = Number(block.getFieldValue("ANGLE_C"));
   let order;
@@ -65,6 +85,11 @@ Blockly.Python["angle_constraint_3"] = function (block) {
   return [code, order];
 };
 
+/**
+ *
+ * @param {*} block
+ * @returns Python code with constraints given in shadowField.js
+ */
 Blockly.Python["angle_constraint_4"] = function (block) {
   let code = Number(block.getFieldValue("ANGLE_C"));
   let order;
@@ -81,6 +106,11 @@ Blockly.Python["angle_constraint_4"] = function (block) {
   return [code, order];
 };
 
+/**
+ *
+ * @param {*} block
+ * @returns Python code with constraints given in shadowField.js
+ */
 Blockly.Python["angle_constraint_5"] = function (block) {
   let code = Number(block.getFieldValue("ANGLE_C"));
   let order;
@@ -97,6 +127,11 @@ Blockly.Python["angle_constraint_5"] = function (block) {
   return [code, order];
 };
 
+/**
+ *
+ * @param {*} block
+ * @returns Python code with constraints given in shadowField.js
+ */
 Blockly.Python["speed_constraint"] = function (block) {
   let code = Number(block.getFieldValue("SPEED_C"));
   let order;
@@ -113,6 +148,11 @@ Blockly.Python["speed_constraint"] = function (block) {
   return [code, order];
 };
 
+/**
+ *
+ * @param {*} block
+ * @returns Python code with constraints given in shadowField.js
+ */
 Blockly.Python["speed_constraint_2"] = function (block) {
   let code = Number(block.getFieldValue("SPEED_C"));
   let order;
@@ -127,25 +167,4 @@ Blockly.Python["speed_constraint_2"] = function (block) {
       code < 0 ? Blockly.Python.ORDER_UNARY_SIGN : Blockly.Python.ORDER_ATOMIC;
   }
   return [code, order];
-};
-
-Blockly.Python["variables_get_int"] = function (block) {
-  // Variable getter.
-  const code = Blockly.Python.nameDB_.getName(
-    block.getFieldValue("VAR"),
-    Blockly.Names.VARIABLE
-  );
-  return [code, Blockly.Python.ORDER_ATOMIC];
-};
-
-Blockly.Python["variables_set_int"] = function (block) {
-  // Variable setter.
-  const argument0 =
-    Blockly.Python.valueToCode(block, "VALUE", Blockly.Python.ORDER_NONE) ||
-    "0";
-  const varName = Blockly.Python.nameDB_.getName(
-    block.getFieldValue("VAR"),
-    Blockly.Names.VARIABLE
-  );
-  return varName + " = " + argument0 + "\n";
 };

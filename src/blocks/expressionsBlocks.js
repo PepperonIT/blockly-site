@@ -1,6 +1,4 @@
 import * as Blockly from "blockly/core";
-import "../fields/BlocklyReactField";
-import "../fields/DateField";
 import "@blockly/field-date";
 import "@blockly/field-slider";
 import Cookies from "universal-cookie";
