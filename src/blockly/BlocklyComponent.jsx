@@ -41,7 +41,7 @@ function useForceUpdate(){
   return () => setValue(value => value + 1);
 }
 
-var ws;
+var ws; //Global variable required to get workspace to QueueComponent
 
 function BlocklyComponent(props) {
   const navigate = useNavigate();
