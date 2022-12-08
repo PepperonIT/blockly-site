@@ -55,7 +55,7 @@ import "../generator/movementGen";
 import "../generator/speechGen";
 import "../generator/shadowFieldGen";
 
-function BlocksSvAdvanced() {
+function BlocksPage() {
   const cookies = new Cookies();
 
 
@@ -746,4 +746,4 @@ function BlocksSvAdvanced() {
 
 }
 
-export default BlocksSvAdvanced;
+export default BlocksPage;
