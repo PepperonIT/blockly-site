@@ -21,7 +21,7 @@
  * @author samelh@google.com (Sam El-Husseini)
  */
 
-import React from "react";
+ import React, { useState } from 'react';
 import "./BlocklyComponent.css";
 import { useEffect, useRef } from "react";
 import sv from "blockly/msg/sv";
@@ -35,13 +35,23 @@ import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import Cookies from "universal-cookie";
 import { useNavigate } from "react-router-dom";
 
+//Forces an update
+function useForceUpdate(){
+  const [value, setValue] = useState(0);
+  return () => setValue(value => value + 1);
+}
+
+var ws;
+
 function BlocklyComponent(props) {
   const navigate = useNavigate();
   const cookies = new Cookies();
   const blocklyDiv = useRef();
   const toolbox = useRef();
+  var queueStatus = true;
 
   let primaryWorkspace = useRef();
+  ws = primaryWorkspace
 
   var formText = {};
   const svForm = {
@@ -49,12 +59,16 @@ function BlocklyComponent(props) {
     export: "Ladda ned block",
     send: "Skicka koden till Pepper",
     backToHome: "Tillbaka till startsidan",
+    pauseQueue: "Pausa Kön",
+    unpauseQueue: "Starta Kön",
   };
   const enForm = {
     import: "Import",
     export: "Export",
     send: "Send code to Pepper",
     backToHome: "Back to home",
+    pauseQueue: "Pause Queue",
+    unpauseQueue: "Unpause Queue",
   };
 
   if (cookies.get("language") === "en") {
@@ -99,6 +113,8 @@ function BlocklyComponent(props) {
       toolbox: toolbox.current,
       ...rest,
     });
+
+    ws = primaryWorkspace.current
 
     if (initialXml) {
       Blockly.Xml.domToWorkspace(
@@ -192,6 +208,55 @@ function BlocklyComponent(props) {
     navigate("/");
   };
 
+  const pauseQueue = () => {
+    const myIP = "localhost";
+    if (queueStatus) {
+
+    axios
+      .post(`http://${myIP}:5000/pause`)
+      .then((res) => {
+        //popup
+        queueStatus = false;
+        forceUpdate();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+
+    } else {
+      axios
+      .post(`http://${myIP}:5000/unpause`)
+      .then((res) => {
+        //popup
+        queueStatus = true;
+        forceUpdate();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+    } 
+  }
+
+  //Weird workaround
+  const pauseLanguage = () => {
+    if (cookies.get("language") === "en") {
+      if (queueStatus) {
+        return "Pause Queue";
+      } else {
+        return "Unpause Queue";
+      }
+    } else {
+      if (queueStatus) {
+        return "Pausa Kön";
+      } else {
+        return "Starta Kön";
+      }
+    }
+    return "Failtest"
+  }
+
+  const forceUpdate = useForceUpdate();
+
   return (
     <React.Fragment>
       <button onClick={handleClick}>{formText.import}</button>
@@ -205,6 +270,9 @@ function BlocklyComponent(props) {
       <button onClick={saveBlocks}>{formText.export}</button>
       <button onClick={sendCode}>{formText.send}</button>
       <button onClick={goToHome}>{formText.backToHome}</button>
+      {cookies.get("nickname") === "admin" && // admin check
+        <button onClick={pauseQueue}>{pauseLanguage}</button>
+      }
       <div ref={blocklyDiv} id="blocklyDiv" />
       <div style={{ display: "none" }} ref={toolbox}>
         {props.children}
@@ -214,3 +282,5 @@ function BlocklyComponent(props) {
 }
 
 export default BlocklyComponent;
+
+export var ws;
