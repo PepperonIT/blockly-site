@@ -2,13 +2,19 @@ import * as Blockly from "blockly/core";
 import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
-var BLOCK_STRINGS = {};
+var BLOCK_STRINGS = {}; //Defines the text for each block
 
+/**
+ * @Swedish
+ */
 const SV_BLOCK_STRINGS = {
   say: "Säg %1",
   say_tooltip: "Skriv något i textrutan så säger Pepper det",
 };
 
+/**
+ * @English
+ */
 const EN_BLOCK_STRINGS = {
   say: "Say %1",
   say_tooltip: "Type something in the textbox and Pepper will say it",
@@ -30,7 +36,14 @@ export function setEN() {
   UpdateBlocks();
 }
 
+/**
+ * @speechBlocks
+ */
 function UpdateBlocks() {
+  /**
+   * @say
+   * Pepper will say the contents of the string input in this block.
+   */
   var say = {
     type: "say",
     message0: BLOCK_STRINGS["say"],

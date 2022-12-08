@@ -2,8 +2,11 @@ import * as Blockly from "blockly/core";
 import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
-var BLOCK_STRINGS = {};
+var BLOCK_STRINGS = {}; //Defines the text for each block
 
+/**
+ * @Swedish
+ */
 const SV_BLOCK_STRINGS = {
   wait: "Vänta: %1 sekunder",
   play_music: "Spela musik: %1",
@@ -14,6 +17,9 @@ const SV_BLOCK_STRINGS = {
   play_rock_paper_scissors_tooltip: "Spela sten-sax-påse med Pepper",
 };
 
+/**
+ * @English
+ */
 const EN_BLOCK_STRINGS = {
   wait: "Wait for %1 seconds",
   play_music: "Play music: %1",
@@ -40,7 +46,14 @@ export function setEN() {
   UpdateBlocks();
 }
 
+/**
+ * @miscBlocks
+ */
 function UpdateBlocks() {
+  /**
+   * @wait
+   * Wait for X amount of seconds (i.e. do nothing)
+   */
   var wait = {
     type: "wait",
     message0: BLOCK_STRINGS["wait"],
@@ -68,6 +81,10 @@ function UpdateBlocks() {
     },
   };
 
+  /**
+   * @music
+   * Play music from file on server.
+   */
   var music = {
     type: "play_music",
     message0: BLOCK_STRINGS["play_music"],
@@ -96,6 +113,10 @@ function UpdateBlocks() {
     },
   };
 
+  /**
+   * @search_pic
+   * Search on google after a picture resembling the input in this block
+   */
   var searchPic = {
     type: "search_picture",
     message0: BLOCK_STRINGS["search_picture"],
@@ -121,6 +142,10 @@ function UpdateBlocks() {
     },
   };
 
+  /**
+   * @RPS
+   * Play Rock-Paper-Scissors with Pepper
+   */
   var playRPS = {
     type: "play_rock_paper_scissors",
     message0: BLOCK_STRINGS["play_rock_paper_scissors"],
