@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./QueueComponent.css";
 import axios from "axios";
 import Cookies from "universal-cookie";
+import { confirmAlert } from "react-confirm-alert"; // Import
+import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 
 class QueueComponent extends Component {
 
@@ -46,6 +48,23 @@ class QueueComponent extends Component {
       })
   }
 
+  codeDeleteConfirmation(id)  {
+    confirmAlert({
+      title: "Är du säker på att du vill ta bort programmet från kön?",
+      buttons: [
+        {
+          label: "Ja",
+          onClick: () => {
+            this.deleteQueueItem(id)
+          }
+        },
+        {
+          label: "Nej",
+        }
+      ],
+    });
+  };
+
   editQueueItem(id) {
     const myIP = "localhost";
 
@@ -58,6 +77,23 @@ class QueueComponent extends Component {
         //console.log(err);
       })
   }
+
+  codeEditConfirmation(id)  {
+    confirmAlert({
+      title: "Är du säker på att du vill ändra programmet i kön?",
+      buttons: [
+        {
+          label: "Ja",
+          onClick: () => {
+            this.editQueueItem(id)
+          }
+        },
+        {
+          label: "Nej",
+        }
+      ],
+    });
+  };
 
   /**
    * Periodically calls the updateQueue method to ensure
@@ -93,13 +129,13 @@ class QueueComponent extends Component {
               <span className="b">
                 {this.state.queue[index][1]}
                 {this.cookies.get("nickname") === "admin" && // admin check
-                  <button className="deletebutton" onClick={() => this.deleteQueueItem(this.state.queue[index][0])}>x</button>
+                  <button className="deletebutton" onClick={() => this.codeDeleteConfirmation(this.state.queue[index][0])}>x</button>
                 }
                 {this.cookies.get("nickname") === this.state.queue[index][1] &&
-                  <button className="editbutton" onClick={() => this.editQueueItem(this.state.queue[index][0])}>Ändra</button>
+                  <button className="editbutton" onClick={() => this.codeEditConfirmation(this.state.queue[index][0])}>Ändra</button>
                 }
                 {this.cookies.get("nickname") === "admin" &&
-                  <button className="editbutton" onClick={() => this.editQueueItem(this.state.queue[index][0])}>Ändra</button>
+                  <button className="editbutton" onClick={() => this.codeEditConfirmation(this.state.queue[index][0])}>Ändra</button>
                 }
               </span>
               </li>
