@@ -21,7 +21,7 @@
  * @author samelh@google.com (Sam El-Husseini)
  */
 
- import React, { useState } from 'react';
+import React, { useState } from 'react';
 import "./BlocklyComponent.css";
 import { useEffect, useRef } from "react";
 import sv from "blockly/msg/sv";
@@ -35,8 +35,16 @@ import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import Cookies from "universal-cookie";
 import { useNavigate } from "react-router-dom";
 
+
+const exprBlocks = require("../blocks/expressionsBlocks");
+const speechBlocks = require("../blocks/speechBlocks");
+const miscBlocks = require("../blocks/miscBlocks");
+const movementBlocks = require("../blocks/movementBlocks");
+
+
+
 //Forces an update
-function useForceUpdate(){
+function useForceUpdate() {
   const [value, setValue] = useState(0);
   return () => setValue(value => value + 1);
 }
@@ -74,9 +82,18 @@ function BlocklyComponent(props) {
   if (cookies.get("language") === "en") {
     Blockly.setLocale(en);
     formText = enForm;
+    exprBlocks.setEN();
+    speechBlocks.setEN();
+    miscBlocks.setEN();
+    movementBlocks.setEN();
+
   } else {
     Blockly.setLocale(sv);
     formText = svForm;
+    exprBlocks.setSV();
+    speechBlocks.setSV();
+    miscBlocks.setSV();
+    movementBlocks.setSV();
   }
 
   const generateCode = () => {
@@ -212,29 +229,29 @@ function BlocklyComponent(props) {
     const myIP = "localhost";
     if (queueStatus) {
 
-    axios
-      .post(`http://${myIP}:5000/pause`)
-      .then((res) => {
-        //popup
-        queueStatus = false;
-        forceUpdate();
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+      axios
+        .post(`http://${myIP}:5000/pause`)
+        .then((res) => {
+          //popup
+          queueStatus = false;
+          forceUpdate();
+        })
+        .catch((err) => {
+          console.error(err);
+        });
 
     } else {
       axios
-      .post(`http://${myIP}:5000/unpause`)
-      .then((res) => {
-        //popup
-        queueStatus = true;
-        forceUpdate();
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-    } 
+        .post(`http://${myIP}:5000/unpause`)
+        .then((res) => {
+          //popup
+          queueStatus = true;
+          forceUpdate();
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
   }
 
   //Weird workaround
