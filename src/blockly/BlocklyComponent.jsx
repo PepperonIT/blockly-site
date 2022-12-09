@@ -21,7 +21,7 @@
  * @author samelh@google.com (Sam El-Husseini)
  */
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import "./BlocklyComponent.css";
 import { useEffect, useRef } from "react";
 import sv from "blockly/msg/sv";
@@ -35,18 +35,23 @@ import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import Cookies from "universal-cookie";
 import { useNavigate } from "react-router-dom";
 
+const config = require("../../config/config");
+const port = config.server.port;
+const host = config.server.host;
+
+// const config = require("config");
+// const host = config.get("server").host;
+// const port = config.get("server").port;
 
 const exprBlocks = require("../blocks/expressionsBlocks");
 const speechBlocks = require("../blocks/speechBlocks");
 const miscBlocks = require("../blocks/miscBlocks");
 const movementBlocks = require("../blocks/movementBlocks");
 
-
-
 //Forces an update
 function useForceUpdate() {
   const [value, setValue] = useState(0);
-  return () => setValue(value => value + 1);
+  return () => setValue((value) => value + 1);
 }
 
 var ws; //Global variable required to get workspace to QueueComponent
@@ -59,7 +64,7 @@ function BlocklyComponent(props) {
   var queueStatus = true;
 
   let primaryWorkspace = useRef();
-  ws = primaryWorkspace
+  ws = primaryWorkspace;
 
   var formText = {};
   const svForm = {
@@ -86,7 +91,6 @@ function BlocklyComponent(props) {
     speechBlocks.setEN();
     miscBlocks.setEN();
     movementBlocks.setEN();
-
   } else {
     Blockly.setLocale(sv);
     formText = svForm;
@@ -109,10 +113,9 @@ function BlocklyComponent(props) {
     // SEND TO PYTHON SERVER (LEAVE HERE FOR NOW)
     // ==========================================
     // Get yout IP on Linux by running `ifconfig`
-    const myIP = "localhost"; // Only use localhost if site is running on dev-machine ONLY. Otherwise use full IP! Remeber to open ports!
 
     axios
-      .post(`http://${myIP}:5000/code`, code, {
+      .post(`http://${host}:${port}/code`, code, {
         headers: { "Content-Type": "text/plain" },
       })
       .then((res) => {
@@ -131,7 +134,7 @@ function BlocklyComponent(props) {
       ...rest,
     });
 
-    ws = primaryWorkspace.current
+    ws = primaryWorkspace.current;
 
     if (initialXml) {
       Blockly.Xml.domToWorkspace(
@@ -228,7 +231,6 @@ function BlocklyComponent(props) {
   const pauseQueue = () => {
     const myIP = "localhost";
     if (queueStatus) {
-
       axios
         .post(`http://${myIP}:5000/pause`)
         .then((res) => {
@@ -239,7 +241,6 @@ function BlocklyComponent(props) {
         .catch((err) => {
           console.error(err);
         });
-
     } else {
       axios
         .post(`http://${myIP}:5000/unpause`)
@@ -252,7 +253,7 @@ function BlocklyComponent(props) {
           console.error(err);
         });
     }
-  }
+  };
 
   //Weird workaround
   const pauseLanguage = () => {
@@ -269,8 +270,8 @@ function BlocklyComponent(props) {
         return "Starta Kön";
       }
     }
-    return "Failtest"
-  }
+    return "Failtest";
+  };
 
   const forceUpdate = useForceUpdate();
 
@@ -287,9 +288,9 @@ function BlocklyComponent(props) {
       <button onClick={saveBlocks}>{formText.export}</button>
       <button onClick={sendCode}>{formText.send}</button>
       <button onClick={goToHome}>{formText.backToHome}</button>
-      {cookies.get("nickname") === "admin" && // admin check
+      {cookies.get("nickname") === "admin" && ( // admin check
         <button onClick={pauseQueue}>{pauseLanguage}</button>
-      }
+      )}
       <div ref={blocklyDiv} id="blocklyDiv" />
       <div style={{ display: "none" }} ref={toolbox}>
         {props.children}
