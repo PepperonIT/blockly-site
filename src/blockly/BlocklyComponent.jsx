@@ -48,12 +48,6 @@ const speechBlocks = require("../blocks/speechBlocks");
 const miscBlocks = require("../blocks/miscBlocks");
 const movementBlocks = require("../blocks/movementBlocks");
 
-//Forces an update
-function useForceUpdate() {
-  const [value, setValue] = useState(0);
-  return () => setValue((value) => value + 1);
-}
-
 var ws; //Global variable required to get workspace to QueueComponent
 
 function BlocklyComponent(props) {
@@ -61,7 +55,6 @@ function BlocklyComponent(props) {
   const cookies = new Cookies();
   const blocklyDiv = useRef();
   const toolbox = useRef();
-  var queueStatus = true;
 
   let primaryWorkspace = useRef();
   ws = primaryWorkspace;
@@ -228,53 +221,6 @@ function BlocklyComponent(props) {
     navigate("/");
   };
 
-  const pauseQueue = () => {
-    const myIP = "localhost";
-    if (queueStatus) {
-      axios
-        .post(`http://${myIP}:5000/pause`)
-        .then((res) => {
-          //popup
-          queueStatus = false;
-          forceUpdate();
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    } else {
-      axios
-        .post(`http://${myIP}:5000/unpause`)
-        .then((res) => {
-          //popup
-          queueStatus = true;
-          forceUpdate();
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    }
-  };
-
-  //Weird workaround
-  const pauseLanguage = () => {
-    if (cookies.get("language") === "en") {
-      if (queueStatus) {
-        return "Pause Queue";
-      } else {
-        return "Unpause Queue";
-      }
-    } else {
-      if (queueStatus) {
-        return "Pausa Kön";
-      } else {
-        return "Starta Kön";
-      }
-    }
-    return "Failtest";
-  };
-
-  const forceUpdate = useForceUpdate();
-
   return (
     <React.Fragment>
       <button onClick={handleClick}>{formText.import}</button>
@@ -288,9 +234,6 @@ function BlocklyComponent(props) {
       <button onClick={saveBlocks}>{formText.export}</button>
       <button onClick={sendCode}>{formText.send}</button>
       <button onClick={goToHome}>{formText.backToHome}</button>
-      {cookies.get("nickname") === "admin" && ( // admin check
-        <button onClick={pauseQueue}>{pauseLanguage}</button>
-      )}
       <div ref={blocklyDiv} id="blocklyDiv" />
       <div style={{ display: "none" }} ref={toolbox}>
         {props.children}
