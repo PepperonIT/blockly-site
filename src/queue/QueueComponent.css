@@ -30,6 +30,26 @@ span.b {
   position: relative;
 }
 
+span.c {
+  display: inline-block;
+  width: 200px;
+  height: 40px;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 2px solid black;
+  border-radius: 5px;  
+  background-color: teal;
+  position: relative;
+  cursor: pointer;
+  /* Below makes text unselectable */
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+
+}
+
 button.deletebutton {
   background-color: red;
   height: 100%;

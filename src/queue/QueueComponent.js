@@ -16,7 +16,8 @@ class QueueComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      queue: [["", "Laddar Kö"]] //Default empty state
+      queue: [["", "Laddar Kö"]], //Default empty state
+      isPaused: false
     }
     
   }
@@ -33,7 +34,8 @@ class QueueComponent extends Component {
       .get(`http://${myIP}:5000/queue`)
       .then((res) => {
         this.setState(() => ({
-          queue: res.data.queue
+          queue: res.data.queue,
+          isPaused: res.data.paused,
         }));
       })
       .catch((err) => {
@@ -157,6 +159,53 @@ class QueueComponent extends Component {
   }
 
   /**
+   * @summary Prints corresponding message for queue pause button
+   * 
+   * @returns String
+   */
+  pausePrinting(pauseState) {
+    console.log(pauseState)
+
+    if (pauseState) {
+      return "Starta Kö";
+    } else {
+      return "Pausa Kö";
+    }
+  }
+
+  pausePlayQueue(pauseState) {
+    const myIP = "localhost";
+
+    if (pauseState) {
+      //Start the queue
+
+      axios
+      .post(`http://${myIP}:5000/unpause`)
+      .then((res) => {
+        this.setState(() => ({
+          isPaused: res.data.paused,
+        }));
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+    } else {
+      //pause the queue
+
+      axios
+      .post(`http://${myIP}:5000/pause`)
+      .then((res) => {
+        this.setState(() => ({
+          isPaused: res.data.paused,
+        }));
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+    }
+  }
+
+  /**
    * Periodically calls the updateQueue method to ensure
    * that the queue is reasonably up to date
    */
@@ -182,7 +231,13 @@ class QueueComponent extends Component {
     return (
       <React.Fragment>
         <ul>
-            <li><h1>
+            <li>
+              {this.cookies.get("nickname") === "admin" &&
+                <span className="c" onClick={() => this.pausePlayQueue(this.state.isPaused)}>
+                {this.pausePrinting(this.state.isPaused)}
+              </span>
+              }
+            <h1>
             Kö
             <hr className="solid"></hr>
             </h1></li>
