@@ -41,6 +41,11 @@ class QueueComponent extends Component {
       });
   }
 
+  /**
+   * @summary Send a delete request to the server for a specific id
+   * 
+   * @param id The id of the item to be deleted from the queue
+   */
   deleteQueueItem(id) {
     const myIP = "localhost";
 
@@ -54,6 +59,11 @@ class QueueComponent extends Component {
       })
   }
 
+  /**
+   * @summary Displays confirmation window for deleting item from queue
+   * 
+   * @param id The id of the item to be deleted from the queue 
+   */
   codeDeleteConfirmation(id)  {
     confirmAlert({
       title: "Är du säker på att du vill ta bort programmet från kön?",
@@ -71,6 +81,9 @@ class QueueComponent extends Component {
     });
   };
 
+  /**
+   * @summary Displays success message upon item deletion
+   */
   codeDeleteSuccess() {
     confirmAlert({
       title: "Koden togs bort från kön",
@@ -82,6 +95,11 @@ class QueueComponent extends Component {
     });
   }
 
+  /**
+   * @summary Sends a put request to the server to edit an item
+   * 
+   * @param id The id of the item to be edited in the queue 
+   */
   editQueueItem(id) {
     const myIP = "localhost";
 
@@ -101,6 +119,11 @@ class QueueComponent extends Component {
       })
   }
 
+  /**
+   * @summary Displays confirmation window for editing item in the queue
+   * 
+   * @param The id of the item to be edited in the queue
+   */
   codeEditConfirmation(id)  {
     confirmAlert({
       title: "Är du säker på att du vill ändra programmet i kön?",
@@ -118,6 +141,10 @@ class QueueComponent extends Component {
     });
   };
 
+
+  /**
+   * @summary Displays success message upon code edit
+   */
   codeEditSuccess() {
     confirmAlert({
       title: "Din kod i kön har ändrats!",
@@ -146,10 +173,11 @@ class QueueComponent extends Component {
     clearInterval(this.myTimer);
   }
 
-  //state = {
-    //queue_items: ["List Item 1", "List Item 2", "List Item 3"]
-  //};
-
+  /**
+   * @summary Renders the component
+   * 
+   * @returns React Fragment containing the html to render
+   */
   render() {
     return (
       <React.Fragment>
