@@ -16,7 +16,7 @@ class QueueComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      queue: [["", ""]] //Default empty state
+      queue: [["", "Laddar Kö"]] //Default empty state
     }
     
   }
@@ -47,7 +47,7 @@ class QueueComponent extends Component {
     axios
       .delete(`http://${myIP}:5000/remove?pid=${id}`)
       .then((res) => {
-        console.log("Todo");
+        this.codeDeleteSuccess()
       })
       .catch((err) => {
         //console.log(err);
@@ -71,6 +71,17 @@ class QueueComponent extends Component {
     });
   };
 
+  codeDeleteSuccess() {
+    confirmAlert({
+      title: "Koden togs bort från kön",
+      buttons: [
+        {
+          label: "Okej",
+        }
+      ],
+    });
+  }
+
   editQueueItem(id) {
     const myIP = "localhost";
 
@@ -83,7 +94,7 @@ class QueueComponent extends Component {
         headers: { "Content-Type": "text/plain" },
       })
       .then((res) => {
-        console.log("Todo");
+        this.codeEditSuccess()
       })
       .catch((err) => {
         //console.log(err);
@@ -106,6 +117,17 @@ class QueueComponent extends Component {
       ],
     });
   };
+
+  codeEditSuccess() {
+    confirmAlert({
+      title: "Din kod i kön har ändrats!",
+      buttons: [
+        {
+          label: "Okej",
+        }
+      ],
+    });
+  }
 
   /**
    * Periodically calls the updateQueue method to ensure
