@@ -12,7 +12,6 @@
     "blockly": "^5.20210325.0",
     "browserify": "^17.0.0",
     "browserify-zlib": "^0.2.0",
-    "canvas": "^2.10.2",
     "config": "^3.3.8",
     "console-browserify": "^1.2.0",
     "fs": "^0.0.1-security",
