@@ -161,6 +161,8 @@ class QueueComponent extends Component {
   /**
    * @summary Prints corresponding message for queue pause button
    * 
+   * @param pauseState The state representing whether the queue is paused or not.
+   * 
    * @returns String
    */
   pausePrinting(pauseState) {
@@ -173,6 +175,11 @@ class QueueComponent extends Component {
     }
   }
 
+  /**
+   * @summary sends a post request to either pause or play the queue
+   * 
+   * @param pauseState The state representing whether the queue is paused or not.
+   */
   pausePlayQueue(pauseState) {
     const myIP = "localhost";
 
