@@ -199,6 +199,7 @@ function BlocklyComponent(props) {
     const fileUploaded = event.target.files[0];
     // props.handleFile(fileUploaded);
     loadBlocks(fileUploaded);
+    hiddenFileInput.current.value = "";
   };
 
   const codeSentMessage = () => {
