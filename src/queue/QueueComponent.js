@@ -11,6 +11,11 @@ import { useEffect, useRef } from "react";
 import BlocklyComponent, { ws } from "../blockly/BlocklyComponent";
 
 
+const config = require("../../config/config");
+const port = config.server.port;
+const host = config.server.host;
+
+
 class QueueComponent extends Component {
   cookies = new Cookies();
 
@@ -43,7 +48,7 @@ class QueueComponent extends Component {
     const myIP = "localhost"; // Only use localhost if site is running on dev-machine ONLY. Otherwise use full IP! Remember to open ports!
 
     axios
-      .get(`http://${myIP}:5000/queue`)
+      .get(`http://${host}:${port}/queue`)
       .then((res) => {
         this.setState(() => ({
           queue: res.data.queue,
@@ -64,7 +69,7 @@ class QueueComponent extends Component {
     const myIP = "localhost";
 
     axios
-      .delete(`http://${myIP}:5000/remove?pid=${id}`)
+      .delete(`http://${host}:${port}/remove?pid=${id}`)
       .then((res) => {
         this.codeDeleteMessage(res.data.success)
       })
@@ -137,7 +142,7 @@ class QueueComponent extends Component {
     console.log(code);
 
     axios
-      .put(`http://${myIP}:5000/edit?pid=${id}`, code, {
+      .put(`http://${host}:${port}/edit?pid=${id}`, code, {
         headers: { "Content-Type": "text/plain" },
       })
       .then((res) => {
@@ -224,7 +229,7 @@ class QueueComponent extends Component {
       //Start the queue
 
       axios
-        .post(`http://${myIP}:5000/unpause`)
+        .post(`http://${host}:${port}/unpause`)
         .then((res) => {
           this.setState(() => ({
             isPaused: res.data.paused,
@@ -237,7 +242,7 @@ class QueueComponent extends Component {
       //pause the queue
 
       axios
-        .post(`http://${myIP}:5000/pause`)
+        .post(`http://${host}:${port}/pause`)
         .then((res) => {
           this.setState(() => ({
             isPaused: res.data.paused,
