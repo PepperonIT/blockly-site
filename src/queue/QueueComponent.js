@@ -66,7 +66,7 @@ class QueueComponent extends Component {
     axios
       .delete(`http://${myIP}:5000/remove?pid=${id}`)
       .then((res) => {
-        this.codeDeleteSuccess()
+        this.codeDeleteMessage(res.data.success)
       })
       .catch((err) => {
         //console.log(err);
@@ -105,9 +105,17 @@ class QueueComponent extends Component {
   /**
    * @summary Displays success message upon item deletion
    */
-  codeDeleteSuccess() {
+  codeDeleteMessage(success) {
+    var t;
+
+    if (success) {
+      t = this.state.deleteSuccessTitle;
+    } else {
+      t = this.state.deleteFailTitle;
+    }
+
     confirmAlert({
-      title: this.state.deleteSuccessTitle,
+      title: t,
       buttons: [
         {
           label: this.state.Okay,
@@ -133,7 +141,7 @@ class QueueComponent extends Component {
         headers: { "Content-Type": "text/plain" },
       })
       .then((res) => {
-        this.codeEditSuccess()
+        this.codeEditMessage(res.data.success)
       })
       .catch((err) => {
         //console.log(err);
@@ -164,11 +172,21 @@ class QueueComponent extends Component {
 
 
   /**
-   * @summary Displays success message upon code edit
+   * @param success bool if the edit was successful or not
+   * 
+   * @summary Displays message upon code edit
    */
-  codeEditSuccess() {
+  codeEditMessage(success) {
+    var t;
+
+    if (success) {
+      t = this.state.editSuccessTitle
+    } else {
+      t = this.state.editFailTitle
+    }
+
     confirmAlert({
-      title: this.state.editSuccessTitle,
+      title: t,
       buttons: [
         {
           label: this.state.Okay,
@@ -248,8 +266,10 @@ class QueueComponent extends Component {
         deleteConfirmationTitle: "Are you sure you want to remove the program from the queue?",
         deleteConfirmationTitlePlural: "Are you sure you want to remove the programs from the queue?",
         deleteSuccessTitle: "The code was removed from the queue",
+        deleteFailTitle: "The code was not removed due to an error.",
         editConfirmationTitle: "Are you sure you want to change the program in the queue?",
         editSuccessTitle: "Your code in the queue has been changed!",
+        editFailTitle: "Your code in the queue has NOT been changed due to an error!",
         yes: "Yes",
         no: "No",
         Okay: "Okay",
@@ -267,8 +287,10 @@ class QueueComponent extends Component {
         deleteConfirmationTitle: "Är du säker på att du vill ta bort programmet från kön?",
         deleteConfirmationTitlePlural: "Är du säker på att du vill ta bort programmen från kön?",
         deleteSuccessTitle: "Koden togs bort från kön",
+        deleteFailTitle: "Koden togs inte bort på grund av ett fel.",
         editConfirmationTitle: "Är du säker på att du vill ändra programmet i kön?",
         editSuccessTitle: "Din kod i kön har ändrats!",
+        editFailTitle: "Din kod i kön har INTE ändrats på grund av ett fel!",
         yes: "Ja",
         no: "Nej",
         Okay: "Okej",
