@@ -68,6 +68,10 @@ function BlocklyComponent(props) {
     backToHome: "Tillbaka till startsidan",
     pauseQueue: "Pausa Kön",
     unpauseQueue: "Starta Kön",
+    codeSentSuccess: "Din kod har lagts till i kön!",
+    codeSentSuccessConfirm: "Vad bra!",
+    codeSentFail: "Din kod lades INTE till i kön på grund av ett fel",
+    codeSentFailConfirm: "Ok"
   };
   const enForm = {
     import: "Import",
@@ -76,6 +80,10 @@ function BlocklyComponent(props) {
     backToHome: "Back to home",
     pauseQueue: "Pause Queue",
     unpauseQueue: "Unpause Queue",
+    codeSentSuccess: "Your code has been queued!",
+    codeSentSuccessConfirm: "Very good!",
+    codeSentFail: "Your code was NOT sent due to an error",
+    codeSentFailConfirm: "Ok"
   };
 
   if (cookies.get("language") === "en") {
@@ -113,8 +121,8 @@ function BlocklyComponent(props) {
         headers: { "Content-Type": "text/plain" },
       })
       .then((res) => {
-        console.log(`Status: ${res.status}`);
-        console.log("Response: ", res.data);
+        codeSentMessage(res.data.success);
+        //console.log("Response: ", res.data);
       })
       .catch((err) => {
         console.error(err);
@@ -205,16 +213,15 @@ function BlocklyComponent(props) {
 
 
 
-  const codeSentMessage = () => {
-    var title;
-    var label;
-    if (cookies.get("language") === "en") {
-      title = "Your code has been queued!"
-      label = "very good!"
+  const codeSentMessage = (success) => {
+    if (success) {
+      var title = formText.codeSentSuccess;
+      var label = formText.codeSentSuccessConfirm;
     } else {
-      title = "Din kod har lagts i kön!"
-      label = "Vad bra"
+      var title = formText.codeSentFail;
+      var label = formText.codeSentFailConfirm;
     }
+
     confirmAlert({
       title: title,
       buttons: [
@@ -227,7 +234,6 @@ function BlocklyComponent(props) {
 
   const sendCode = () => {
     generateCode();
-    codeSentMessage();
   };
 
   const goToHome = () => {
