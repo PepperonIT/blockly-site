@@ -27,7 +27,7 @@ span.b {
   margin-bottom: 5px;
   border: 2px solid black;
   border-radius: 5px;
-  background-color: #008080;
+  background-color: #5180B6;
   position: relative;
 }
 
@@ -40,7 +40,7 @@ span.c {
   margin-bottom: 5px;
   border: 2px solid black;
   border-radius: 5px;
-  background-color: teal;
+  background-color: #5180B6;
   position: relative;
   cursor: pointer;
   /* Below makes text unselectable */
@@ -56,7 +56,7 @@ span.c {
 }
 
 span.c:hover {
-  background-color: #00B3B3;
+  background-color: #41A62A;
 }
 
 button.deletebutton {
@@ -96,6 +96,5 @@ button.editbutton {
 }
 
 button.editbutton:hover {
-  background-color: #408000;
-
+  background-color: #41A62A;
 }
