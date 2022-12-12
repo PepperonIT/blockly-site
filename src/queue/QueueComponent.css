@@ -25,8 +25,8 @@ span.b {
   margin-top: 5px;
   margin-bottom: 5px;
   border: 2px solid black;
-  border-radius: 5px;  
-  background-color: teal;
+  border-radius: 5px;
+  background-color: #008080;
   position: relative;
 }
 
@@ -38,45 +38,63 @@ span.c {
   margin-top: 5px;
   margin-bottom: 5px;
   border: 2px solid black;
-  border-radius: 5px;  
+  border-radius: 5px;
   background-color: teal;
   position: relative;
   cursor: pointer;
   /* Below makes text unselectable */
-  -webkit-user-select: none; /* Safari */        
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE10+/Edge */
-  user-select: none; /* Standard */
+  -webkit-user-select: none;
+  /* Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+/Edge */
+  user-select: none;
+  /* Standard */
 
 }
 
+span.c:hover {
+  background-color: #00B3B3;
+}
+
 button.deletebutton {
-  background-color: red;
+  background-color: transparent;
+  border-left: solid 1px black;
   height: 100%;
-  width: 30px;
-  border-bottom-right-radius: 2px;
-  border-bottom-left-radius: 0px;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 2px;
+  width: 25px;
+  font-size: large;
+  border-bottom-right-radius: 1px;
+  border-top-right-radius: 1px;
   right: 0;
   bottom: 0;
   position: absolute;
   text-align: center;
   margin: 0 auto;
+  color: black;
+
+}
+
+button.deletebutton:hover {
+  background-color: #800000;
 }
 
 button.editbutton {
-  background-color: cyan;
+  background-color: transparent;
+  border-right: solid 1px black;
   color: black;
   height: 100%;
   width: 70px;
-  border-bottom-right-radius: 0px;
-  border-bottom-left-radius: 2px;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 0px;
+  border-bottom-left-radius: 1px;
+  border-top-left-radius: 1px;
   left: 0;
   bottom: 0;
   position: absolute;
   text-align: center;
   margin: 0 auto;
+}
+
+button.editbutton:hover {
+  background-color: #408000;
+
 }

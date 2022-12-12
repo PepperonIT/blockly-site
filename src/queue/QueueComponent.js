@@ -12,24 +12,36 @@ import BlocklyComponent, { ws } from "../blockly/BlocklyComponent";
 
 
 class QueueComponent extends Component {
+  cookies = new Cookies();
 
   constructor(props) {
     super(props);
     this.state = {
-      queue: [["", "Laddar Kö"]], //Default empty state
-      isPaused: false
+      queue: [["", ""]], //Default empty state
+      isPaused: false,
+      deleteConfirmationTitle: "",
+      deleteSuccessTitle: "",
+      editConfirmationTitle: "",
+      editSuccessTitle: "",
+      yes: "",
+      no: "",
+      Okay: "",
+      pauseQueue: "",
+      unpauseQueue: "",
+      queueWord: "",
+      changeButton: "",
     }
-    
+
   }
 
-  cookies = new Cookies();
+
 
   /**
    * Updates the queue with a call to the server
    */
   updateQueue() {
     const myIP = "localhost"; // Only use localhost if site is running on dev-machine ONLY. Otherwise use full IP! Remember to open ports!
-    
+
     axios
       .get(`http://${myIP}:5000/queue`)
       .then((res) => {
@@ -66,18 +78,18 @@ class QueueComponent extends Component {
    * 
    * @param id The id of the item to be deleted from the queue 
    */
-  codeDeleteConfirmation(id)  {
+  codeDeleteConfirmation(id) {
     confirmAlert({
-      title: "Är du säker på att du vill ta bort programmet från kön?",
+      title: this.state.deleteConfirmationTitle,
       buttons: [
         {
-          label: "Ja",
+          label: this.state.yes,
           onClick: () => {
             this.deleteQueueItem(id)
           }
         },
         {
-          label: "Nej",
+          label: this.state.no,
         }
       ],
     });
@@ -88,10 +100,10 @@ class QueueComponent extends Component {
    */
   codeDeleteSuccess() {
     confirmAlert({
-      title: "Koden togs bort från kön",
+      title: this.state.deleteSuccessTitle,
       buttons: [
         {
-          label: "Okej",
+          label: this.state.Okay,
         }
       ],
     });
@@ -126,18 +138,18 @@ class QueueComponent extends Component {
    * 
    * @param The id of the item to be edited in the queue
    */
-  codeEditConfirmation(id)  {
+  codeEditConfirmation(id) {
     confirmAlert({
-      title: "Är du säker på att du vill ändra programmet i kön?",
+      title: this.state.editConfirmationTitle,
       buttons: [
         {
-          label: "Ja",
+          label: this.state.yes,
           onClick: () => {
             this.editQueueItem(id)
           }
         },
         {
-          label: "Nej",
+          label: this.state.no,
         }
       ],
     });
@@ -149,10 +161,10 @@ class QueueComponent extends Component {
    */
   codeEditSuccess() {
     confirmAlert({
-      title: "Din kod i kön har ändrats!",
+      title: this.state.editSuccessTitle,
       buttons: [
         {
-          label: "Okej",
+          label: this.state.Okay,
         }
       ],
     });
@@ -169,9 +181,9 @@ class QueueComponent extends Component {
     console.log(pauseState)
 
     if (pauseState) {
-      return "Starta Kö";
+      return this.state.unpauseQueue;
     } else {
-      return "Pausa Kö";
+      return this.state.pauseQueue;
     }
   }
 
@@ -187,28 +199,28 @@ class QueueComponent extends Component {
       //Start the queue
 
       axios
-      .post(`http://${myIP}:5000/unpause`)
-      .then((res) => {
-        this.setState(() => ({
-          isPaused: res.data.paused,
-        }));
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+        .post(`http://${myIP}:5000/unpause`)
+        .then((res) => {
+          this.setState(() => ({
+            isPaused: res.data.paused,
+          }));
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     } else {
       //pause the queue
 
       axios
-      .post(`http://${myIP}:5000/pause`)
-      .then((res) => {
-        this.setState(() => ({
-          isPaused: res.data.paused,
-        }));
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+        .post(`http://${myIP}:5000/pause`)
+        .then((res) => {
+          this.setState(() => ({
+            isPaused: res.data.paused,
+          }));
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     }
   }
 
@@ -220,6 +232,43 @@ class QueueComponent extends Component {
     this.myTimer = setInterval(() => {
       this.updateQueue()
     }, 1000) //Update interval in ms
+
+
+
+    if (this.cookies.get('language') === "en") {
+      this.setState({
+        queue: [["", "Loading Queue"]], //Default empty state
+        deleteConfirmationTitle: "Are you sure you want to remove the program from the queue?",
+        deleteSuccessTitle: "The code was removed from the queue",
+        editConfirmationTitle: "Are you sure you want to change the program in the queue?",
+        editSuccessTitle: "Your code in the queue has been changed!",
+        yes: "Yes",
+        no: "No",
+        Okay: "Okay",
+        pauseQueue: "Pause Queue",
+        unpauseQueue: "Unpause Queue",
+        queueWord: "queue",
+        changeButton: "Change",
+
+
+      });
+    } else {
+      this.setState({
+        queue: [["", "Laddar Kö"]], //Default empty state
+        deleteConfirmationTitle: "Är du säker på att du vill ta bort programmet från kön?",
+        deleteSuccessTitle: "Koden togs bort från kön",
+        editConfirmationTitle: "Är du säker på att du vill ändra programmet i kön?",
+        editSuccessTitle: "Din kod i kön har ändrats!",
+        yes: "Ja",
+        no: "Nej",
+        Okay: "Okej",
+        pauseQueue: "Pausa Kön",
+        unpauseQueue: "Starta Kön",
+        queueWord: "Kö",
+        changeButton: "Ändra",
+
+      });
+    }
   }
 
   /**
@@ -238,32 +287,32 @@ class QueueComponent extends Component {
     return (
       <React.Fragment>
         <ul>
-            <li>
-              {this.cookies.get("nickname") === "admin" &&
-                <span className="c" onClick={() => this.pausePlayQueue(this.state.isPaused)}>
+          <li>
+            {this.cookies.get("nickname") === "admin" &&
+              <span className="c" onClick={() => this.pausePlayQueue(this.state.isPaused)}>
                 {this.pausePrinting(this.state.isPaused)}
               </span>
-              }
+            }
             <h1>
-            Kö
-            <hr className="solid"></hr>
+              {this.state.queueWord}
+              <hr className="solid"></hr>
             </h1></li>
-            {this.state.queue.map((item, index) => ( //Hack solution. Should probably be refactored later.
-              <li>
+          {this.state.queue.map((item, index) => ( //Hack solution. Should probably be refactored later.
+            <li>
               <span className="b">
                 {this.state.queue[index][1]}
                 {this.cookies.get("nickname") === "admin" && // admin check
                   <button className="deletebutton" onClick={() => this.codeDeleteConfirmation(this.state.queue[index][0])}>x</button>
                 }
                 {this.cookies.get("nickname") === this.state.queue[index][1] &&
-                  <button className="editbutton" onClick={() => this.codeEditConfirmation(this.state.queue[index][0])}>Ändra</button>
+                  <button className="editbutton" onClick={() => this.codeEditConfirmation(this.state.queue[index][0])}>{this.state.changeButton}</button>
                 }
                 {this.cookies.get("nickname") === "admin" &&
-                  <button className="editbutton" onClick={() => this.codeEditConfirmation(this.state.queue[index][0])}>Ändra</button>
+                  <button className="editbutton" onClick={() => this.codeEditConfirmation(this.state.queue[index][0])}>{this.state.changeButton}</button>
                 }
               </span>
-              </li>
-            ))}
+            </li>
+          ))}
         </ul>
       </React.Fragment>
     );

@@ -202,12 +202,23 @@ function BlocklyComponent(props) {
     hiddenFileInput.current.value = "";
   };
 
+
+
   const codeSentMessage = () => {
+    var title;
+    var label;
+    if (cookies.get("language") === "en") {
+      title = "Your code has been queued!"
+      label = "very good!"
+    } else {
+      title = "Din kod har lagts i kön!"
+      label = "Vad bra"
+    }
     confirmAlert({
-      title: "Din kod har lagts i kön!",
+      title: title,
       buttons: [
         {
-          label: "Vad bra",
+          label: label,
         },
       ],
     });
