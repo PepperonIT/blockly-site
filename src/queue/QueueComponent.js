@@ -78,9 +78,16 @@ class QueueComponent extends Component {
    * 
    * @param id The id of the item to be deleted from the queue 
    */
-  codeDeleteConfirmation(id) {
+  codeDeleteConfirmation(id, plural) {
+    var msg;
+    if (plural) {
+      msg = this.state.deleteConfirmationTitlePlural
+    } else {
+      msg = this.state.deleteConfirmationTitle
+    }
+
     confirmAlert({
-      title: this.state.deleteConfirmationTitle,
+      title: msg,
       buttons: [
         {
           label: this.state.yes,
@@ -239,6 +246,7 @@ class QueueComponent extends Component {
       this.setState({
         queue: [["", "Loading Queue"]], //Default empty state
         deleteConfirmationTitle: "Are you sure you want to remove the program from the queue?",
+        deleteConfirmationTitlePlural: "Are you sure you want to remove the programs from the queue?",
         deleteSuccessTitle: "The code was removed from the queue",
         editConfirmationTitle: "Are you sure you want to change the program in the queue?",
         editSuccessTitle: "Your code in the queue has been changed!",
@@ -249,6 +257,7 @@ class QueueComponent extends Component {
         unpauseQueue: "Unpause Queue",
         queueWord: "queue",
         changeButton: "Change",
+        deleteAll: "Delete all items",
 
 
       });
@@ -256,6 +265,7 @@ class QueueComponent extends Component {
       this.setState({
         queue: [["", "Laddar Kö"]], //Default empty state
         deleteConfirmationTitle: "Är du säker på att du vill ta bort programmet från kön?",
+        deleteConfirmationTitlePlural: "Är du säker på att du vill ta bort programmen från kön?",
         deleteSuccessTitle: "Koden togs bort från kön",
         editConfirmationTitle: "Är du säker på att du vill ändra programmet i kön?",
         editSuccessTitle: "Din kod i kön har ändrats!",
@@ -266,6 +276,7 @@ class QueueComponent extends Component {
         unpauseQueue: "Starta Kön",
         queueWord: "Kö",
         changeButton: "Ändra",
+        deleteAll: "Ta bort alla",
 
       });
     }
@@ -293,6 +304,11 @@ class QueueComponent extends Component {
                 {this.pausePrinting(this.state.isPaused)}
               </span>
             }
+            {this.cookies.get("nickname") === "admin" &&
+              <span className="c" onClick={() => this.codeDeleteConfirmation(-1, true)}>
+                {this.state.deleteAll}
+              </span>
+            }
             <h1>
               {this.state.queueWord}
               <hr className="solid"></hr>
@@ -302,7 +318,7 @@ class QueueComponent extends Component {
               <span className="b">
                 {this.state.queue[index][1]}
                 {this.cookies.get("nickname") === "admin" && // admin check
-                  <button className="deletebutton" onClick={() => this.codeDeleteConfirmation(this.state.queue[index][0])}>x</button>
+                  <button className="deletebutton" onClick={() => this.codeDeleteConfirmation(this.state.queue[index][0], false)}>x</button>
                 }
                 {this.cookies.get("nickname") === this.state.queue[index][1] &&
                   <button className="editbutton" onClick={() => this.codeEditConfirmation(this.state.queue[index][0])}>{this.state.changeButton}</button>
