@@ -6,18 +6,17 @@ import { confirmAlert } from "react-confirm-alert"; // Import
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import BlocklyPy from "blockly/python";
 import Blockly from "blockly/core";
-import "../blockly/BlocklyComponent"
+import "../blockly/BlocklyComponent";
 import { useEffect, useRef } from "react";
 import BlocklyComponent, { ws } from "../blockly/BlocklyComponent";
 
-
-const config = require("../../config/config");
-const port = config.server.port;
-const host = config.server.host;
-
+const port = process.env.REACT_APP_SERVER_PORT;
+const ip = process.env.REACT_APP_SERVER_IP;
 
 class QueueComponent extends Component {
   cookies = new Cookies();
+  port = this.cookies.get("server_port");
+  ip = this.cookies.get("server_ip");
 
   constructor(props) {
     super(props);
@@ -35,20 +34,15 @@ class QueueComponent extends Component {
       unpauseQueue: "",
       queueWord: "",
       changeButton: "",
-    }
-
+    };
   }
-
-
 
   /**
    * Updates the queue with a call to the server
    */
   updateQueue() {
-    const myIP = "localhost"; // Only use localhost if site is running on dev-machine ONLY. Otherwise use full IP! Remember to open ports!
-
     axios
-      .get(`http://${host}:${port}/queue`)
+      .get(`http://${ip}:${port}/queue`)
       .then((res) => {
         this.setState(() => ({
           queue: res.data.queue,
@@ -62,33 +56,31 @@ class QueueComponent extends Component {
 
   /**
    * @summary Send a delete request to the server for a specific id
-   * 
+   *
    * @param id The id of the item to be deleted from the queue
    */
   deleteQueueItem(id) {
-    const myIP = "localhost";
-
     axios
-      .delete(`http://${host}:${port}/remove?pid=${id}`)
+      .delete(`http://${ip}:${port}/remove?pid=${id}`)
       .then((res) => {
-        this.codeDeleteMessage(res.data.success)
+        this.codeDeleteMessage(res.data.success);
       })
       .catch((err) => {
         //console.log(err);
-      })
+      });
   }
 
   /**
    * @summary Displays confirmation window for deleting item from queue
-   * 
-   * @param id The id of the item to be deleted from the queue 
+   *
+   * @param id The id of the item to be deleted from the queue
    */
   codeDeleteConfirmation(id, plural) {
     var msg;
     if (plural) {
-      msg = this.state.deleteConfirmationTitlePlural
+      msg = this.state.deleteConfirmationTitlePlural;
     } else {
-      msg = this.state.deleteConfirmationTitle
+      msg = this.state.deleteConfirmationTitle;
     }
 
     confirmAlert({
@@ -97,15 +89,15 @@ class QueueComponent extends Component {
         {
           label: this.state.yes,
           onClick: () => {
-            this.deleteQueueItem(id)
-          }
+            this.deleteQueueItem(id);
+          },
         },
         {
           label: this.state.no,
-        }
+        },
       ],
     });
-  };
+  }
 
   /**
    * @summary Displays success message upon item deletion
@@ -124,38 +116,36 @@ class QueueComponent extends Component {
       buttons: [
         {
           label: this.state.Okay,
-        }
+        },
       ],
     });
   }
 
   /**
    * @summary Sends a put request to the server to edit an item
-   * 
-   * @param id The id of the item to be edited in the queue 
+   *
+   * @param id The id of the item to be edited in the queue
    */
   editQueueItem(id) {
-    const myIP = "localhost";
-
     var code = BlocklyPy.workspaceToCode(ws);
 
     console.log(code);
 
     axios
-      .put(`http://${host}:${port}/edit?pid=${id}`, code, {
+      .put(`http://${ip}:${port}/edit?pid=${id}`, code, {
         headers: { "Content-Type": "text/plain" },
       })
       .then((res) => {
-        this.codeEditMessage(res.data.success)
+        this.codeEditMessage(res.data.success);
       })
       .catch((err) => {
         //console.log(err);
-      })
+      });
   }
 
   /**
    * @summary Displays confirmation window for editing item in the queue
-   * 
+   *
    * @param The id of the item to be edited in the queue
    */
   codeEditConfirmation(id) {
@@ -165,29 +155,28 @@ class QueueComponent extends Component {
         {
           label: this.state.yes,
           onClick: () => {
-            this.editQueueItem(id)
-          }
+            this.editQueueItem(id);
+          },
         },
         {
           label: this.state.no,
-        }
+        },
       ],
     });
-  };
-
+  }
 
   /**
    * @param success bool if the edit was successful or not
-   * 
+   *
    * @summary Displays message upon code edit
    */
   codeEditMessage(success) {
     var t;
 
     if (success) {
-      t = this.state.editSuccessTitle
+      t = this.state.editSuccessTitle;
     } else {
-      t = this.state.editFailTitle
+      t = this.state.editFailTitle;
     }
 
     confirmAlert({
@@ -195,20 +184,20 @@ class QueueComponent extends Component {
       buttons: [
         {
           label: this.state.Okay,
-        }
+        },
       ],
     });
   }
 
   /**
    * @summary Prints corresponding message for queue pause button
-   * 
+   *
    * @param pauseState The state representing whether the queue is paused or not.
-   * 
+   *
    * @returns String
    */
   pausePrinting(pauseState) {
-    console.log(pauseState)
+    console.log(pauseState);
 
     if (pauseState) {
       return this.state.unpauseQueue;
@@ -219,17 +208,15 @@ class QueueComponent extends Component {
 
   /**
    * @summary sends a post request to either pause or play the queue
-   * 
+   *
    * @param pauseState The state representing whether the queue is paused or not.
    */
   pausePlayQueue(pauseState) {
-    const myIP = "localhost";
-
     if (pauseState) {
       //Start the queue
 
       axios
-        .post(`http://${host}:${port}/unpause`)
+        .post(`http://${ip}:${port}/unpause`)
         .then((res) => {
           this.setState(() => ({
             isPaused: res.data.paused,
@@ -242,7 +229,7 @@ class QueueComponent extends Component {
       //pause the queue
 
       axios
-        .post(`http://${host}:${port}/pause`)
+        .post(`http://${ip}:${port}/pause`)
         .then((res) => {
           this.setState(() => ({
             isPaused: res.data.paused,
@@ -260,21 +247,23 @@ class QueueComponent extends Component {
    */
   componentDidMount = () => {
     this.myTimer = setInterval(() => {
-      this.updateQueue()
-    }, 1000) //Update interval in ms
+      this.updateQueue();
+    }, 1000); //Update interval in ms
 
-
-
-    if (this.cookies.get('language') === "en") {
+    if (this.cookies.get("language") === "en") {
       this.setState({
         queue: [["", "Loading Queue"]], //Default empty state
-        deleteConfirmationTitle: "Are you sure you want to remove the program from the queue?",
-        deleteConfirmationTitlePlural: "Are you sure you want to remove the programs from the queue?",
+        deleteConfirmationTitle:
+          "Are you sure you want to remove the program from the queue?",
+        deleteConfirmationTitlePlural:
+          "Are you sure you want to remove the programs from the queue?",
         deleteSuccessTitle: "The code was removed from the queue",
         deleteFailTitle: "The code was not removed due to an error.",
-        editConfirmationTitle: "Are you sure you want to change the program in the queue?",
+        editConfirmationTitle:
+          "Are you sure you want to change the program in the queue?",
         editSuccessTitle: "Your code in the queue has been changed!",
-        editFailTitle: "Your code in the queue has NOT been changed due to an error!",
+        editFailTitle:
+          "Your code in the queue has NOT been changed due to an error!",
         yes: "Yes",
         no: "No",
         Okay: "Okay",
@@ -283,17 +272,18 @@ class QueueComponent extends Component {
         queueWord: "queue",
         changeButton: "Change",
         deleteAll: "Delete all items",
-
-
       });
     } else {
       this.setState({
         queue: [["", "Laddar Kö"]], //Default empty state
-        deleteConfirmationTitle: "Är du säker på att du vill ta bort programmet från kön?",
-        deleteConfirmationTitlePlural: "Är du säker på att du vill ta bort programmen från kön?",
+        deleteConfirmationTitle:
+          "Är du säker på att du vill ta bort programmet från kön?",
+        deleteConfirmationTitlePlural:
+          "Är du säker på att du vill ta bort programmen från kön?",
         deleteSuccessTitle: "Koden togs bort från kön",
         deleteFailTitle: "Koden togs inte bort på grund av ett fel.",
-        editConfirmationTitle: "Är du säker på att du vill ändra programmet i kön?",
+        editConfirmationTitle:
+          "Är du säker på att du vill ändra programmet i kön?",
         editSuccessTitle: "Din kod i kön har ändrats!",
         editFailTitle: "Din kod i kön har INTE ändrats på grund av ett fel!",
         yes: "Ja",
@@ -304,21 +294,20 @@ class QueueComponent extends Component {
         queueWord: "Kö",
         changeButton: "Ändra",
         deleteAll: "Ta bort alla",
-
       });
     }
-  }
+  };
 
   /**
    * Clears unmounted components to save memory
    */
   componentWillUnmount = () => {
     clearInterval(this.myTimer);
-  }
+  };
 
   /**
    * @summary Renders the component
-   * 
+   *
    * @returns React Fragment containing the html to render
    */
   render() {
@@ -326,36 +315,73 @@ class QueueComponent extends Component {
       <React.Fragment>
         <ul>
           <li>
-            {this.cookies.get("nickname") === "admin" &&
-              <span className="c" onClick={() => this.pausePlayQueue(this.state.isPaused)}>
+            {this.cookies.get("nickname") === "admin" && (
+              <span
+                className="c"
+                onClick={() => this.pausePlayQueue(this.state.isPaused)}
+              >
                 {this.pausePrinting(this.state.isPaused)}
               </span>
-            }
-            {this.cookies.get("nickname") === "admin" &&
-              <span className="c" onClick={() => this.codeDeleteConfirmation(-1, true)}>
+            )}
+            {this.cookies.get("nickname") === "admin" && (
+              <span
+                className="c"
+                onClick={() => this.codeDeleteConfirmation(-1, true)}
+              >
                 {this.state.deleteAll}
               </span>
-            }
+            )}
             <h1>
               {this.state.queueWord}
               <hr className="solid"></hr>
-            </h1></li>
-          {this.state.queue.map((item, index) => ( //Hack solution. Should probably be refactored later.
-            <li>
-              <span className="b">
-                {this.state.queue[index][1]}
-                {this.cookies.get("nickname") === "admin" && // admin check
-                  <button className="deletebutton" onClick={() => this.codeDeleteConfirmation(this.state.queue[index][0], false)}>x</button>
-                }
-                {this.cookies.get("nickname") === this.state.queue[index][1] &&
-                  <button className="editbutton" onClick={() => this.codeEditConfirmation(this.state.queue[index][0])}>{this.state.changeButton}</button>
-                }
-                {this.cookies.get("nickname") === "admin" &&
-                  <button className="editbutton" onClick={() => this.codeEditConfirmation(this.state.queue[index][0])}>{this.state.changeButton}</button>
-                }
-              </span>
-            </li>
-          ))}
+            </h1>
+          </li>
+          {this.state.queue.map(
+            (
+              item,
+              index //Hack solution. Should probably be refactored later.
+            ) => (
+              <li>
+                <span className="b">
+                  {this.state.queue[index][1]}
+                  {this.cookies.get("nickname") === "admin" && ( // admin check
+                    <button
+                      className="deletebutton"
+                      onClick={() =>
+                        this.codeDeleteConfirmation(
+                          this.state.queue[index][0],
+                          false
+                        )
+                      }
+                    >
+                      x
+                    </button>
+                  )}
+                  {this.cookies.get("nickname") ===
+                    this.state.queue[index][1] && (
+                    <button
+                      className="editbutton"
+                      onClick={() =>
+                        this.codeEditConfirmation(this.state.queue[index][0])
+                      }
+                    >
+                      {this.state.changeButton}
+                    </button>
+                  )}
+                  {this.cookies.get("nickname") === "admin" && (
+                    <button
+                      className="editbutton"
+                      onClick={() =>
+                        this.codeEditConfirmation(this.state.queue[index][0])
+                      }
+                    >
+                      {this.state.changeButton}
+                    </button>
+                  )}
+                </span>
+              </li>
+            )
+          )}
         </ul>
       </React.Fragment>
     );

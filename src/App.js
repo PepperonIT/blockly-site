@@ -3,6 +3,11 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Home from "../src/pages/home";
 import "./styles/app.css";
 import BlocksPage from "./pages/blocks-page";
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
+
+cookies.set("server_port", process.env.REACT_APP_SERVER_PORT);
+cookies.set("server_ip", process.env.REACT_APP_SERVER_IP);
 
 function App() {
   return (

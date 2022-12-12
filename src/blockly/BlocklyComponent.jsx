@@ -35,10 +35,6 @@ import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import Cookies from "universal-cookie";
 import { useNavigate } from "react-router-dom";
 
-const config = require("../../config/config");
-const port = config.server.port;
-const host = config.server.host;
-
 const exprBlocks = require("../blocks/expressionsBlocks");
 const speechBlocks = require("../blocks/speechBlocks");
 const miscBlocks = require("../blocks/miscBlocks");
@@ -55,6 +51,8 @@ function BlocklyComponent(props) {
   let primaryWorkspace = useRef();
   ws = primaryWorkspace;
   const name = cookies.get("nickname");
+  const port = cookies.get("server_port");
+  const ip = cookies.get("server_ip");
 
   var formText = {};
   const svForm = {
@@ -67,7 +65,7 @@ function BlocklyComponent(props) {
     codeSentSuccess: "Din kod har lagts till i kön!",
     codeSentSuccessConfirm: "Vad bra!",
     codeSentFail: "Din kod lades INTE till i kön på grund av ett fel",
-    codeSentFailConfirm: "Ok"
+    codeSentFailConfirm: "Ok",
   };
   const enForm = {
     import: "Import",
@@ -79,7 +77,7 @@ function BlocklyComponent(props) {
     codeSentSuccess: "Your code has been queued!",
     codeSentSuccessConfirm: "Very good!",
     codeSentFail: "Your code was NOT sent due to an error",
-    codeSentFailConfirm: "Ok"
+    codeSentFailConfirm: "Ok",
   };
 
   if (cookies.get("language") === "en") {
@@ -113,7 +111,7 @@ function BlocklyComponent(props) {
     // Get yout IP on Linux by running `ifconfig`
 
     axios
-      .post(`http://${host}:${port}/code?name=${name}`, code, {
+      .post(`http://${ip}:${port}/code?name=${name}`, code, {
         headers: { "Content-Type": "text/plain" },
       })
       .then((res) => {
@@ -206,8 +204,6 @@ function BlocklyComponent(props) {
     loadBlocks(fileUploaded);
     hiddenFileInput.current.value = "";
   };
-
-
 
   const codeSentMessage = (success) => {
     if (success) {

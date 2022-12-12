@@ -39,9 +39,6 @@ import BlocklyComponent, {
 import Cookies from "universal-cookie";
 import { Navigate } from "react-router-dom";
 
-
-
-
 import "../fields/shadowFields";
 
 import "../blocks/expressionsBlocks";
@@ -57,7 +54,6 @@ import "../generator/shadowFieldGen";
 
 function BlocksPage() {
   const cookies = new Cookies();
-
 
   var CATEGORY_STRINGS = {};
 
@@ -108,13 +104,16 @@ function BlocksPage() {
   }
 
   function preventNotUserAccess() {
-    if (cookies.get("language") && cookies.get("mode") && cookies.get("nickname")) {
+    if (
+      cookies.get("language") &&
+      cookies.get("mode") &&
+      cookies.get("nickname")
+    ) {
       return true;
     } else {
       return false;
     }
   }
-
 
   if (preventNotUserAccess()) {
     return (
@@ -141,7 +140,10 @@ function BlocksPage() {
                 {/**
                  * EXPRESSIONS
                  */}
-                <Category name={CATEGORY_STRINGS["expressions"]} colour="#5B6DA5">
+                <Category
+                  name={CATEGORY_STRINGS["expressions"]}
+                  colour="#5B6DA5"
+                >
                   <Block type="rotate_eyes">
                     <Value name="COLOUR">
                       <Shadow type="colour_picker">
@@ -726,7 +728,10 @@ function BlocksPage() {
                       </Shadow>
                     </Value>
                   </Block>
-                  <Block type="play_rock_paper_scissors" disabled="true"></Block>
+                  <Block
+                    type="play_rock_paper_scissors"
+                    disabled="true"
+                  ></Block>
                 </Category>
               </BlocklyComponent>
               {/**
@@ -741,9 +746,8 @@ function BlocksPage() {
       </>
     );
   } else {
-    return <Navigate to="/" />
+    return <Navigate to="/" />;
   }
-
 }
 
 export default BlocksPage;

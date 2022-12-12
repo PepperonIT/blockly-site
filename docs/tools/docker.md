@@ -3,7 +3,7 @@ Please follow the instructions in [this website](https://docs.docker.com/get-doc
 
 ### Build the Docker image for the current folder
 ```
-docker build . -t blockly-site
+docker build -t blockly-site .
 ```
 
 ### Run the image in detached mode and map port 3000 inside the container with 3000 on current host
