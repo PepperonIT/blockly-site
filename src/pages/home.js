@@ -7,6 +7,8 @@ const speechBlocks = require("../blocks/speechBlocks");
 const miscBlocks = require("../blocks/miscBlocks");
 const movementBlocks = require("../blocks/movementBlocks");
 
+let adminPassword = "LMS123" //admin password
+
 function Home() {
   const navigate = useNavigate();
   const cookies = new Cookies();
@@ -54,20 +56,40 @@ function Home() {
     event.preventDefault(); // 👈️ prevent page refresh
 
     if (nickName.trim().length === 0) {
-      alert("nickname cannot be empty!");
+      alert("Nickname cannot be empty!");
     } else {
-      cookies.set("nickname", nickName, { path: "/" });
-      if (english) {
-        cookies.set("language", "en", { path: "/" });
+      if (nickName.trim() === "admin") {
+        let password = prompt("Please enter password: ");
+        if (password === adminPassword) {
+          cookies.set("nickname", "admin", { path: "/" });
+          if (english) {
+            cookies.set("language", "en", { path: "/" });
+          } else {
+            cookies.set("language", "sv", { path: "/" });
+          }
+          if (advanced) {
+            cookies.set("mode", "advanced", { path: "/" });
+          } else {
+            cookies.set("mode", "basic", { path: "/" });
+          }
+          navigate("/blockly");
+        } else {
+          alert("wrong password");
+        }
       } else {
-        cookies.set("language", "sv", { path: "/" });
+        cookies.set("nickname", nickName, { path: "/" });
+        if (english) {
+          cookies.set("language", "en", { path: "/" });
+        } else {
+          cookies.set("language", "sv", { path: "/" });
+        }
+        if (advanced) {
+          cookies.set("mode", "advanced", { path: "/" });
+        } else {
+          cookies.set("mode", "basic", { path: "/" });
+        }
+        navigate("/blockly");
       }
-      if (advanced) {
-        cookies.set("mode", "advanced", { path: "/" });
-      } else {
-        cookies.set("mode", "basic", { path: "/" });
-      }
-      navigate("/blockly");
     }
   };
 
