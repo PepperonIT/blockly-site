@@ -1,54 +1,70 @@
 .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-    height: 40vmin;
-    pointer-events: none;
-  }
-  
-  .App-header {
-    background-color: #282c34;
-    /* min-height: 50vh; */
-    min-height: 10vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: rgb(0, 0, 0);
-  }
-  
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  /* min-height: 50vh; */
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: rgb(0, 0, 0);
+}
+
+.Queue-div {
+  background-color: #DDDDDD;
+  height: 90vh;
+  width: 20%;
+  right: 0;
+  top: 10vh;
+  position: absolute;
+  float: right;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 1vmin);
+  color: rgb(0, 0, 0);
+  overflow-y: scroll;
+}
+
+@media screen and (max-width: 600px) {
   .Queue-div {
     background-color: #DDDDDD;
-    height: 90vh;
-    width: 20%;
-    right: 0;
-    top: 10vh;
+    height: 30vh;
+    width: 100%;
     position: absolute;
-    float: right;
+    left: 0;
+    top: 70vh;
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 1vmin);
     color: rgb(0, 0, 0);
     overflow-y: scroll;
+    z-index: 10000;
   }
-  
-  ul {
-    list-style-type: None;
-    justify-content: center;
-    padding: 0;
-    text-align: center;
+}
+
+ul {
+  list-style-type: None;
+  justify-content: center;
+  padding: 0;
+  text-align: center;
+}
+
+li .App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
   }
-  
-  li
-  
-  .App-link {
-    color: #61dafb;
+
+  to {
+    transform: rotate(360deg);
   }
-  
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
+}
