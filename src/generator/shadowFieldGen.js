@@ -17,7 +17,7 @@ Blockly.Python["number_constraint"] = function (block) {
     order = Blockly.Python.ORDER_UNARY_SIGN;
   } else {
     order =
-      code < 0 ? Blockly.Python.ORDER_UNARY_SIGN : Blockly.Python.ORDER_NONE;
+      code < 0 ? Blockly.Python.ORDER_UNARY_SIGN : Blockly.Python.ORDER_ATOMIC;
   }
   return [code, order];
 };
@@ -38,7 +38,7 @@ Blockly.Python["angle_constraint_1"] = function (block) {
     order = Blockly.Python.ORDER_UNARY_SIGN;
   } else {
     order =
-      code < 0 ? Blockly.Python.ORDER_UNARY_SIGN : Blockly.Python.ORDER_NONE;
+      code < 0 ? Blockly.Python.ORDER_UNARY_SIGN : Blockly.Python.ORDER_ATOMIC;
   }
   return [code, order];
 };
@@ -59,7 +59,7 @@ Blockly.Python["angle_constraint_2"] = function (block) {
     order = Blockly.Python.ORDER_UNARY_SIGN;
   } else {
     order =
-      code < 0 ? Blockly.Python.ORDER_UNARY_SIGN : Blockly.Python.ORDER_NONE;
+      code < 0 ? Blockly.Python.ORDER_UNARY_SIGN : Blockly.Python.ORDER_ATOMIC;
   }
   return [code, order];
 };
@@ -80,7 +80,7 @@ Blockly.Python["angle_constraint_3"] = function (block) {
     order = Blockly.Python.ORDER_UNARY_SIGN;
   } else {
     order =
-      code < 0 ? Blockly.Python.ORDER_UNARY_SIGN : Blockly.Python.ORDER_NONE;
+      code < 0 ? Blockly.Python.ORDER_UNARY_SIGN : Blockly.Python.ORDER_ATOMIC;
   }
   return [code, order];
 };
@@ -101,7 +101,7 @@ Blockly.Python["angle_constraint_4"] = function (block) {
     order = Blockly.Python.ORDER_UNARY_SIGN;
   } else {
     order =
-      code < 0 ? Blockly.Python.ORDER_UNARY_SIGN : Blockly.Python.ORDER_NONE;
+      code < 0 ? Blockly.Python.ORDER_UNARY_SIGN : Blockly.Python.ORDER_ATOMIC;
   }
   return [code, order];
 };
@@ -122,7 +122,7 @@ Blockly.Python["angle_constraint_5"] = function (block) {
     order = Blockly.Python.ORDER_UNARY_SIGN;
   } else {
     order =
-      code < 0 ? Blockly.Python.ORDER_UNARY_SIGN : Blockly.Python.ORDER_NONE;
+      code < 0 ? Blockly.Python.ORDER_UNARY_SIGN : Blockly.Python.ORDER_ATOMIC;
   }
   return [code, order];
 };
@@ -143,7 +143,7 @@ Blockly.Python["speed_constraint"] = function (block) {
     order = Blockly.Python.ORDER_UNARY_SIGN;
   } else {
     order =
-      code < 0 ? Blockly.Python.ORDER_UNARY_SIGN : Blockly.Python.ORDER_NONE;
+      code < 0 ? Blockly.Python.ORDER_UNARY_SIGN : Blockly.Python.ORDER_ATOMIC;
   }
   return [code, order];
 };
@@ -164,7 +164,7 @@ Blockly.Python["speed_constraint_2"] = function (block) {
     order = Blockly.Python.ORDER_UNARY_SIGN;
   } else {
     order =
-      code < 0 ? Blockly.Python.ORDER_UNARY_SIGN : Blockly.Python.ORDER_NONE;
+      code < 0 ? Blockly.Python.ORDER_UNARY_SIGN : Blockly.Python.ORDER_ATOMIC;
   }
   return [code, order];
 };

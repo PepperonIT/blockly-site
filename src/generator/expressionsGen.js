@@ -9,10 +9,11 @@ import "@blockly/field-slider";
  */
 Blockly.Python["rotate_eyes"] = function (block) {
   var rgb =
-    Blockly.Python.valueToCode(block, "COLOUR", Blockly.Python.ORDER_NONE) ||
+    Blockly.Python.valueToCode(block, "COLOUR", Blockly.Python.ORDER_ATOMIC) ||
     "''";
   var duration = getDuration(block);
-  return `pep_expr.rotate_eyes(${rgb},${duration})\n`;
+  var code = `pep_expr.rotate_eyes(${rgb},${duration})\n`
+  return [code, Blockly.Python.ORDER_NONE];
 };
 
 /**
@@ -22,10 +23,10 @@ Blockly.Python["rotate_eyes"] = function (block) {
  */
 Blockly.Python["fade_eyes"] = function (block) {
   var rgb =
-    Blockly.Python.valueToCode(block, "COLOUR", Blockly.Python.ORDER_NONE) ||
+    Blockly.Python.valueToCode(block, "COLOUR", Blockly.Python.ORDER_ATOMIC) ||
     "''";
   var duration = getDuration(block);
-  return `$pep_expr.fade_eyes(${rgb},${duration})\n`;
+  return `pep_expr.fade_eyes(${rgb},${duration})\n`;
 };
 
 /**
@@ -93,7 +94,7 @@ Blockly.Python["wink_eye"] = function (block) {
  */
 function getDuration(block) {
   var duration =
-    Blockly.Python.valueToCode(block, "DURATION", Blockly.Python.ORDER_NONE) ||
+    Blockly.Python.valueToCode(block, "DURATION", Blockly.Python.ORDER_ATOMIC) ||
     "0";
   if (duration > 60) {
     duration = 60;
