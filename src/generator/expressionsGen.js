@@ -9,7 +9,7 @@ import "@blockly/field-slider";
  */
 Blockly.Python["rotate_eyes"] = function (block) {
   var rgb =
-    Blockly.Python.valueToCode(block, "COLOUR", Blockly.Python.ORDER_ATOMIC) ||
+    Blockly.Python.valueToCode(block, "COLOUR", Blockly.Python.ORDER_NONE) ||
     "''";
   var duration = getDuration(block);
   return `pep_expr.rotate_eyes(${rgb},${duration})\n`;
@@ -22,7 +22,7 @@ Blockly.Python["rotate_eyes"] = function (block) {
  */
 Blockly.Python["fade_eyes"] = function (block) {
   var rgb =
-    Blockly.Python.valueToCode(block, "COLOUR", Blockly.Python.ORDER_ATOMIC) ||
+    Blockly.Python.valueToCode(block, "COLOUR", Blockly.Python.ORDER_NONE) ||
     "''";
   var duration = getDuration(block);
   return `$pep_expr.fade_eyes(${rgb},${duration})\n`;

@@ -1,4 +1,4 @@
-#https://jsramblings.com/dockerizing-a-react-app/
+# https://jsramblings.com/dockerizing-a-react-app/
 # ==== CONFIGURE =====
 # Use a Node 16 base image
 FROM node:16-alpine 
@@ -16,5 +16,7 @@ RUN npm run build
 ENV NODE_ENV production
 # Expose the port on which the app will be running (3000 is the default that `serve` uses)
 EXPOSE 3000
+# Expose the port thah communicates with the backend
+EXPOSE 5000
 # Start the app
 CMD [ "npx", "serve", "build" ]
