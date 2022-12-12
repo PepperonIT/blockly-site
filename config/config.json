@@ -4,7 +4,7 @@
     "name": "blockly-site"
   },
   "server": {
-    "host": "localhost",
+    "host": "130.240.156.238",
     "port": 5000,
     "name": "server"
   }
