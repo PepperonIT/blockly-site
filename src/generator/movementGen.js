@@ -248,7 +248,7 @@ Blockly.Python["robot_dance"] = function (block) {
  */
 function getAngle(block) {
   var angle =
-    Blockly.Python.valueToCode(block, "DEGREES", Blockly.Python.ORDER_NONE) ||
+    Blockly.Python.valueToCode(block, "DEGREES", Blockly.Python.ORDER_ATOMIC) ||
     "0";
   return angle;
 }
@@ -260,7 +260,7 @@ function getAngle(block) {
  */
 function getSpeed(block) {
   var speed =
-    Blockly.Python.valueToCode(block, "SPEED", Blockly.Python.ORDER_NONE) ||
+    Blockly.Python.valueToCode(block, "SPEED", Blockly.Python.ORDER_ATOMIC) ||
     "0";
   if (speed > 100) {
     speed = 100;
@@ -278,7 +278,7 @@ function getSpeed(block) {
  */
 function get2DSpeed(block, param) {
   var speed =
-    Blockly.Python.valueToCode(block, param, Blockly.Python.ORDER_NONE) || "0";
+    Blockly.Python.valueToCode(block, param, Blockly.Python.ORDER_ATOMIC) || "0";
   if (speed > 100) {
     speed = 100;
   } else if (speed < -100) {
@@ -294,7 +294,7 @@ function get2DSpeed(block, param) {
  */
 function getDuration(block) {
   var duration =
-    Blockly.Python.valueToCode(block, "DURATION", Blockly.Python.ORDER_NONE) ||
+    Blockly.Python.valueToCode(block, "DURATION", Blockly.Python.ORDER_ATOMIC) ||
     "0";
   if (duration > 60) {
     duration = 60;

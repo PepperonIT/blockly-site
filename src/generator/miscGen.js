@@ -33,7 +33,7 @@ Blockly.Python["play_music"] = function (block) {
  */
 Blockly.Python["search_picture"] = function (block) {
   var searchString =
-    Blockly.Python.valueToCode(block, "TEXT", Blockly.Python.ORDER_NONE) ||
+    Blockly.Python.valueToCode(block, "TEXT", Blockly.Python.ORDER_ATOMIC) ||
     "''";
   return `XXXXXXXXXXX(${searchString})\n`;
 };
@@ -54,7 +54,7 @@ Blockly.Python["play_rock_paper_scissors"] = function (block) {
  */
 function getDuration(block) {
   var duration =
-    Blockly.Python.valueToCode(block, "DURATION", Blockly.Python.ORDER_NONE) ||
+    Blockly.Python.valueToCode(block, "DURATION", Blockly.Python.ORDER_ATOMIC) ||
     "0";
   if (duration > 60) {
     duration = 60;

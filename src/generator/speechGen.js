@@ -8,7 +8,7 @@ import "blockly/python";
  */
 Blockly.Python["say"] = function (block) {
   var text =
-    Blockly.Python.valueToCode(block, "TEXT", Blockly.Python.ORDER_NONE) ||
+    Blockly.Python.valueToCode(block, "TEXT", Blockly.Python.ORDER_ATOMIC) ||
     "''";
   return `pep_speech.talk(${text})\n`;
 };

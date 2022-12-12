@@ -39,10 +39,6 @@ const config = require("../../config/config");
 const port = config.server.port;
 const host = config.server.host;
 
-// const config = require("config");
-// const host = config.get("server").host;
-// const port = config.get("server").port;
-
 const exprBlocks = require("../blocks/expressionsBlocks");
 const speechBlocks = require("../blocks/speechBlocks");
 const miscBlocks = require("../blocks/miscBlocks");

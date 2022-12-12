@@ -10,10 +10,10 @@ import "@blockly/field-slider";
 Blockly.Python["rotate_eyes"] = function (block) {
   var rgb =
     Blockly.Python.valueToCode(block, "COLOUR", Blockly.Python.ORDER_ATOMIC) ||
-    "''";
+    "";
+  rgb = rgb.replaceAll('\'', '');
   var duration = getDuration(block);
-  var code = `pep_expr.rotate_eyes(${rgb},${duration})\n`
-  return [code, Blockly.Python.ORDER_NONE];
+  return `pep_expr.rotate_eyes(${rgb},${duration})\n`
 };
 
 /**
@@ -24,9 +24,10 @@ Blockly.Python["rotate_eyes"] = function (block) {
 Blockly.Python["fade_eyes"] = function (block) {
   var rgb =
     Blockly.Python.valueToCode(block, "COLOUR", Blockly.Python.ORDER_ATOMIC) ||
-    "''";
+    "";
+  rgb = rgb.replaceAll('\'', '');
   var duration = getDuration(block);
-  return `pep_expr.fade_eyes(${rgb},${duration})\n`;
+  return `pep_expr.fade_eyes(${rgb},${duration})\n`
 };
 
 /**
