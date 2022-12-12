@@ -58,6 +58,7 @@ function BlocklyComponent(props) {
 
   let primaryWorkspace = useRef();
   ws = primaryWorkspace;
+  const name = cookies.get("nickname");
 
   var formText = {};
   const svForm = {
@@ -108,7 +109,7 @@ function BlocklyComponent(props) {
     // Get yout IP on Linux by running `ifconfig`
 
     axios
-      .post(`http://${host}:${port}/code`, code, {
+      .post(`http://${host}:${port}/code?name=${name}`, code, {
         headers: { "Content-Type": "text/plain" },
       })
       .then((res) => {
