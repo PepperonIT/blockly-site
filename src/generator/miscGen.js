@@ -1,5 +1,8 @@
 import * as Blockly from "blockly/core";
 import "blockly/python";
+import Cookies from "universal-cookie";
+
+const cookies = new Cookies();
 
 /**
  *
@@ -44,7 +47,8 @@ Blockly.Python["search_picture"] = function (block) {
  * @returns
  */
 Blockly.Python["play_rock_paper_scissors"] = function (block) {
-  return `XXXXXXXXXXX()\n`;
+  var language = cookies.get("pepper_language");
+  return `rps_controller.play_rps("${language}")\n`;
 };
 
 /**
@@ -54,8 +58,11 @@ Blockly.Python["play_rock_paper_scissors"] = function (block) {
  */
 function getDuration(block) {
   var duration =
-    Blockly.Python.valueToCode(block, "DURATION", Blockly.Python.ORDER_ATOMIC) ||
-    "0";
+    Blockly.Python.valueToCode(
+      block,
+      "DURATION",
+      Blockly.Python.ORDER_ATOMIC
+    ) || "0";
   if (duration > 60) {
     duration = 60;
   } else if (duration < 1) {

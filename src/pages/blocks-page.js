@@ -307,6 +307,7 @@ function BlocksPage() {
                       </Shadow>
                     </Value>
                   </Block>
+                  <Block type="change_pepper_speaking_language" />
                 </Category>
 
                 {cookies.get("mode") === "advanced" && (
@@ -728,10 +729,7 @@ function BlocksPage() {
                       </Shadow>
                     </Value>
                   </Block>
-                  <Block
-                    type="play_rock_paper_scissors"
-                    disabled="true"
-                  ></Block>
+                  <Block type="play_rock_paper_scissors"></Block>
                 </Category>
               </BlocklyComponent>
               {/**

@@ -10,6 +10,10 @@ var BLOCK_STRINGS = {}; //Defines the text for each block
 const SV_BLOCK_STRINGS = {
   say: "Säg %1",
   say_tooltip: "Skriv något i textrutan så säger Pepper det",
+  change_pepper_speaking_language: "Byt Peppers språk till %1",
+  change_pepper_speaking_language_tooltip: "Byt Peppers talspråk.",
+  change_pepper_speaking_language_sv: "Svenska",
+  change_pepper_speaking_language_en: "Engelska",
 };
 
 /**
@@ -18,6 +22,11 @@ const SV_BLOCK_STRINGS = {
 const EN_BLOCK_STRINGS = {
   say: "Say %1",
   say_tooltip: "Type something in the textbox and Pepper will say it",
+  change_pepper_speaking_language: "Change Peppers language to %1",
+  change_pepper_speaking_language_tooltip:
+    "Change the language of which Pepper uses when speaking.",
+  change_pepper_speaking_language_sv: "Swedish",
+  change_pepper_speaking_language_en: "English",
 };
 
 BLOCK_STRINGS = SV_BLOCK_STRINGS;
@@ -65,6 +74,38 @@ function UpdateBlocks() {
     init: function () {
       this.jsonInit(say);
       this.setStyle("text_blocks");
+      this.setColour(180);
+    },
+  };
+
+  /**
+   * @change_pepper_speaking_language
+   * Change Peppers speaking language
+   */
+  var speaking_language = {
+    type: "change_pepper_speaking_language",
+    message0: BLOCK_STRINGS["change_pepper_speaking_language"],
+    args0: [
+      {
+        type: "field_dropdown",
+        name: "speaking_language",
+        options: [
+          [BLOCK_STRINGS["change_pepper_speaking_language_sv"], "Swedish"],
+          [BLOCK_STRINGS["change_pepper_speaking_language_en"], "English"],
+        ],
+      },
+    ],
+    inputsInline: true,
+    previousStatement: null,
+    nextStatement: null,
+    tooltip: BLOCK_STRINGS["change_pepper_speaking_language_tooltip"],
+    helpUrl: "",
+  };
+
+  Blockly.Blocks["change_pepper_speaking_language"] = {
+    init: function () {
+      this.jsonInit(speaking_language);
+      this.setStyle("loop_blocks");
       this.setColour(180);
     },
   };

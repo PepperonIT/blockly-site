@@ -7,7 +7,7 @@ const speechBlocks = require("../blocks/speechBlocks");
 const miscBlocks = require("../blocks/miscBlocks");
 const movementBlocks = require("../blocks/movementBlocks");
 
-let adminPassword = "LMS123" //admin password
+let adminPassword = "LMS123"; //admin password
 
 function Home() {
   const navigate = useNavigate();
@@ -64,8 +64,10 @@ function Home() {
           cookies.set("nickname", "admin", { path: "/" });
           if (english) {
             cookies.set("language", "en", { path: "/" });
+            cookies.set("pepper_language", "English");
           } else {
             cookies.set("language", "sv", { path: "/" });
+            cookies.set("pepper_language", "Swedish");
           }
           if (advanced) {
             cookies.set("mode", "advanced", { path: "/" });
@@ -80,8 +82,10 @@ function Home() {
         cookies.set("nickname", nickName, { path: "/" });
         if (english) {
           cookies.set("language", "en", { path: "/" });
+          cookies.set("pepper_language", "English");
         } else {
           cookies.set("language", "sv", { path: "/" });
+          cookies.set("pepper_language", "Swedish");
         }
         if (advanced) {
           cookies.set("mode", "advanced", { path: "/" });
