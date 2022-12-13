@@ -21,20 +21,51 @@ Gives more options in the future. for instance, the abiality to convert to a mob
 Some kind of HTTP handling is required and Axios had a simplistic design which is enough for the kind of HTTP messages we will send to the Block server.
 
 # Usage
+## Prerequisites
+Create a file called `.env` in the root directory of the project. It should contain these attributes:
+
+```
+REACT_APP_SERVER_IP="[Your local ip]"
+REACT_APP_SERVER_PORT=5000
+REACT_APP_ADMIN_NICKNAME="[Your chosen admin username]"
+REACT_APP_ADMIN_PW="[Your chosen admin password]"
+```
+
+If you are running the server on another port than 5000, change `REACT_APP_SERVER_PORT` accordingly.
+
+### Development mode
 In order to start your own development setup and use the program on your own PC, you must:
 - Install Node.js (version 16.13 or newer recommended).
 - Install NPM (version 8.1.0 or newer recommended).
 - Clone this repo.
 - Run `npm i` in the root folder of the cloned repo.
-- If there is a critical depency error, run `npm audit fix --force` 
 - Run `npm start` to run the app in development mode.
-  
+
+### Production mode
+If you have chosen another port than 3000 for the website (3000 is standard in react) you have to change the port in the docker-compose.yml file to be able to connect to the docker container. After that, make sure that the `Dockerfile` exposes the same ports as you have chosen, 3000 and 5000 is default.
+
+To build the docker image you can use the following command:
+```
+docker build . -t block-server
+```
+
+To run the website in docker you can use the following command:
+```
+docker compose up
+```
+
+or if you don't want to use compose, run:
+
+```
+docker run -p 3000:3000 -d blockly-site
+```
+
 More information about how to run the app in different modes and build it for production can be found [here](docs/react-info.md)
 
-This program is used to program Pepper via a Blockly website, Blockly is a blockprogramming interface which enables people who don't know syntax to create their own programs.
+This software is used to program Pepper via a Blockly website, Blockly is a graphical programming interface which enables people who don't know text-based syntax to create their own programs.
 
 ## Examples
-Image of the blockprogramming interface:
+Image of the programming interface:
 
 ![image](https://user-images.githubusercontent.com/24481978/200537017-eb156b43-8c34-4370-9a22-4e8583965c51.png)
 
