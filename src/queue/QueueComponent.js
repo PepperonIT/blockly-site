@@ -5,10 +5,8 @@ import Cookies from "universal-cookie";
 import { confirmAlert } from "react-confirm-alert"; // Import
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import BlocklyPy from "blockly/python";
-import Blockly from "blockly/core";
 import "../blockly/BlocklyComponent";
-import { useEffect, useRef } from "react";
-import BlocklyComponent, { ws } from "../blockly/BlocklyComponent";
+import { ws } from "../blockly/BlocklyComponent";
 
 const port = process.env.REACT_APP_SERVER_PORT;
 const ip = process.env.REACT_APP_SERVER_IP;
@@ -129,8 +127,6 @@ class QueueComponent extends Component {
   editQueueItem(id) {
     var code = BlocklyPy.workspaceToCode(ws);
 
-    console.log(code);
-
     axios
       .put(`http://${ip}:${port}/edit?pid=${id}`, code, {
         headers: { "Content-Type": "text/plain" },
@@ -197,7 +193,6 @@ class QueueComponent extends Component {
    * @returns String
    */
   pausePrinting(pauseState) {
-    console.log(pauseState);
 
     if (pauseState) {
       return this.state.unpauseQueue;
@@ -359,15 +354,15 @@ class QueueComponent extends Component {
                   )}
                   {this.cookies.get("nickname") ===
                     this.state.queue[index][1] && (
-                    <button
-                      className="editbutton"
-                      onClick={() =>
-                        this.codeEditConfirmation(this.state.queue[index][0])
-                      }
-                    >
-                      {this.state.changeButton}
-                    </button>
-                  )}
+                      <button
+                        className="editbutton"
+                        onClick={() =>
+                          this.codeEditConfirmation(this.state.queue[index][0])
+                        }
+                      >
+                        {this.state.changeButton}
+                      </button>
+                    )}
                   {this.cookies.get("nickname") === "admin" && (
                     <button
                       className="editbutton"

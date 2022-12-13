@@ -21,7 +21,7 @@
  * @author samelh@google.com (Sam El-Husseini)
  */
 
-import React, { useState } from "react";
+import React from "react";
 import "./BlocklyComponent.css";
 import { useEffect, useRef } from "react";
 import sv from "blockly/msg/sv";
@@ -160,15 +160,6 @@ function BlocklyComponent(props) {
   };
 
   const loadBlocks = (file) => {
-    // var xml;
-    // document.getElementById("buttonid").addEventListener("click", openDialog);
-    // function openDialog() {
-    //   document.getElementById("fileid").click();
-    // }
-    // document.getElementById("fileid").addEventListener("change", submitForm);
-    // function submitForm() {
-    //   xml = document.getElementById("formid").submit();
-    // }
 
     var xml;
 
@@ -206,12 +197,15 @@ function BlocklyComponent(props) {
   };
 
   const codeSentMessage = (success) => {
+    var title = null;
+    var label = null;
+
     if (success) {
-      var title = formText.codeSentSuccess;
-      var label = formText.codeSentSuccessConfirm;
+      title = formText.codeSentSuccess;
+      label = formText.codeSentSuccessConfirm;
     } else {
-      var title = formText.codeSentFail;
-      var label = formText.codeSentFailConfirm;
+      title = formText.codeSentFail;
+      label = formText.codeSentFailConfirm;
     }
 
     confirmAlert({

@@ -5,17 +5,7 @@
   left: 0;
   bottom: 0;
   float: left;
-}
 
-@media screen and(max-width:600px) {
-  #blocklyDiv {
-    height: 60vh;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    float: left;
-  }
 }
 
 
@@ -39,11 +29,30 @@ button:hover {
   button {
     background: #fff;
     padding: 8px 5px;
-    margin-left: 5px;
+    margin: 2px;
     border: none;
     border-radius: 4px;
     color: #093A59;
-    font-size: 14px;
+    font-size: 13px;
     cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  div.blocklyToolboxDiv.blocklyNonSelectable {
+    font-size: 10px;
+    margin: 0px;
+    padding: 0;
+    width: auto;
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+  .blocklyTreeRow {
+    font-size: 10px;
+    margin: 0px;
+    padding: 0;
+    width: 12vh;
   }
 }
