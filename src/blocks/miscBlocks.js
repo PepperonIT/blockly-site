@@ -10,9 +10,11 @@ var BLOCK_STRINGS = {}; //Defines the text for each block
 const SV_BLOCK_STRINGS = {
   wait: "Vänta: %1 sekunder",
   play_music: "Spela musik: %1",
-  search_picture: "Sök efter bild: %1",
-  search_picture_tooltip:
-    "Sök efter en bild på internet och visa på Peppers skärm",
+  ask_google: "Sök efter på Google: %1",
+  ask_google_tooltip:
+    "Fråga Pepper efter en bild på Google och visa den på Peppers skärm",
+  ask_wikipedia: "Sök efter Wikipedia artikel: %1",
+  ask_wikipedia_tooltip: "Fråga Pepper efter en viss Wikipedia artikel och läs upp den",
   play_rock_paper_scissors: "Spela sten-sax-påse",
   play_rock_paper_scissors_tooltip: "Spela sten-sax-påse med Pepper",
 };
@@ -23,9 +25,11 @@ const SV_BLOCK_STRINGS = {
 const EN_BLOCK_STRINGS = {
   wait: "Wait for %1 seconds",
   play_music: "Play music: %1",
-  search_picture: "Search for picture: %1",
-  search_picture_tooltip:
-    "Search for an image on the Internet and show it on Peppers screen",
+  ask_google: "Search for image on Google: %1",
+  ask_google_tooltip:
+    "Ask Google for an image and show it on Peppers screen",
+  ask_wikipedia: "Search for an Wikipedia article: %1",
+  ask_wikipedia_tooltip: "Ask Pepper for an Wikipedia article and read it.",
   play_rock_paper_scissors: "Play rock paper scissors",
   play_rock_paper_scissors_tooltip: "Play rock paper scissors with Pepper",
 };
@@ -114,12 +118,12 @@ function UpdateBlocks() {
   };
 
   /**
-   * @search_pic
+   * @ask_google
    * Search on google after a picture resembling the input in this block
    */
-  var searchPic = {
-    type: "search_picture",
-    message0: BLOCK_STRINGS["search_picture"],
+  var askGoogle = {
+    type: "ask_google",
+    message0: BLOCK_STRINGS["ask_google"],
     args0: [
       {
         type: "input_value",
@@ -130,13 +134,41 @@ function UpdateBlocks() {
     inputsInline: true,
     previousStatement: null,
     nextStatement: null,
-    tooltip: BLOCK_STRINGS["search_picture_tooltip"],
+    tooltip: BLOCK_STRINGS["ask_google_tooltip"],
     helpUrl: "",
   };
 
-  Blockly.Blocks["search_picture"] = {
+  Blockly.Blocks["ask_google"] = {
     init: function () {
-      this.jsonInit(searchPic);
+      this.jsonInit(askGoogle);
+      this.setStyle("loop_blocks");
+      this.setColour(350);
+    },
+  };
+
+  /**
+   * 
+   */
+  var askWikipedia = {
+    type: "ask_wikipedia",
+    message0: BLOCK_STRINGS["ask_wikipedia"],
+    args0: [
+      {
+        type: "input_value",
+        name: "TEXT",
+        check: "String",
+      },
+    ],
+    inputsInline: true,
+    previousStatement: null,
+    nextStatement: null,
+    tooltip: BLOCK_STRINGS["ask_wikipedia_tooltip"],
+    helpUrl: "",
+  };
+
+  Blockly.Blocks["ask_wikipedia"] = {
+    init: function () {
+      this.jsonInit(askWikipedia);
       this.setStyle("loop_blocks");
       this.setColour(350);
     },

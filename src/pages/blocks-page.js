@@ -73,7 +73,8 @@ function BlocksPage() {
     variables: "Variabler",
     functions: "Funktioner",
     other: "Annat",
-    search_pic_placeholder: "Kattbilder",
+    ask_google: "Kattbilder",
+    ask_wikipedia: "Ishockey"
   };
 
   const EN_CATEGORY_STRINGS = {
@@ -92,7 +93,8 @@ function BlocksPage() {
     variables: "Variables",
     functions: "Functions",
     other: "Other",
-    search_pic_placeholder: "Cat pictures",
+    ask_google: "Cat pictures",
+    ask_wikipedia: "Ice hockey"
   };
 
   CATEGORY_STRINGS = SV_CATEGORY_STRINGS;
@@ -720,11 +722,20 @@ function BlocksPage() {
                     </Value>
                   </Block>
                   <Block type="play_music" disabled="true"></Block>
-                  <Block type="search_picture" disabled="true">
+                  <Block type="ask_google">
                     <Value name="TEXT">
                       <Shadow type="text">
                         <Field name="TEXT">
-                          {CATEGORY_STRINGS["search_pic_placeholder"]}
+                          {CATEGORY_STRINGS["ask_google"]}
+                        </Field>
+                      </Shadow>
+                    </Value>
+                  </Block>
+                  <Block type="ask_wikipedia">
+                    <Value name="TEXT">
+                      <Shadow type="text">
+                        <Field name="TEXT">
+                          {CATEGORY_STRINGS["ask_wikipedia"]}
                         </Field>
                       </Shadow>
                     </Value>

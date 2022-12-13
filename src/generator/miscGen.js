@@ -34,11 +34,23 @@ Blockly.Python["play_music"] = function (block) {
  * @param {*} block
  * @returns
  */
-Blockly.Python["search_picture"] = function (block) {
+Blockly.Python["ask_google"] = function (block) {
   var searchString =
     Blockly.Python.valueToCode(block, "TEXT", Blockly.Python.ORDER_ATOMIC) ||
     "''";
-  return `XXXXXXXXXXX(${searchString})\n`;
+  return `web_controller.ask_google(${searchString})\n`;
+};
+
+/**
+ * TODO
+ * @param {*} block 
+ * @returns 
+ */
+Blockly.Python["ask_wikipedia"] = function (block) {
+  var searchString =
+    Blockly.Python.valueToCode(block, "TEXT", Blockly.Python.ORDER_ATOMIC) ||
+    "''";
+  return `web_controller.ask_wikipedia(${searchString})\n`;
 };
 
 /**

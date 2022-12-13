@@ -59,7 +59,7 @@ function Home() {
     if (nickName.trim().length === 0) {
       alert("Nickname cannot be empty!");
     } else {
-      if (nickName.trim() === adminNickname) {
+      if (nickName.trim() === adminNickname && adminNickname != null) {
         let password = prompt("Please enter password: ");
         if (password === adminPassword) {
           cookies.set("nickname", "admin", { path: "/" });
