@@ -7,7 +7,8 @@ const speechBlocks = require("../blocks/speechBlocks");
 const miscBlocks = require("../blocks/miscBlocks");
 const movementBlocks = require("../blocks/movementBlocks");
 
-let adminPassword = "LMS123"; //admin password
+let adminNickname = process.env.REACT_APP_ADMIN_NICKNAME; // admin nickname
+let adminPassword = process.env.REACT_APP_ADMIN_PW; //admin password
 
 function Home() {
   const navigate = useNavigate();
@@ -58,7 +59,7 @@ function Home() {
     if (nickName.trim().length === 0) {
       alert("Nickname cannot be empty!");
     } else {
-      if (nickName.trim() === "admin") {
+      if (nickName.trim() === adminNickname) {
         let password = prompt("Please enter password: ");
         if (password === adminPassword) {
           cookies.set("nickname", "admin", { path: "/" });
