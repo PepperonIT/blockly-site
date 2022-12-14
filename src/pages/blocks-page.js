@@ -73,8 +73,8 @@ function BlocksPage() {
     variables: "Variabler",
     functions: "Funktioner",
     other: "Annat",
-    ask_google: "Kattbilder",
-    ask_wikipedia: "Ishockey"
+    ask_google_placeholder: "Kattbilder",
+    ask_wikipedia_placeholder: "Ishockey"
   };
 
   const EN_CATEGORY_STRINGS = {
@@ -93,8 +93,8 @@ function BlocksPage() {
     variables: "Variables",
     functions: "Functions",
     other: "Other",
-    ask_google: "Cat pictures",
-    ask_wikipedia: "Ice hockey"
+    ask_google_placeholder: "Cat pictures",
+    ask_wikipedia_placeholder: "Ice hockey"
   };
 
   CATEGORY_STRINGS = SV_CATEGORY_STRINGS;
@@ -567,13 +567,13 @@ function BlocksPage() {
                       <Shadow type="text"></Shadow>
                     </Value>
                   </Block>
-                  <Block type="text_print" disabled="true">
+                  {/* <Block type="text_print" disabled="true">
                     <Value name="TEXT">
                       <Shadow type="text">
                         <Field name="TEXT">abc</Field>
                       </Shadow>
                     </Value>
-                  </Block>
+                  </Block> */}
                   <Block type="text_prompt_ext">
                     <Value name="TEXT">
                       <Shadow type="text">
@@ -721,12 +721,12 @@ function BlocksPage() {
                       <Shadow type="number_constraint"></Shadow>
                     </Value>
                   </Block>
-                  <Block type="play_music" disabled="true"></Block>
+                  {/* <Block type="play_music" disabled="true"></Block> */}
                   <Block type="ask_google">
                     <Value name="TEXT">
                       <Shadow type="text">
                         <Field name="TEXT">
-                          {CATEGORY_STRINGS["ask_google"]}
+                          {CATEGORY_STRINGS["ask_google_placeholder"]}
                         </Field>
                       </Shadow>
                     </Value>
@@ -735,7 +735,7 @@ function BlocksPage() {
                     <Value name="TEXT">
                       <Shadow type="text">
                         <Field name="TEXT">
-                          {CATEGORY_STRINGS["ask_wikipedia"]}
+                          {CATEGORY_STRINGS["ask_wikipedia_placeholder"]}
                         </Field>
                       </Shadow>
                     </Value>

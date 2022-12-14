@@ -10,7 +10,7 @@ var BLOCK_STRINGS = {}; //Defines the text for each block
 const SV_BLOCK_STRINGS = {
   wait: "Vänta: %1 sekunder",
   play_music: "Spela musik: %1",
-  ask_google: "Sök efter på Google: %1",
+  ask_google: "Sök efter bild på Google: %1",
   ask_google_tooltip:
     "Fråga Pepper efter en bild på Google och visa den på Peppers skärm",
   ask_wikipedia: "Sök efter Wikipedia artikel: %1",
