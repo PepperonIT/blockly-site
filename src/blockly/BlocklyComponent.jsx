@@ -97,15 +97,11 @@ function BlocklyComponent(props) {
   }
 
   const generateCode = () => {
-    // var xmlDom = Blockly.Xml.workspaceToDom(primaryWorkspace.current);
-    // var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
-    // if (!xmlText.includes("change_pepper_speaking_language")) {
     if (cookies.get("language") === "en" || cookies.get("english") === true) {
       cookies.set("pepper_language", "English")
     } else if (cookies.get("language") === "sv" || cookies.get("english") === false) {
       cookies.set("pepper_language", "Swedish")
     }
-    // }
 
     // Generate Python code
     var code = BlocklyPy.workspaceToCode(primaryWorkspace.current);
@@ -115,10 +111,9 @@ function BlocklyComponent(props) {
   };
 
   const sendCodeString = (code) => {
-    // ==========================================
-    // SEND TO PYTHON SERVER (LEAVE HERE FOR NOW)
-    // ==========================================
-    // Get yout IP on Linux by running `ifconfig`
+    // =====================
+    // SEND TO PYTHON SERVER
+    // =====================
 
     axios
       .post(`http://${ip}:${port}/code?name=${name}`, code, {
@@ -152,7 +147,6 @@ function BlocklyComponent(props) {
   const saveBlocks = () => {
     var xmlDom = Blockly.Xml.workspaceToDom(primaryWorkspace.current);
     var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
-    // do whatever you want to this xml
 
     var filename = "workspace.xml";
     var pom = document.createElement("a");
@@ -199,7 +193,6 @@ function BlocklyComponent(props) {
   };
   const handleChange = (event) => {
     const fileUploaded = event.target.files[0];
-    // props.handleFile(fileUploaded);
     loadBlocks(fileUploaded);
     hiddenFileInput.current.value = "";
   };
