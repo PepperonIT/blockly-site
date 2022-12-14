@@ -62,7 +62,7 @@ function Home() {
       if (nickName.trim() === adminNickname && adminNickname != null) {
         let password = prompt("Please enter password: ");
         if (password === adminPassword) {
-          cookies.set("nickname", "admin", { path: "/" });
+          cookies.set("nickname", adminNickname, { path: "/" });
           if (english) {
             cookies.set("language", "en", { path: "/" });
             cookies.set("pepper_language", "English");
