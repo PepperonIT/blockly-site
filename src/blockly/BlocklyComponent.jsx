@@ -97,15 +97,15 @@ function BlocklyComponent(props) {
   }
 
   const generateCode = () => {
-    var xmlDom = Blockly.Xml.workspaceToDom(primaryWorkspace.current);
-    var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
-    if (!xmlText.includes("change_pepper_speaking_language")) {
-      if (cookies.get("language") === "en" || cookies.get("english") === true) {
-        cookies.set("pepper_language", "English")
-      } else if (cookies.get("language") === "sv" || cookies.get("english") === false) {
-        cookies.set("pepper_language", "Swedish")
-      }
+    // var xmlDom = Blockly.Xml.workspaceToDom(primaryWorkspace.current);
+    // var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
+    // if (!xmlText.includes("change_pepper_speaking_language")) {
+    if (cookies.get("language") === "en" || cookies.get("english") === true) {
+      cookies.set("pepper_language", "English")
+    } else if (cookies.get("language") === "sv" || cookies.get("english") === false) {
+      cookies.set("pepper_language", "Swedish")
     }
+    // }
 
     // Generate Python code
     var code = BlocklyPy.workspaceToCode(primaryWorkspace.current);
@@ -126,7 +126,6 @@ function BlocklyComponent(props) {
       })
       .then((res) => {
         codeSentMessage(res.data.success);
-        //console.log("Response: ", res.data);
       })
       .catch((err) => {
         console.error(err);
@@ -176,7 +175,6 @@ function BlocklyComponent(props) {
     var reader = new FileReader();
     reader.onload = function () {
       xml = reader.result;
-      // console.log(xml);
 
       if (typeof xml != "string" || xml.length < 5) {
         return false;
