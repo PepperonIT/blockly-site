@@ -38,7 +38,8 @@ Blockly.Python["ask_google"] = function (block) {
   var searchString =
     Blockly.Python.valueToCode(block, "TEXT", Blockly.Python.ORDER_ATOMIC) ||
     "''";
-  return `web_controller.ask_google(${searchString})\n`;
+  var language = cookies.get("pepper_language");
+  return `pep_controller.change_language("${language}")\nweb_controller.ask_google(${searchString})\n`;
 };
 
 /**
@@ -50,7 +51,8 @@ Blockly.Python["ask_wikipedia"] = function (block) {
   var searchString =
     Blockly.Python.valueToCode(block, "TEXT", Blockly.Python.ORDER_ATOMIC) ||
     "''";
-  return `web_controller.ask_wikipedia(${searchString})\n`;
+  var language = cookies.get("pepper_language");
+  return `pep_controller.change_language("${language}")\nweb_controller.ask_wikipedia(${searchString})\n`;
 };
 
 /**

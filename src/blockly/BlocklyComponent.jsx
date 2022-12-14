@@ -97,10 +97,20 @@ function BlocklyComponent(props) {
   }
 
   const generateCode = () => {
-    // Python
+    var xmlDom = Blockly.Xml.workspaceToDom(primaryWorkspace.current);
+    var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
+    if (!xmlText.includes("change_pepper_speaking_language")) {
+      if (cookies.get("language") === "en" || cookies.get("english") === true) {
+        cookies.set("pepper_language", "English")
+      } else if (cookies.get("language") === "sv" || cookies.get("english") === false) {
+        cookies.set("pepper_language", "Swedish")
+      }
+    }
+
+    // Generate Python code
     var code = BlocklyPy.workspaceToCode(primaryWorkspace.current);
     console.log(code); // See that the code is generated, viewable from browser
-
+    // Send the code to server
     sendCodeString(code);
   };
 
@@ -174,7 +184,7 @@ function BlocklyComponent(props) {
       try {
         var dom = Blockly.Xml.textToDom(xml);
         Blockly.mainWorkspace.clear();
-        Blockly.Xml.domToWorkspace(Blockly.mainWorkspace, dom);
+        Blockly.Xml.domToWorkspace(dom, Blockly.mainWorkspace);
         return true;
       } catch (e) {
         return false;

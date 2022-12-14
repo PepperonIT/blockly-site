@@ -13,7 +13,8 @@ Blockly.Python["say"] = function (block) {
   var text =
     Blockly.Python.valueToCode(block, "TEXT", Blockly.Python.ORDER_ATOMIC) ||
     "''";
-  return `pep_speech.talk(${text})\n`;
+  var language = cookies.get("pepper_language");
+  return `pep_controller.change_language("${language}")\npep_speech.talk(${text})\n`;
 };
 
 /**
