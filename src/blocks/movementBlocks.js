@@ -32,6 +32,7 @@ const SV_BLOCK_STRINGS = {
   dance: "Dansa",
   ketchup_dance: "Ketchupdansen",
   robot_dance: "Robotdansen",
+  macarena_dance: "Macarenadansen",
 };
 
 /**
@@ -58,6 +59,8 @@ const EN_BLOCK_STRINGS = {
   dance: "Dance",
   ketchup_dance: "Ketchup dance",
   robot_dance: "Robot dance",
+  macarena_dance: "Macarena dance",
+
 };
 
 BLOCK_STRINGS = SV_BLOCK_STRINGS;
@@ -628,6 +631,29 @@ function UpdateBlocks() {
   Blockly.Blocks["robot_dance"] = {
     init: function () {
       this.jsonInit(robotDance);
+      this.setStyle("loop_blocks");
+      this.setColour(MovePepperColour);
+    },
+  };
+
+
+  /**
+   * @macarena_dance
+   * Make Pepper do the robot dance for a predefined time.
+   */
+  var macarenaDance = {
+    type: "macarena_dance",
+    message0: BLOCK_STRINGS["macarena_dance"],
+    inputsInline: true,
+    previousStatement: null,
+    nextStatement: null,
+    tooltip: "",
+    helpUrl: "",
+  };
+
+  Blockly.Blocks["macarena_dance"] = {
+    init: function () {
+      this.jsonInit(macarenaDance);
       this.setStyle("loop_blocks");
       this.setColour(MovePepperColour);
     },

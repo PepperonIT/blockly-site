@@ -295,6 +295,8 @@ function BlocksPage() {
                   <Block type="dance" />
                   <Block type="ketchup_dance" />
                   <Block type="robot_dance" />
+                  <Block type="macarena_dance" />
+
                 </Category>
                 {/**
                  * SPEAK
