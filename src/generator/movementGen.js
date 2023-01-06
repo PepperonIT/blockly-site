@@ -244,6 +244,15 @@ Blockly.Python["robot_dance"] = function (block) {
 /**
  *
  * @param {*} block
+ * @returns Python code that make Pepper do the macarena dance
+ */
+Blockly.Python["macarena_dance"] = function (block) {
+  return `comp_handler.macarena_dance()\n`;
+};
+
+/**
+ *
+ * @param {*} block
  * @returns The angle of either the input from a Block, Field or variable
  */
 function getAngle(block) {
