@@ -26,6 +26,10 @@ function Home() {
     "Engelska",
     "Avancerad programmering",
     "Starta",
+    "Smeknamn får inte vara tomt!",
+    "Du är admin! Ange ditt lösenord för att fortsätta till administratörspanelen",
+    "Fel lösenord! Var god försök igen",
+
   ];
 
   // English variant
@@ -34,6 +38,9 @@ function Home() {
     "English",
     "Advanced programming",
     "Start",
+    "Nickname cannot be empty!",
+    "You are an admin! Please enter your password to continue to the admin dashboard",
+    "Wrong password! Please try again",
   ];
 
   formText = svForm;
@@ -58,10 +65,11 @@ function Home() {
     event.preventDefault(); // 👈️ prevent page refresh
 
     if (nickName.trim().length === 0) {
-      alert("Nickname cannot be empty!");
+      alert(formText[4]);
     } else {
       if (nickName.trim() === adminNickname && adminNickname != null) {
         document.getElementById('password').hidden = false
+        document.getElementById('password-text').hidden = false
         let password = document.getElementById('password').value
         if (password.trim().length != 0) {
           if (password === adminPassword) {
@@ -80,7 +88,7 @@ function Home() {
             }
             navigate("/blockly");
           } else {
-            alert("wrong password");
+            alert(formText[6]);
           }
         }
       } else {
@@ -123,6 +131,10 @@ function Home() {
                   value={nickName}
                   required
                 />
+
+                <p id="password-text" style={{ "color": "white", "textAlign": "center", "marginBottom": "5px" }} hidden={true}>
+                  {formText[5]}
+                </p>
 
                 <input
                   className="FormInput"
