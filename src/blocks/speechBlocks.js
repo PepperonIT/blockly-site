@@ -14,6 +14,7 @@ const SV_BLOCK_STRINGS = {
   change_pepper_speaking_language_tooltip: "Byt Peppers talspråk.",
   change_pepper_speaking_language_sv: "Svenska",
   change_pepper_speaking_language_en: "Engelska",
+  change_pepper_speaking_volume: "Justera volymen för Pepper %1"
 };
 
 /**
@@ -27,6 +28,7 @@ const EN_BLOCK_STRINGS = {
     "Change the language of which Pepper uses when speaking.",
   change_pepper_speaking_language_sv: "Swedish",
   change_pepper_speaking_language_en: "English",
+  change_pepper_speaking_volume: "Adjust the volume for Pepper %1"
 };
 
 BLOCK_STRINGS = SV_BLOCK_STRINGS;
@@ -105,6 +107,38 @@ function UpdateBlocks() {
   Blockly.Blocks["change_pepper_speaking_language"] = {
     init: function () {
       this.jsonInit(speaking_language);
+      this.setStyle("loop_blocks");
+      this.setColour(180);
+    },
+  };
+
+
+
+  /**
+   * @change_pepper_speaking_volume
+   * Change Peppers speaking volume
+   */
+  var speaking_volume = {
+    type: "change_pepper_speaking_volume",
+    message0: BLOCK_STRINGS["change_pepper_speaking_volume"],
+    args0: [
+      {
+        type: "field_slider",
+        name: "speaking_volume",
+        check: "Number",
+        min: 20,
+        max: 100,
+      },
+    ],
+    inputsInline: true,
+    previousStatement: null,
+    nextStatement: null,
+    helpUrl: "",
+  };
+
+  Blockly.Blocks["change_pepper_speaking_volume"] = {
+    init: function () {
+      this.jsonInit(speaking_volume);
       this.setStyle("loop_blocks");
       this.setColour(180);
     },
