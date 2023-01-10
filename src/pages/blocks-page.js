@@ -312,6 +312,8 @@ function BlocksPage() {
                     </Value>
                   </Block>
                   <Block type="change_pepper_speaking_language" />
+                  <Block type="change_pepper_speaking_volume" />
+
                 </Category>
 
                 {cookies.get("mode") === "advanced" && (
