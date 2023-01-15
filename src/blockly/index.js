@@ -19,6 +19,7 @@
 /**
  * @fileoverview XML wrappers for block, category, value, field and shadow.
  * @author samelh@google.com (Sam El-Husseini)
+ * Edited by Casper Lundberg
  */
 
 import React from "react";

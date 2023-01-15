@@ -19,6 +19,7 @@
 /**
  * @fileoverview Blockly React Component.
  * @author samelh@google.com (Sam El-Husseini)
+ * Edited by Nour Bahtite, Casper Lundberg and Simon Lundberg
  */
 
 import React from "react";
@@ -98,9 +99,12 @@ function BlocklyComponent(props) {
 
   const generateCode = () => {
     if (cookies.get("language") === "en" || cookies.get("english") === true) {
-      cookies.set("pepper_language", "English")
-    } else if (cookies.get("language") === "sv" || cookies.get("english") === false) {
-      cookies.set("pepper_language", "Swedish")
+      cookies.set("pepper_language", "English");
+    } else if (
+      cookies.get("language") === "sv" ||
+      cookies.get("english") === false
+    ) {
+      cookies.set("pepper_language", "Swedish");
     }
 
     // Generate Python code
@@ -163,7 +167,6 @@ function BlocklyComponent(props) {
   };
 
   const loadBlocks = (file) => {
-
     var xml;
 
     var reader = new FileReader();

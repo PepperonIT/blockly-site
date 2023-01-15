@@ -19,13 +19,12 @@
 /**
  * @fileoverview Main React component that includes the Blockly component.
  * @author samelh@google.com (Sam El-Husseini)
+ * Edited by Nour Bahtite, Casper Lundberg and Simon Lundberg
  */
 
 import React from "react";
 import "../styles/blockly.css";
 import QueueComponent from "../queue/QueueComponent";
-
-// import logo from "./logo.svg";
 
 import BlocklyComponent, {
   Block,
@@ -74,7 +73,7 @@ function BlocksPage() {
     functions: "Funktioner",
     other: "Annat",
     ask_google_placeholder: "Kattbilder",
-    ask_wikipedia_placeholder: "Ishockey"
+    ask_wikipedia_placeholder: "Ishockey",
   };
 
   const EN_CATEGORY_STRINGS = {
@@ -94,7 +93,7 @@ function BlocksPage() {
     functions: "Functions",
     other: "Other",
     ask_google_placeholder: "Cat pictures",
-    ask_wikipedia_placeholder: "Ice hockey"
+    ask_wikipedia_placeholder: "Ice hockey",
   };
 
   CATEGORY_STRINGS = SV_CATEGORY_STRINGS;
@@ -123,7 +122,6 @@ function BlocksPage() {
         {changeLanguage()}
         <div className="Blocks">
           <header className="App-header">
-            {/* <img src={logo} className="App-logo" alt="logo" /> */}
             <div className="boxes">
               <BlocklyComponent
                 readOnly={false}
