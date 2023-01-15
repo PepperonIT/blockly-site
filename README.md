@@ -82,4 +82,4 @@ Example program which make Pepper say "Hej!" and shake her head 10 times:
 ![image](https://user-images.githubusercontent.com/24481978/200537401-4ab11872-0308-4e46-a1f2-47f7ecaaef12.png)
 
 # License
-[MIT](https://opensource.org/licenses/MIT)
+[Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0)

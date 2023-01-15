@@ -17,6 +17,7 @@ function Home() {
   const [english, setEnglish] = useState("");
   const [advanced, setAdvanced] = useState("");
 
+
   var formText = []; // The text shown in the form
 
   // Swedish variant
@@ -25,6 +26,10 @@ function Home() {
     "Engelska",
     "Avancerad programmering",
     "Starta",
+    "Smeknamn får inte vara tomt!",
+    "Du är admin! Ange ditt lösenord för att fortsätta till administratörspanelen",
+    "Fel lösenord! Var god försök igen",
+
   ];
 
   // English variant
@@ -33,6 +38,9 @@ function Home() {
     "English",
     "Advanced programming",
     "Start",
+    "Nickname cannot be empty!",
+    "You are an admin! Please enter your password to continue to the admin dashboard",
+    "Wrong password! Please try again",
   ];
 
   formText = svForm;
@@ -57,27 +65,31 @@ function Home() {
     event.preventDefault(); // 👈️ prevent page refresh
 
     if (nickName.trim().length === 0) {
-      alert("Nickname cannot be empty!");
+      alert(formText[4]);
     } else {
       if (nickName.trim() === adminNickname && adminNickname != null) {
-        let password = prompt("Please enter password: ");
-        if (password === adminPassword) {
-          cookies.set("nickname", adminNickname, { path: "/" });
-          if (english) {
-            cookies.set("language", "en", { path: "/" });
-            cookies.set("pepper_language", "English");
+        document.getElementById('password').hidden = false
+        document.getElementById('password-text').hidden = false
+        let password = document.getElementById('password').value
+        if (password.trim().length != 0) {
+          if (password === adminPassword) {
+            cookies.set("nickname", adminNickname, { path: "/" });
+            if (english) {
+              cookies.set("language", "en", { path: "/" });
+              cookies.set("pepper_language", "English");
+            } else {
+              cookies.set("language", "sv", { path: "/" });
+              cookies.set("pepper_language", "Swedish");
+            }
+            if (advanced) {
+              cookies.set("mode", "advanced", { path: "/" });
+            } else {
+              cookies.set("mode", "basic", { path: "/" });
+            }
+            navigate("/blockly");
           } else {
-            cookies.set("language", "sv", { path: "/" });
-            cookies.set("pepper_language", "Swedish");
+            alert(formText[6]);
           }
-          if (advanced) {
-            cookies.set("mode", "advanced", { path: "/" });
-          } else {
-            cookies.set("mode", "basic", { path: "/" });
-          }
-          navigate("/blockly");
-        } else {
-          alert("wrong password");
         }
       } else {
         cookies.set("nickname", nickName, { path: "/" });
@@ -119,6 +131,20 @@ function Home() {
                   value={nickName}
                   required
                 />
+
+                <p id="password-text" style={{ "color": "white", "textAlign": "center", "marginBottom": "5px" }} hidden={true}>
+                  {formText[5]}
+                </p>
+
+                <input
+                  className="FormInput"
+                  type="password"
+                  id="password"
+                  name="password"
+                  hidden={true}
+                  required
+                />
+
                 <label className="toggle">
                   <input
                     className="toggle-checkbox"
@@ -145,6 +171,8 @@ function Home() {
                   <div className="toggle-switch" />
                   <span className="toggle-label">{formText[2]}</span>
                 </label>
+
+
                 <button
                   className="FormButton"
                   type="submit"

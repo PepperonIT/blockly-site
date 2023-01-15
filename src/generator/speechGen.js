@@ -27,3 +27,14 @@ Blockly.Python["change_pepper_speaking_language"] = function (block) {
   cookies.set("pepper_language", language);
   return `pep_controller.change_language("${language}")\n`;
 };
+
+
+/**
+ *
+ * @param {*} block
+ * @returns Python code that instructs Pepper to use a given volume when speaking.
+ */
+Blockly.Python["change_pepper_speaking_volume"] = function (block) {
+  var volume = block.getFieldValue("speaking_volume");
+  return `pep_controller.set_volume(${volume})\n`;
+};
