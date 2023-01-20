@@ -1,9 +1,14 @@
 version: '1.0.0'
 services:
   blockly-site:
+    image: pepperonit/blockly-site
     container_name: blockly-site
-    image: blockly-site
     ports:
       - 3000:3000
-    env_file:
-      - .env
+    # env_file:
+    #   - .env
+    environment:
+      - REACT_APP_SERVER_IP="130.240.156.238"
+      - REACT_APP_SERVER_PORT=5000
+      - REACT_APP_ADMIN_NICKNAME="admin"
+      - REACT_APP_ADMIN_PW="LMS123"
