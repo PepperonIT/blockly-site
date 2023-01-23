@@ -42,8 +42,8 @@ In order to start your own development setup and use the program on your own PC,
 - Install Node.js (version 16.13 or newer recommended).
 - Install NPM (version 8.1.0 or newer recommended).
 - Clone this repo.
-- Run `npm i` in the root folder of the cloned repo.
-- Run `npm start` to run the app in development mode.
+- Run `npm i` in the root folder of the cloned repo, it is named `blockly-site` as default.
+- Run `npm start` in the same folder to run the app in development mode.
 
 ### Production mode
 If you have chosen another port than 3000 for the website (3000 is standard in react) you have to change the port in the docker-compose.yml file to be able to connect to the docker container. After that, make sure that the `Dockerfile` exposes the same ports as you have chosen, 3000 and 5000 is default.
