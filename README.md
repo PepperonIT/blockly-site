@@ -50,7 +50,7 @@ If you have chosen another port than 3000 for the website (3000 is standard in r
 
 To build the docker image you can use the following command:
 ```
-docker build . -t block-server
+docker build . -t blockly-site
 ```
 
 To run the website in docker you can use the following command:
