@@ -17,7 +17,6 @@ function Home() {
   const [english, setEnglish] = useState("");
   const [advanced, setAdvanced] = useState("");
 
-
   var formText = []; // The text shown in the form
 
   // Swedish variant
@@ -29,7 +28,6 @@ function Home() {
     "Smeknamn får inte vara tomt!",
     "Du är admin! Ange ditt lösenord för att fortsätta till administratörspanelen",
     "Fel lösenord! Var god försök igen",
-
   ];
 
   // English variant
@@ -68,10 +66,10 @@ function Home() {
       alert(formText[4]);
     } else {
       if (nickName.trim() === adminNickname && adminNickname != null) {
-        document.getElementById('password').hidden = false
-        document.getElementById('password-text').hidden = false
-        let password = document.getElementById('password').value
-        if (password.trim().length != 0) {
+        document.getElementById("password").hidden = false;
+        document.getElementById("password-text").hidden = false;
+        let password = document.getElementById("password").value;
+        if (password.trim().length !== 0) {
           if (password === adminPassword) {
             cookies.set("nickname", adminNickname, { path: "/" });
             if (english) {
@@ -132,7 +130,15 @@ function Home() {
                   required
                 />
 
-                <p id="password-text" style={{ "color": "white", "textAlign": "center", "marginBottom": "5px" }} hidden={true}>
+                <p
+                  id="password-text"
+                  style={{
+                    color: "white",
+                    textAlign: "center",
+                    marginBottom: "5px",
+                  }}
+                  hidden={true}
+                >
                   {formText[5]}
                 </p>
 
@@ -171,7 +177,6 @@ function Home() {
                   <div className="toggle-switch" />
                   <span className="toggle-label">{formText[2]}</span>
                 </label>
-
 
                 <button
                   className="FormButton"
