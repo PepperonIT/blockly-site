@@ -41,6 +41,7 @@ const speechBlocks = require("../blocks/speechBlocks");
 const miscBlocks = require("../blocks/miscBlocks");
 const movementBlocks = require("../blocks/movementBlocks");
 
+// eslint-disable-next-line no-unused-vars
 var ws; //Global variable required to get workspace to QueueComponent
 
 function BlocklyComponent(props) {
@@ -253,4 +254,5 @@ function BlocklyComponent(props) {
 
 export default BlocklyComponent;
 
+// eslint-disable-next-line no-redeclare
 export var ws;
