@@ -1,2 +1,10 @@
+docs
 node_modules
 build
+
+.env
+.gitignore
+docker-compose.yml
+Dockerfile
+LICENSE
+README.md
