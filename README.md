@@ -46,19 +46,25 @@ In order to start your own development setup and use the program on your own PC,
 - Run `npm start` in the same folder to run the app in development mode.
 
 ### Production mode
-If you have chosen another port than 3000 for the website (3000 is standard in react) you have to change the port in the docker-compose.yml file to be able to connect to the docker container. After that, make sure that the `Dockerfile` exposes the same ports as you have chosen, 3000 and 5000 is default.
-
-To build the docker image you can use the following command:
-```
-docker build . -t blockly-site
-```
+If you have chosen another port than 3000 for the website (3000 is standard in react) you have to change the port in the docker-compose.yml file to be able to connect to the docker container. After that, make sure that the `Dockerfile` exposes the same ports as you have chosen, 3000 is the default.
 
 To run the website in docker you can use the following command:
-```
-docker compose up
+
+```sh
+docker compose up --build
 ```
 
-or if you don't want to use compose, run:
+or if you don't want to use compose, you will need to build the docker image first. To build the docker image you can use the following command:
+
+```sh
+docker build . -t blockly-site \
+    --build-arg REACT_APP_SERVER_IP="[Your local ip address]" \
+    --build-arg REACT_APP_SERVER_PORT=5000 \
+    --build-arg REACT_APP_ADMIN_NICKNAME="[Your chosen admin username]" \
+    --build-arg REACT_APP_ADMIN_PW="[Your chosen admin password]"
+```
+
+Remember to change the arguments to match your setup. Then you can run the docker image with the following command:
 
 ```
 docker run -p 3000:3000 -d blockly-site
